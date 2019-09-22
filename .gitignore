@@ -1,2 +1,4 @@
 # Project exclude paths
 /target/
+/.idea/
+/src/main/java/saxion_programming/week3/.vscode/
