@@ -59,10 +59,12 @@ public class App extends PApplet {
     @Override
     public void mousePressed (MouseEvent event) {
         super.mousePressed(event);
+        Input.PressButton(event.getButton());
     }
 
     @Override
     public void mouseReleased (MouseEvent event) {
         super.mouseReleased(event);
+        Input.ReleaseButton(event.getButton());
     }
 }
