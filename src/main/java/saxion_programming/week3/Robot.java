@@ -14,13 +14,14 @@ public class Robot extends GameObject {
     private float moveAnimationSpeed = 2.5f;
     private float desiredAnimationSpeed = idleAnimationSpeed;
     private float animationSpeed = idleAnimationSpeed;
+    private int primaryColor;
+    private int secondaryColor;
 
-
-    public Robot(PApplet main) {
+    public Robot (PApplet main) {
         this(main, 0f, 0f, 150f, 200f, 1f, 1f);
     }
 
-    public Robot(PApplet main, float x, float y, float width, float height, float scale, float speed) {
+    public Robot (PApplet main, float x, float y, float width, float height, float scale, float speed) {
         this.main = main;
         X = x;
         Y = y;
@@ -29,9 +30,59 @@ public class Robot extends GameObject {
         Scale = scale;
         Speed = speed;
         Collider = new BoxCollider(main, 50, 95, width, height);
+        primaryColor = 0xffc5c5c5;
+        secondaryColor = 0xff86c8f0;
     }
 
-    public void update() {
+    public void update () {
+        //Color
+        if (main.keyPressed) {
+
+            switch (main.key) {
+                case '1': {
+                    secondaryColor = 0xff86c8f0;
+                    break;
+                }
+                case '2': {
+                    secondaryColor = 0xffa486f0;
+                    break;
+                }
+                case '3': {
+                    secondaryColor = 0xfff086e7;
+                    break;
+                }
+                case '4': {
+                    secondaryColor = 0xfff0868a;
+                    break;
+                }
+                case '5': {
+                    secondaryColor = 0xff86f096;
+                    break;
+                }
+                case '6': {
+                    primaryColor = 0xffc5c5c5;
+                    break;
+                }
+                case '7': {
+                    primaryColor = 0xffb6b6b6;
+                    break;
+                }
+                case '8': {
+                    primaryColor = 0xffd4d4d4;
+                    break;
+                }
+                case '9': {
+                    primaryColor = 0xffa8a8a8;
+                    break;
+                }
+                case '0': {
+                    primaryColor = 0xff999999;
+                    break;
+                }
+
+            }
+        }
+
         //Animation
         boolean isMoving = Input.IsKeyDown(KeyEvent.VK_W) || Input.IsKeyDown(KeyEvent.VK_A) || Input.IsKeyDown(KeyEvent.VK_S) || Input.IsKeyDown(KeyEvent.VK_D);
         if (isMoving) desiredAnimationSpeed = moveAnimationSpeed;
@@ -54,7 +105,7 @@ public class Robot extends GameObject {
         if (Y > main.height) Y = -Height * Scale;
     }
 
-    public void render() {
+    public void render () {
         //<editor-fold desc="General">
         main.pushMatrix();
         main.translate(X, Y);
@@ -63,13 +114,13 @@ public class Robot extends GameObject {
 
         //<editor-fold desc="Head">
         //<editor-fold desc="Head/Main">
-        main.fill(0xc5);
+        main.fill(primaryColor);
         main.stroke(0xaa);
         main.strokeWeight(1);
         main.rect(-10, 0, 120, 100, 20);
         //</editor-fold>
         //<editor-fold desc="Head/Ears">
-        main.fill(134, 200, 240);
+        main.fill(secondaryColor);
         main.noStroke();
         main.rect(-20, 40, 10, 20, 4);
         main.rect(110, 40, 10, 20, 4);
@@ -102,7 +153,7 @@ public class Robot extends GameObject {
         //</editor-fold>
         //<editor-fold desc="Body">
         //<editor-fold desc="Body/Main">
-        main.fill(0xc5);
+        main.fill(primaryColor);
         main.stroke(0xaa);
         main.strokeWeight(1);
         main.rect(12, 95, 76, 76, 10);
@@ -116,11 +167,11 @@ public class Robot extends GameObject {
         main.scale(1);
         main.noFill();
         drawPowerButton(0xaa, 0xaa, 0xaa, 8);
-        drawPowerButton(134, 200, 240, 7);
+        drawPowerButton((secondaryColor >> 16) & 0xff, (secondaryColor >> 8) & 0xff, secondaryColor & 0xff, 7);
         main.popMatrix();
         //</editor-fold>
         //<editor-fold desc="Body/Arms">
-        main.fill(0xc5);
+        main.fill(primaryColor);
         main.stroke(0xaa);
         main.strokeWeight(1);
         main.pushMatrix();
@@ -169,7 +220,7 @@ public class Robot extends GameObject {
         main.popMatrix();
         //</editor-fold>
         //<editor-fold desc="Body/Feet">
-        main.fill(134, 200, 240);
+        main.fill(secondaryColor);
         main.noStroke();
         main.rect(22, 171, 20, 20, 5);
         main.rect(58, 171, 20, 20, 5);
@@ -181,11 +232,11 @@ public class Robot extends GameObject {
         //</editor-fold>
     }
 
-    private void rotate(float degrees) {
+    private void rotate (float degrees) {
         main.rotate(PApplet.radians((float) Math.sin(main.frameCount / 30f) * degrees) * animationSpeed);
     }
 
-    private void drawPowerButton(float r, float g, float b, float sw) {
+    private void drawPowerButton (float r, float g, float b, float sw) {
         main.stroke(r, g, b);
         main.strokeWeight(sw);
         main.beginShape();

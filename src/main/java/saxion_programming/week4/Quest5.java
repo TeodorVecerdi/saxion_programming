@@ -9,6 +9,9 @@ public class Quest5 extends PApplet {
     private int h = 600;
     private int stripedBackgroundResolution = 10;
     private int numCircles = 10;
+    private float noiseBackgroundResolution = 2.5f;
+    private float noiseScale = 25f;
+    private long noiseSeed = System.currentTimeMillis();
 
     public static void main (String[] args) {
         PApplet.main("saxion_programming.week4.Quest5");
@@ -17,12 +20,16 @@ public class Quest5 extends PApplet {
     public void settings () {
         size(w, h);
         smooth(8);
+        noiseSeed(noiseSeed);
     }
 
     public void draw () {
         background(0xff);
-        stripedBackground(Color.white, Color.pink);
-        fill(0x11);
+        //        stripedBackground(Color.white, Color.pink);
+        //        randomNoiseBackground();
+        regularBackground(2);
+
+        /*fill(0x11);
         float circleSize = width / numCircles;
         for (int i = 0; i < numCircles; i++) {
             for (int j = 0; j < numCircles; j++) {
@@ -39,6 +46,54 @@ public class Quest5 extends PApplet {
         for(int i = 0; i < 8; i++) {
             for(int j = 0; j < i+1; j++) {
                 rect(10 + j * 20, 10 + i * 20, 20, 20);
+            }
+        }*/
+    }
+
+    private void randomNoiseBackground () {
+        noStroke();
+        float currentNoise;
+        float stepsX = width / noiseBackgroundResolution;
+        float stepsY = height / noiseBackgroundResolution;
+        for (float x = 0; x < width; x += noiseBackgroundResolution) {
+            for (float y = 0; y < height; y += noiseBackgroundResolution) {
+                currentNoise = noise(x / noiseScale, y / noiseScale);
+                fill(currentNoise * 255, 255);
+                //                point(x, y);
+                rect(x, y, noiseBackgroundResolution, noiseBackgroundResolution);
+            }
+        }
+    }
+
+    private void regularBackground (int type) {
+        switch (type) {
+            case 0: { //stripped background
+                stripedBackground(Color.white, Color.gray);
+                break;
+            }
+            case 1: { //mountains
+                int mountainWidth = 100;
+                fill(100, 100, 200);
+                stroke(80, 80, 180);
+                strokeWeight(2);
+                for (int i = 0; i < width / (float) mountainWidth; i++) {
+                    triangle(i * mountainWidth, height, (i + 0.5f) * mountainWidth, height - mountainWidth, (i + 1) * mountainWidth, height);
+                }
+                break;
+            }
+            case 2: { //trees
+                int treeWidth = 100;
+                for (int i = 0; i < width / (float) treeWidth; i++) {
+                    fill(100, 0, 0);
+                    stroke(50, 0, 0);
+                    rect(i * treeWidth - 10 + treeWidth / 2, height - 100, 20, 100);
+                    fill(0, 255, 0);
+                    stroke(0, 200, 0);
+                    strokeWeight(2);
+                    ellipse(i * treeWidth + treeWidth / 2, height - 100, treeWidth, treeWidth);
+
+                }
+                break;
             }
         }
     }
