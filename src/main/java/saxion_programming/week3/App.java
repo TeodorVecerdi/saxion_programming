@@ -1,6 +1,7 @@
 package saxion_programming.week3;
 
 import processing.core.PApplet;
+import processing.event.MouseEvent;
 import saxion_programming.week3.misc.Input;
 
 public class App extends PApplet {
@@ -53,5 +54,15 @@ public class App extends PApplet {
     public void mouseWheel(processing.event.MouseEvent event) {
         super.mouseWheel(event);
         Input.Scroll(event.getCount());
+    }
+
+    @Override
+    public void mousePressed (MouseEvent event) {
+        super.mousePressed(event);
+    }
+
+    @Override
+    public void mouseReleased (MouseEvent event) {
+        super.mouseReleased(event);
     }
 }
