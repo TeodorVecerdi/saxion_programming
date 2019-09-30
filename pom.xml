@@ -28,6 +28,21 @@
             <artifactId>core</artifactId>
             <version>3.3.7</version>
         </dependency>
+        <dependency>
+            <groupId>org.jbox2d</groupId>
+            <artifactId>jbox2d-library</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jbox2d</groupId>
+            <artifactId>jbox2d-serialization</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jbox2d</groupId>
+            <artifactId>jbox2d-testbed</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
