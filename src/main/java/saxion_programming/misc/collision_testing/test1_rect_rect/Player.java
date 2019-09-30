@@ -1,8 +1,8 @@
-package saxion_programming.misc.collision_testing;
+package saxion_programming.misc.collision_testing.test1_rect_rect;
 
 import processing.core.PVector;
-import saxion_programming.misc.collision_testing.collider.Collider2D;
-import saxion_programming.misc.collision_testing.collider.RectCollider2D;
+import saxion_programming.misc.collision_testing.test1_rect_rect.collider.Collider2D;
+import saxion_programming.misc.collision_testing.test1_rect_rect.collider.RectCollider2D;
 
 public class Player extends GameObject {
 

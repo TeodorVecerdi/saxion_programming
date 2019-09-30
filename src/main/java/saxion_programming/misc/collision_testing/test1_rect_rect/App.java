@@ -1,9 +1,9 @@
-package saxion_programming.misc.collision_testing;
+package saxion_programming.misc.collision_testing.test1_rect_rect;
 
 import processing.core.PApplet;
 import processing.event.KeyEvent;
-import saxion_programming.misc.collision_testing.collider.Collider2D;
-import saxion_programming.misc.collision_testing.collider.RectCollider2D;
+import saxion_programming.misc.collision_testing.test1_rect_rect.collider.Collider2D;
+import saxion_programming.misc.collision_testing.test1_rect_rect.collider.RectCollider2D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class App extends PApplet {
     private int h = 800;
 
     public static void main (String[] args) {
-        PApplet.main("saxion_programming.misc.collision_testing.App");
+        PApplet.main("saxion_programming.misc.collision_testing.test1_rect_rect.App");
     }
 
     public void settings () {

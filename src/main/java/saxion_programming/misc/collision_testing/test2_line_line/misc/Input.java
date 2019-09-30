@@ -1,4 +1,4 @@
-package saxion_programming.misc.collision_testing;
+package saxion_programming.misc.collision_testing.test2_line_line.misc;
 
 import java.util.HashMap;
 
@@ -19,6 +19,7 @@ public class Input {
         _keys.put(key, true);
         _keysCheck.put(key, false);
     }
+
     public static void ReleaseKey (int key) {
         _keys.put(key, false);
     }
@@ -40,6 +41,7 @@ public class Input {
     public static boolean IsKeyDown (int key) {
         return _keys.containsKey(key) && _keys.get(key);
     }
+
     public static boolean GetKeyDown (int key) {
         if (_keys.containsKey(key) && _keys.get(key)) {
             if (!_keysCheck.get(key)) {
@@ -64,15 +66,19 @@ public class Input {
         if (IsKeyDown(java.awt.event.KeyEvent.VK_S) || IsKeyDown(java.awt.event.KeyEvent.VK_DOWN)) axis += 1;
         return axis;
     }
+
     public static int GetScroll () {
         return _scroll;
     }
+
     public static boolean IsScrolled () {
         return _isScrolled;
     }
+
     public static boolean IsButtonDown (int key) {
         return _buttons.containsKey(key) && _buttons.get(key);
     }
+
     public static boolean GetButtonDown (int key) {
         if (_buttons.containsKey(key) && _buttons.get(key)) {
             if (!_buttonsCheck.get(key)) {

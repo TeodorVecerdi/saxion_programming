@@ -1,9 +1,9 @@
-package saxion_programming.misc.collision_testing.collider;
+package saxion_programming.misc.collision_testing.test1_rect_rect.collider;
 
 
 import processing.core.PVector;
-import saxion_programming.misc.collision_testing.GameObject;
-import saxion_programming.misc.collision_testing.misc.Constants;
+import saxion_programming.misc.collision_testing.test1_rect_rect.GameObject;
+import saxion_programming.misc.collision_testing.test1_rect_rect.misc.Constants;
 
 public abstract class Collider2D extends GameObject {
     public ColliderType colliderType;

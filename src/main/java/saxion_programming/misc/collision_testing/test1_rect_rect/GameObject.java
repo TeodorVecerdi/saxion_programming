@@ -1,4 +1,4 @@
-package saxion_programming.misc.collision_testing;
+package saxion_programming.misc.collision_testing.test1_rect_rect;
 
 import processing.core.PVector;
 

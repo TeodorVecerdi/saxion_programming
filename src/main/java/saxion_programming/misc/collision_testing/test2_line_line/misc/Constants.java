@@ -1,4 +1,4 @@
-package saxion_programming.misc.collision_testing.misc;
+package saxion_programming.misc.collision_testing.test2_line_line.misc;
 
 public class Constants {
     public static final processing.core.PVector VECTOR2F_ONE = new processing.core.PVector(1f, 1f);
