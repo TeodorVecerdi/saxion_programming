@@ -1,5 +1,5 @@
 # Project exclude paths
 /target/
 /.idea/
-/src/main/java/saxion_programming/week3/.vscode/
+/src/main/java/collision_testing/week3/.vscode/
 saxion_programming.iml
