@@ -1,4 +1,4 @@
-package collision_testing.week4;
+package week4;
 
 import processing.core.PApplet;
 
@@ -14,7 +14,7 @@ public class Quest5 extends PApplet {
     private long noiseSeed = System.currentTimeMillis();
 
     public static void main (String[] args) {
-        PApplet.main("collision_testing.week4.Quest5");
+        PApplet.main("week4.Quest5");
     }
 
     public void settings () {

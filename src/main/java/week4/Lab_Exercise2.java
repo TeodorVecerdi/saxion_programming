@@ -1,4 +1,4 @@
-package collision_testing.week4;
+package week4;
 
 import processing.core.PApplet;
 
@@ -20,7 +20,7 @@ public class Lab_Exercise2 extends PApplet {
     int clawAngle = 10;
 
     public static void main (String[] args) {
-        PApplet.main("collision_testing.week4.Lab_Exercise2");
+        PApplet.main("week4.Lab_Exercise2");
     }
 
     public void settings () {

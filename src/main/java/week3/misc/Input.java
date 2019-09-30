@@ -1,4 +1,4 @@
-package collision_testing.week3.misc;
+package week3.misc;
 
 import java.util.HashMap;
 

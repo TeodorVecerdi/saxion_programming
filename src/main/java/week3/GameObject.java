@@ -1,4 +1,4 @@
-package collision_testing.week3;
+package week3;
 
 import processing.core.PApplet;
 

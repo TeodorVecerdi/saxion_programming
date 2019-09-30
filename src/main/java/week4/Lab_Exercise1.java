@@ -1,4 +1,4 @@
-package collision_testing.week4;
+package week4;
 
 import processing.core.PApplet;
 
@@ -26,7 +26,7 @@ public class Lab_Exercise1 extends PApplet {
     float b3s = 2.5f;
 
     public static void main (String[] args) {
-        PApplet.main("collision_testing.week4.Lab_Exercise1");
+        PApplet.main("week4.Lab_Exercise1");
     }
 
     public void settings () {

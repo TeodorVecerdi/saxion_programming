@@ -1,11 +1,11 @@
-package collision_testing.week4;
+package week4;
 
 import processing.core.PApplet;
 
 public class Quest4 extends PApplet {
 
     public static void main (String[] args) {
-        PApplet.main("collision_testing.week4.Quest4");
+        PApplet.main("week4.Quest4");
     }
 
     public void settings() {

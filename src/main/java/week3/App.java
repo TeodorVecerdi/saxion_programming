@@ -1,8 +1,8 @@
-package collision_testing.week3;
+package week3;
 
-import collision_testing.week3.misc.Input;
 import processing.core.PApplet;
 import processing.event.MouseEvent;
+import week3.misc.Input;
 
 public class App extends PApplet {
     public final int _width = 1280;
@@ -11,7 +11,7 @@ public class App extends PApplet {
     private Ball ball;
 
     public static void main(String[] args) {
-        PApplet.main("collision_testing.week3.App");
+        PApplet.main("week3.App");
     }
 
     public void settings() {

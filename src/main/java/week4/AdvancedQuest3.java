@@ -1,4 +1,4 @@
-package collision_testing.week4;
+package week4;
 
 public class AdvancedQuest3 {
     public static void main (String[] args) {

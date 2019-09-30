@@ -1,7 +1,7 @@
-package collision_testing.week3;
+package week3;
 
-import collision_testing.week3.misc.Input;
 import processing.core.PApplet;
+import week3.misc.Input;
 
 import java.awt.event.KeyEvent;
 
