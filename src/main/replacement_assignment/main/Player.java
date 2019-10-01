@@ -23,15 +23,18 @@ public class Player extends GameObject {
     public void update () {
         float dx = Speed * Input.GetAxisHorizontal();
         float dy = Speed * Input.GetAxisVertical();
-        Position.x += dx;
-        Position.y += dy;
+
+        collider2D.Transform.Move(dx, dy);
         for (var collider : MainApp.Instance.colliders) {
             if (collider.equals(this.collider2D)) continue;
             if (collider2D.checkCollisionWith(collider)) {
                 PVector response = collider2D.getCollisionResponse(collider);
-                Position.add(response);
+                dx += response.x;
+                dy += response.y;
             }
         }
+        Position.x += dx;
+        Position.y += dy;
     }
 
     @Override

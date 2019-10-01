@@ -15,6 +15,7 @@ public class MainApp extends PApplet {
     public List<RectCollider2D> colliders = new ArrayList<>();
     private Box box1, box2;
     private Player player;
+    private Camera camera;
 
     public static void main (String[] args) {
         PApplet.main("main.MainApp");
@@ -23,20 +24,21 @@ public class MainApp extends PApplet {
     @Override
     public void settings () {
         Instance = this;
-        size(800, 600);
+        size(800, 600, P3D);
         box1 = new Box(50, 50, 300, 50);
         box2 = new Box(50, 100, 50, 300);
-        player = new Player(width / 2, height / 2, 100, 100, 5f);
+        player = new Player(width / 2f, height / 2f, 100, 100, 5f);
+        camera = new Camera(player);
     }
 
     private void update () {
         for (var l : loopables) {
             l.update();
         }
+        Input.Refresh();
     }
 
     private void render () {
-        background(0x55);
         for (var l : loopables) {
             l.render();
         }
@@ -45,7 +47,19 @@ public class MainApp extends PApplet {
     @Override
     public void draw () {
         update();
+
+        background(0x55);
+        stroke(0xff);
+        line(width / 2, 0, width / 2, height);
+        line(0, height / 2, width, height / 2);
+        pushMatrix();
+        translate(-camera.Position.x, -camera.Position.y);
+        scale(camera.Zoom);
+        //left, right, bottom, top
+//        ortho(-width/2f, width/2f, -height/2f, height/2f);
+//        ortho(-camera.Position.x, camera.Position.x, -camera.Position.y, camera.Position.y);
         render();
+        popMatrix();
     }
 
     @Override
