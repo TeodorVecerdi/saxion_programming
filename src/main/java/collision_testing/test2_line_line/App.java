@@ -91,23 +91,20 @@ public class App extends PApplet {
         return new PVector(((A.A.x * A.B.y - A.A.y * A.B.x) * (B.A.x - B.B.x) - (A.A.x - A.B.x) * (B.A.x * B.B.y - B.A.y * B.B.x)) / (((A.A.x - A.B.x) * (B.A.y - B.B.y)) - ((A.A.y - A.B.y) * (B.A.x - B.B.x))), ((A.A.x * A.B.y - A.A.y * A.B.x) * (B.A.y - B.B.y) - ((A.A.y - A.B.y) * (B.A.x * B.B.y - B.A.y * B.B.x))) / (((A.A.x - A.B.x) * (B.A.y - B.B.y)) - ((A.A.y - A.B.y) * (B.A.x - B.B.x))));
     }
 
-    private PVector Intersects(PVector a1, PVector a2, PVector b1, PVector b2) {
+    private PVector Intersects (PVector a1, PVector a2, PVector b1, PVector b2) {
         PVector b = PVector.sub(a2, a1);
         PVector d = PVector.sub(b2, b1);
         float bDotDPerp = b.x * d.y - b.y * d.x;
 
         // if b dot d == 0, it means the lines are parallel so have infinite intersection points
-        if (bDotDPerp == 0)
-            return Constants.VECTOR2F_ZERO.copy();
+        if (bDotDPerp == 0) return Constants.VECTOR2F_ZERO.copy();
 
         PVector c = PVector.sub(b1, a1);
         float t = (c.x * d.y - c.y * d.x) / bDotDPerp;
-        if (t < 0 || t > 1)
-            return Constants.VECTOR2F_ZERO.copy();
+        if (t < 0 || t > 1) return Constants.VECTOR2F_ZERO.copy();
 
         float u = (c.x * b.y - c.y * b.x) / bDotDPerp;
-        if (u < 0 || u > 1)
-            return Constants.VECTOR2F_ZERO.copy();
+        if (u < 0 || u > 1) return Constants.VECTOR2F_ZERO.copy();
 
         return PVector.add(a1, PVector.mult(b, t));
     }
