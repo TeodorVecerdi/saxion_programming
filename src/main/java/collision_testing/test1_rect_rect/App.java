@@ -33,7 +33,7 @@ public class App extends PApplet {
     private void update () {
         player.update();
         testCollider1.update();
-        //        testCollider2.update();
+        testCollider2.update();
 
         //        if(player.Collider2D.CheckCollisionWith(testCollider)) {
         //            player.Collider2D.RespondToCollisionWith(testCollider);
@@ -44,7 +44,7 @@ public class App extends PApplet {
         background(0x77);
         player.render();
         testCollider1.render();
-        //        testCollider2.render();
+        testCollider2.render();
     }
 
     public void draw () {
