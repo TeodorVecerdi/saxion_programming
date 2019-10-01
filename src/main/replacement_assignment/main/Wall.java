@@ -2,16 +2,17 @@ package main;
 
 import main.misc.GameObject;
 
-public class Box extends GameObject {
+public class Wall extends GameObject {
     RectCollider2D collider2D;
 
-    public Box (float x, float y, float width, float height) {
+    public Wall(float x, float y, float width, float height) {
         super();
         Position.x = x;
         Position.y = y;
         Size.x = width;
         Size.y = height;
-        collider2D = new RectCollider2D(x, y, width, height, this);
+        collider2D = new RectCollider2D(x, y, width, height, this, CollisionLayer.World);
+        Tag = "Wall";
     }
 
     @Override

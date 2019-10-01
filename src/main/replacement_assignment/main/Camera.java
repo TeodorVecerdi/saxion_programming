@@ -3,6 +3,7 @@ package main;
 import main.misc.GameObject;
 import main.misc.Input;
 import processing.core.PApplet;
+import processing.core.PVector;
 
 public class Camera extends GameObject {
 
@@ -28,6 +29,13 @@ public class Camera extends GameObject {
         Position.y = Target.Position.y * Zoom - MainApp.Instance.height / 2f + Target.Size.y / 2f * Zoom;
 //        - MainApp.Instance.width/2f + Target.Size.x/2f
 //        - MainApp.Instance.height/2f + Target.Size.y/2f
+    }
+
+    public PVector WorldToScreenPoint(PVector worldPosition) {
+        PVector screenPosition = worldPosition.copy();
+        screenPosition.x -= Target.Position.x - MainApp.Instance.width / 2f;
+        screenPosition.y -= Target.Position.y - MainApp.Instance.height / 2f;
+        return screenPosition;
     }
 
     @Override
