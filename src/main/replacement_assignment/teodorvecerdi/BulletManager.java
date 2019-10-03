@@ -1,9 +1,9 @@
-package main;
-
-import main.misc.Loopable;
+package teodorvecerdi;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import teodorvecerdi.misc.Loopable;
 
 public class BulletManager implements Loopable {
     ArrayList<Bullet> bulletL;

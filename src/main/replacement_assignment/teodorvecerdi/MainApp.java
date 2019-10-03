@@ -1,7 +1,5 @@
-package main;
+package teodorvecerdi;
 
-import main.misc.GameObject;
-import main.misc.Input;
 import processing.core.PApplet;
 import processing.event.MouseEvent;
 
@@ -9,6 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+
+import teodorvecerdi.misc.GameObject;
+import teodorvecerdi.misc.Input;
 
 public class MainApp extends PApplet {
     public static MainApp Instance;

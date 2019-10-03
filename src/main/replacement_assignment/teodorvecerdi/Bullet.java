@@ -1,7 +1,8 @@
-package main;
+package teodorvecerdi;
 
-import main.misc.GameObject;
 import processing.core.PVector;
+
+import teodorvecerdi.misc.GameObject;
 
 public class Bullet extends GameObject {
     public PVector Direction;

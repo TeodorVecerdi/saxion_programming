@@ -1,4 +1,4 @@
-package main.misc;
+package teodorvecerdi.misc;
 
 public interface Loopable {
     void update();

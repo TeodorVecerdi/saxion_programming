@@ -1,7 +1,9 @@
-package main;
+package teodorvecerdi;
 
-import main.misc.GameObject;
 import processing.core.PVector;
+
+import teodorvecerdi.misc.CollisionLayer;
+import teodorvecerdi.objects.GameObject;
 
 public class RectCollider2D extends GameObject {
     public int ColliderColor;
@@ -58,7 +60,6 @@ public class RectCollider2D extends GameObject {
     @Override
     public void update() {
         if (parent.ShouldDestroy) {
-            System.out.println("Parent is now null");
             ShouldDestroy = true;
             return;
         }

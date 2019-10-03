@@ -1,9 +1,10 @@
-package main;
+package teodorvecerdi;
 
-import main.misc.GameObject;
-import main.misc.Input;
 import processing.core.PApplet;
 import processing.core.PVector;
+
+import teodorvecerdi.misc.GameObject;
+import teodorvecerdi.misc.Input;
 
 public class Camera extends GameObject {
 

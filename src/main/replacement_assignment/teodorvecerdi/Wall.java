@@ -1,6 +1,6 @@
-package main;
+package teodorvecerdi;
 
-import main.misc.GameObject;
+import teodorvecerdi.misc.GameObject;
 
 public class Wall extends GameObject {
     RectCollider2D collider2D;

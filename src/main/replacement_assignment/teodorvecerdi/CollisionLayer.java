@@ -1,4 +1,4 @@
-package main;
+package teodorvecerdi;
 
 public final class CollisionLayer {
     public static int None = 1 << 0;

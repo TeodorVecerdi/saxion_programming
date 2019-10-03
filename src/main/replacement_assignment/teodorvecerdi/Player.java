@@ -1,10 +1,11 @@
-package main;
+package teodorvecerdi;
 
-import main.misc.GameObject;
-import main.misc.Input;
 import processing.core.PVector;
 
 import java.awt.event.KeyEvent;
+
+import teodorvecerdi.misc.GameObject;
+import teodorvecerdi.misc.Input;
 
 public class Player extends GameObject {
     public float Speed;
