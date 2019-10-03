@@ -1,10 +1,10 @@
 package teodorvecerdi.objects;
 
 import processing.core.PVector;
-
 import teodorvecerdi.MainApp;
 import teodorvecerdi.RectCollider2D;
 import teodorvecerdi.misc.CollisionLayer;
+import teodorvecerdi.misc.RenderLayer;
 
 public class Bullet extends GameObject {
     private final float MaxSpeedPerUpdate = 2f;
@@ -15,6 +15,7 @@ public class Bullet extends GameObject {
 
     public Bullet(float x, float y, float rotation, float speed) {
         super();
+        renderLayer = RenderLayer.World;
         Position.x = x;
         Position.y = y;
         Size.x = 5f;
@@ -42,7 +43,7 @@ public class Bullet extends GameObject {
         Position.y += Direction.y * Speed;
         for (var collider : MainApp.Instance.colliders) {
             if ((collider.collisionLayer & (CollisionLayer.None | CollisionLayer.Trigger | CollisionLayer.Player)) == 0 && collider2D.checkCollisionWith(collider)) {
-                System.out.println(Name + " collided with " + collider.parent.Name);
+                System.out.println(this + " collided with " + collider.parent);
                 DestroyAfterMillis(0);
                 return;
             }

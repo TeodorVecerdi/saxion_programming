@@ -2,23 +2,25 @@ package teodorvecerdi;
 
 import processing.core.PApplet;
 import processing.event.MouseEvent;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-
 import teodorvecerdi.misc.Input;
+import teodorvecerdi.misc.RenderLayer;
 import teodorvecerdi.objects.Camera;
 import teodorvecerdi.objects.GameObject;
 import teodorvecerdi.objects.Player;
 import teodorvecerdi.objects.Wall;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+
 public class MainApp extends PApplet {
     public static MainApp Instance;
     private static Object inst;
     public ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(100);
-    public List<GameObject> gameObjects = new ArrayList<>();
+    public HashMap<Integer, ArrayList<GameObject>> gameObjects = new HashMap<>();
+    public ArrayList<GameObject> gameObjectsToAdd = new ArrayList<>();
     public List<RectCollider2D> colliders = new ArrayList<>();
     public Camera camera;
     private Wall wall1, wall2;
@@ -36,18 +38,31 @@ public class MainApp extends PApplet {
         wall2 = new Wall(50, 100, 50, 300);
         player = new Player(width / 2f, height / 2f, 100, 100, 5f);
         camera = new Camera(player);
+
+        gameObjects.put(RenderLayer.UI, new ArrayList<>());
+        gameObjects.put(RenderLayer.World, new ArrayList<>());
     }
 
     private void update() {
-        int length = gameObjects.size();
+        int length = gameObjectsToAdd.size();
         for (int i = 0; i < length; i++) {
-            if (i >= gameObjects.size()) break;
-            var l = gameObjects.get(i);
-            if (l.ShouldDestroy) {
-                gameObjects.remove(l);
-                continue;
+            if (i >= gameObjectsToAdd.size()) break;
+            var obj = gameObjectsToAdd.get(i);
+            gameObjects.get(obj.renderLayer).add(obj);
+            gameObjectsToAdd.remove(obj);
+
+        }
+        for (int layer : gameObjects.keySet()) {
+            int layerLength = gameObjects.get(layer).size();
+            for (int i = 0; i < layerLength; i++) {
+                if (i >= gameObjects.get(layer).size()) break;
+                var l = gameObjects.get(layer).get(i);
+                if (l.ShouldDestroy) {
+                    gameObjects.get(layer).remove(l);
+                    continue;
+                }
+                l.update();
             }
-            l.update();
         }
 //        ListIterator<Loopable> it = loopables.listIterator();
 //        while (it.hasNext()) {
@@ -57,10 +72,23 @@ public class MainApp extends PApplet {
     }
 
     private void render() {
-        int length = gameObjects.size();
-        for (int i = 0; i < length; i++) {
-            if (i >= gameObjects.size()) break;
-            var l = gameObjects.get(i);
+        background(0x55);
+        var worldLayer = gameObjects.get(RenderLayer.World);
+        int worldLayerLength = worldLayer.size();
+        pushMatrix();
+        translate(-camera.Position.x, -camera.Position.y);
+        scale(camera.Zoom);
+        for (int i = 0; i < worldLayerLength; i++) {
+            if (i >= worldLayer.size()) break;
+            var l = worldLayer.get(i);
+            l.render();
+        }
+        popMatrix();
+        var UILayer = gameObjects.get(RenderLayer.UI);
+        var UILayerLength = UILayer.size();
+        for (int i = 0; i < UILayerLength; i++) {
+            if (i >= UILayer.size()) break;
+            var l = UILayer.get(i);
             l.render();
         }
     }
@@ -68,16 +96,7 @@ public class MainApp extends PApplet {
     @Override
     public void draw() {
         update();
-
-        background(0x55);
-        stroke(0xff);
-        line(width / 2, 0, width / 2, height);
-        line(0, height / 2, width, height / 2);
-        pushMatrix();
-        translate(-camera.Position.x, -camera.Position.y);
-        scale(camera.Zoom);
         render();
-        popMatrix();
     }
 
     @Override

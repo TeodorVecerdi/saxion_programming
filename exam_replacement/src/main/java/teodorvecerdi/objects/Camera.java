@@ -2,14 +2,14 @@ package teodorvecerdi.objects;
 
 import processing.core.PApplet;
 import processing.core.PVector;
-
 import teodorvecerdi.MainApp;
 import teodorvecerdi.Transform;
 import teodorvecerdi.misc.Input;
+import teodorvecerdi.misc.RenderLayer;
 
 public class Camera extends GameObject {
 
-    public teodorvecerdi.Transform Target;
+    public Transform Target;
     public float Zoom = 1f;
     public float MinZoom = 0.5f;
     public float MaxZoom = 2.5f;
@@ -17,6 +17,7 @@ public class Camera extends GameObject {
 
     public Camera(Object target) {
         super();
+        renderLayer = RenderLayer.World;
         if (target instanceof Transform) Target = (Transform) target;
         else if (target instanceof GameObject) this.Target = ((GameObject) target).Transform;
         else throw new IllegalArgumentException("`target` should be of type GameObject or Transform");

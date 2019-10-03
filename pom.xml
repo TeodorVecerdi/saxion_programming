@@ -8,11 +8,11 @@
     <artifactId>saxion_programming</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <name>saxion_programming</name>
+
     <modules>
         <module>exam_replacement</module>
     </modules>
-
-    <name>teodorvecerdi</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
