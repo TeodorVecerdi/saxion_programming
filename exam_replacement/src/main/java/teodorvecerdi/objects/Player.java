@@ -1,5 +1,6 @@
 package teodorvecerdi.objects;
 
+import processing.core.PConstants;
 import processing.core.PVector;
 import teodorvecerdi.BulletManager;
 import teodorvecerdi.MainApp;
@@ -14,8 +15,8 @@ public class Player extends GameObject {
     public float Speed;
     public RectCollider2D collider2D;
     public float Rotation;
-
     private BulletManager bulletManager;
+    private float flipX = 1f;
 
     public Player (float x, float y, float width, float height, float speed) {
         super();
@@ -27,6 +28,7 @@ public class Player extends GameObject {
         Speed = speed;
         collider2D = new RectCollider2D(x, y, width, height, this, CollisionLayer.Player);
         collider2D.AddCollisionLayer(CollisionLayer.World);
+        collider2D.ShouldRender = false;
         bulletManager = new BulletManager();
         Tag = "Player";
     }
@@ -41,6 +43,7 @@ public class Player extends GameObject {
             if (collider.equals(this.collider2D)) continue;
             if ((collider2D.collisionLayer & collider.collisionLayer) != 0 && collider2D.checkCollisionWith(collider)) {
                 PVector response = collider2D.getCollisionResponse(collider);
+                collider2D.Transform.Move(response.x, response.y);
                 dx += response.x;
                 dy += response.y;
             }
@@ -55,6 +58,7 @@ public class Player extends GameObject {
             bulletManager.fire(Position.x + Size.x / 2, Position.y + Size.x / 2, Rotation, 20f);
         }
 
+        flipX = MainApp.Instance.mouseX > MainApp.Instance.width / 2f ? -1 : 1;
     }
 
 
@@ -62,12 +66,27 @@ public class Player extends GameObject {
     public void render () {
         MainApp.Instance.pushMatrix();
         MainApp.Instance.translate(Position.x + Size.x / 2f, Position.y + Size.y / 2f);
-        MainApp.Instance.rotate(Rotation);
+        MainApp.Instance.scale(flipX, 1);
+        //                MainApp.Instance.rotate(Rotation);
         MainApp.Instance.translate(-(Position.x + Size.x / 2f), -(Position.y + Size.y / 2f));
-        MainApp.Instance.fill(0xffff3333);
         MainApp.Instance.noStroke();
-        MainApp.Instance.rect(Position.x + Size.x / 2f - 10f, Position.y - 10f, 20f, 20f);
+        MainApp.Instance.fill(0xffff3333);
         MainApp.Instance.rect(Position.x, Position.y, Size.x, Size.y);
+        MainApp.Instance.fill(0xffdd0000);
+        MainApp.Instance.ellipse(Position.x + Size.x / 2f - 20, Position.y + 20f, 10f, 10f);
+        MainApp.Instance.ellipse(Position.x + Size.x / 2f + 10, Position.y + 20f, 10f, 10f);
+
+        MainApp.Instance.popMatrix();
+        MainApp.Instance.pushMatrix();
+        MainApp.Instance.translate(Position.x + Size.x / 2f, Position.y + Size.y / 2f);
+        float rot = Rotation - PConstants.PI / 2f + PConstants.PI;
+        //        rot = PApplet.constrain(rot, -PConstants.PI/4, PConstants.PI);
+        System.out.println(rot);
+        //        if(flipX == -1) rot += 3*PConstants.PI/2f;
+        MainApp.Instance.rotate(rot);
+        MainApp.Instance.translate(-(Position.x + Size.x / 2f), -(Position.y + Size.y / 2f));
+        MainApp.Instance.fill(0xffdd5555);
+        MainApp.Instance.rect(Position.x - 25f, Position.y + Size.y / 2f - 30f, 15, 60);
         MainApp.Instance.popMatrix();
     }
 }

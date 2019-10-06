@@ -36,7 +36,7 @@ public class MainApp extends PApplet {
         size(800, 600);
         wall1 = new Wall(50, 50, 300, 50);
         wall2 = new Wall(50, 100, 50, 300);
-        player = new Player(width / 2f, height / 2f, 100, 100, 5f);
+        player = new Player(width / 2f, height / 2f, 80, 100, 5f);
         camera = new Camera(player);
 
         gameObjects.put(RenderLayer.UI, new ArrayList<>());
