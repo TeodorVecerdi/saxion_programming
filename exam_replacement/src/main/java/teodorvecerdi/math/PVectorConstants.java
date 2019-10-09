@@ -1,4 +1,4 @@
-package teodorvecerdi.misc;
+package teodorvecerdi.math;
 
 import processing.core.PVector;
 
