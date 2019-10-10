@@ -1,5 +1,7 @@
 package teodorvecerdi.objects;
 
+import teodorvecerdi.misc.RenderLayer;
+
 public class World extends GameObject {
     public int width;
     public int height;
@@ -7,7 +9,8 @@ public class World extends GameObject {
     public int[][] tiles;
 
     public World (int width, int height) {
-
+        super();
+        renderLayer = RenderLayer.NoCameraWorld;
     }
 
     @Override

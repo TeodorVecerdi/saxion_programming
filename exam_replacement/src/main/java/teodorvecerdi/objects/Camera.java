@@ -1,5 +1,6 @@
 package teodorvecerdi.objects;
 
+import org.jetbrains.annotations.NotNull;
 import processing.core.PApplet;
 import processing.core.PVector;
 import teodorvecerdi.MainApp;
@@ -34,7 +35,7 @@ public class Camera extends GameObject {
 //        - MainApp.Instance.height/2f + Target.Size.y/2f
     }
 
-    public PVector WorldToScreenPoint(PVector worldPosition) {
+    public PVector WorldToScreenPoint (@NotNull PVector worldPosition) {
         PVector screenPosition = worldPosition.copy();
         screenPosition.x -= Target.Position.x - MainApp.Instance.width / 2f;
         screenPosition.y -= Target.Position.y - MainApp.Instance.height / 2f;

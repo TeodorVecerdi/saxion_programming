@@ -1,7 +1,6 @@
 package teodorvecerdi;
 
 import processing.core.PVector;
-
 import teodorvecerdi.misc.CollisionLayer;
 import teodorvecerdi.objects.GameObject;
 
@@ -26,6 +25,7 @@ public class RectCollider2D extends GameObject {
 
     public RectCollider2D(float x, float y, float width, float height, int color, GameObject parent, int collisionLayer) {
         super();
+        renderLayer = parent.renderLayer;
         MainApp.Instance.colliders.add(this);
         Position.x = x;
         Position.y = y;

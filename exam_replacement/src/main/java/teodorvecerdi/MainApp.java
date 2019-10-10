@@ -40,6 +40,7 @@ public class MainApp extends PApplet {
         camera = new Camera(player);
 
         gameObjects.put(RenderLayer.UI, new ArrayList<>());
+        gameObjects.put(RenderLayer.NoCameraWorld, new ArrayList<>());
         gameObjects.put(RenderLayer.World, new ArrayList<>());
     }
 
@@ -84,6 +85,15 @@ public class MainApp extends PApplet {
             l.render();
         }
         popMatrix();
+
+        var NCWorldLayer = gameObjects.get(RenderLayer.NoCameraWorld);
+        var NCWorldLayerLength = NCWorldLayer.size();
+        for (int i = 0; i < NCWorldLayerLength; i++) {
+            if (i >= NCWorldLayer.size()) break;
+            var l = NCWorldLayer.get(i);
+            l.render();
+        }
+
         var UILayer = gameObjects.get(RenderLayer.UI);
         var UILayerLength = UILayer.size();
         for (int i = 0; i < UILayerLength; i++) {
