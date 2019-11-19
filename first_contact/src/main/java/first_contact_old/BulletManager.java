@@ -1,8 +1,8 @@
-package first_contact;
+package first_contact_old;
 
-import first_contact.misc.RenderLayer;
-import first_contact.objects.Bullet;
-import first_contact.objects.GameObject;
+import first_contact_old.misc.RenderLayer;
+import first_contact_old.objects.Bullet;
+import first_contact_old.objects.GameObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;

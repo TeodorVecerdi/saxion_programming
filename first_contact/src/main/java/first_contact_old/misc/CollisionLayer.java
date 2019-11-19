@@ -1,4 +1,4 @@
-package first_contact.misc;
+package first_contact_old.misc;
 
 public final class CollisionLayer {
     public static final int None = 1 << 0;

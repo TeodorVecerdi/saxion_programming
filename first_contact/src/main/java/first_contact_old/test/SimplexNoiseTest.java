@@ -1,10 +1,10 @@
-package first_contact.test;
+package first_contact_old.test;
 
 import g4p_controls.*;
 import processing.core.PApplet;
 import processing.core.PImage;
 import processing.event.KeyEvent;
-import first_contact.math.SimplexNoise;
+import first_contact_old.math.SimplexNoise;
 
 import java.awt.*;
 

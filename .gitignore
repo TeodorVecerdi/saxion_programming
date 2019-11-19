@@ -1,4 +1,6 @@
 # Project exclude paths
-/target/
-/.idea/
 /src/main/java/collision_testing/week3/.vscode/
+/first_contact/target/
+/first_contact/.idea/
+/Q1_Programming/target/
+/Q1_Programming/.idea/

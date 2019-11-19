@@ -1,6 +1,6 @@
-package first_contact.objects;
+package first_contact_old.objects;
 
-import first_contact.misc.RenderLayer;
+import first_contact_old.misc.RenderLayer;
 
 public class World extends GameObject {
     public int width;

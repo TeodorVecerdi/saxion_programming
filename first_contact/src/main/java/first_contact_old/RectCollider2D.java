@@ -1,8 +1,8 @@
-package first_contact;
+package first_contact_old;
 
 import processing.core.PVector;
-import first_contact.misc.CollisionLayer;
-import first_contact.objects.GameObject;
+import first_contact_old.misc.CollisionLayer;
+import first_contact_old.objects.GameObject;
 
 public class RectCollider2D extends GameObject {
     public int ColliderColor;

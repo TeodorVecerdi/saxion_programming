@@ -1,13 +1,13 @@
-package first_contact;
+package first_contact_old;
 
 import processing.core.PApplet;
 import processing.event.MouseEvent;
-import first_contact.misc.Input;
-import first_contact.misc.RenderLayer;
-import first_contact.objects.Camera;
-import first_contact.objects.GameObject;
-import first_contact.objects.Player;
-import first_contact.objects.Wall;
+import first_contact_old.misc.Input;
+import first_contact_old.misc.RenderLayer;
+import first_contact_old.objects.Camera;
+import first_contact_old.objects.GameObject;
+import first_contact_old.objects.Player;
+import first_contact_old.objects.Wall;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +25,9 @@ public class MainApp extends PApplet {
     public Camera camera;
     private Wall wall1, wall2;
     private Player player;
+
+    private float opacity = 0f;
+    private float opacityIncrease = 2.5f;
 
     public static void main(String[] args) {
         PApplet.main("first_contact.MainApp");
@@ -86,6 +89,7 @@ public class MainApp extends PApplet {
         }
         popMatrix();
 
+
         var NCWorldLayer = gameObjects.get(RenderLayer.NoCameraWorld);
         var NCWorldLayerLength = NCWorldLayer.size();
         for (int i = 0; i < NCWorldLayerLength; i++) {
@@ -101,6 +105,11 @@ public class MainApp extends PApplet {
             var l = UILayer.get(i);
             l.render();
         }
+        opacity += opacityIncrease;
+        if(opacity >= 255.0f || opacity <= 0.0f) opacityIncrease = -opacityIncrease;
+        fill(0x00, opacity);
+        rect(0, 0, width, height);
+        System.out.println(opacity);
     }
 
     @Override

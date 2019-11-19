@@ -1,13 +1,13 @@
-package first_contact.objects;
+package first_contact_old.objects;
 
 import processing.core.PConstants;
 import processing.core.PVector;
-import first_contact.BulletManager;
-import first_contact.MainApp;
-import first_contact.RectCollider2D;
-import first_contact.misc.CollisionLayer;
-import first_contact.misc.Input;
-import first_contact.misc.RenderLayer;
+import first_contact_old.BulletManager;
+import first_contact_old.MainApp;
+import first_contact_old.RectCollider2D;
+import first_contact_old.misc.CollisionLayer;
+import first_contact_old.misc.Input;
+import first_contact_old.misc.RenderLayer;
 
 import java.awt.event.KeyEvent;
 

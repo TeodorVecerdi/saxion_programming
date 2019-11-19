@@ -1,4 +1,4 @@
-package first_contact;
+package first_contact_old;
 
 import static org.junit.Assert.assertTrue;
 

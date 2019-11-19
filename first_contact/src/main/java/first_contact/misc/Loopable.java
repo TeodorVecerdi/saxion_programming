@@ -1,6 +1,6 @@
 package first_contact.misc;
 
 public interface Loopable {
-    void update ();
-    void render ();
+    void update(float deltaTime);
+    void render();
 }

@@ -1,4 +1,4 @@
-package first_contact.misc;
+package first_contact_old.misc;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

@@ -1,9 +1,9 @@
-package first_contact.objects;
+package first_contact_old.objects;
 
-import first_contact.MainApp;
-import first_contact.RectCollider2D;
-import first_contact.misc.CollisionLayer;
-import first_contact.misc.RenderLayer;
+import first_contact_old.MainApp;
+import first_contact_old.RectCollider2D;
+import first_contact_old.misc.CollisionLayer;
+import first_contact_old.misc.RenderLayer;
 
 public class Wall extends GameObject {
     RectCollider2D collider2D;

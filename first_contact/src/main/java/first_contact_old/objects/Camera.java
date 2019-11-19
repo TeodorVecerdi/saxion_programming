@@ -1,12 +1,12 @@
-package first_contact.objects;
+package first_contact_old.objects;
 
 import org.jetbrains.annotations.NotNull;
 import processing.core.PApplet;
 import processing.core.PVector;
-import first_contact.MainApp;
-import first_contact.Transform;
-import first_contact.misc.Input;
-import first_contact.misc.RenderLayer;
+import first_contact_old.MainApp;
+import first_contact_old.Transform;
+import first_contact_old.misc.Input;
+import first_contact_old.misc.RenderLayer;
 
 public class Camera extends GameObject {
 
