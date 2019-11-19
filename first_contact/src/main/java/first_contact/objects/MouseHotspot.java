@@ -1,13 +1,13 @@
 package first_contact.objects;
 
 import first_contact.Entry;
+import first_contact.misc.Constants;
 import first_contact.misc.Input;
 
 import java.awt.event.KeyEvent;
 
 public class MouseHotspot extends GameObject {
-
-    public static boolean debugView = true;
+    public static Boolean ShowMouseHotspots = true;
     public int x;
     public int y;
     public int w;
@@ -43,6 +43,8 @@ public class MouseHotspot extends GameObject {
 
     @Override
     public void render () {
+        if(!ShowMouseHotspots) return;
+
         var a = Entry.Instance;
         a.fill(0xaabbbbbb);
         a.noStroke();

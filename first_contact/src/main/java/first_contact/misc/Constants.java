@@ -4,4 +4,6 @@ public final class Constants {
     public static final Float ASPECT_RATIO = 1.7777777f;
     public static final Integer WIDTH = 1600;
     public static final Integer HEIGHT = (int) (WIDTH / ASPECT_RATIO);
+
+
 }

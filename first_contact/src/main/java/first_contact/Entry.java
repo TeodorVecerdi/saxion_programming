@@ -2,10 +2,12 @@ package first_contact;
 
 import first_contact.misc.Constants;
 import first_contact.misc.Input;
+import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import first_contact.objects.TestScene1;
 import first_contact.objects.TestScene2;
 import processing.core.PApplet;
+import processing.event.KeyEvent;
 import processing.event.MouseEvent;
 
 import java.util.AbstractMap;
@@ -38,6 +40,11 @@ public class Entry extends PApplet {
 
     public void update () {
         Scenes.get(ActiveScene).update(deltaTime);
+
+        // TODO: IS DEBUG, REMOVE
+        if(Input.GetKeyDown(java.awt.event.KeyEvent.VK_SPACE)) {
+            MouseHotspot.ShowMouseHotspots = !MouseHotspot.ShowMouseHotspots;
+        }
     }
 
     public void render () {

@@ -7,25 +7,30 @@ import first_contact.misc.Input;
 import java.awt.event.KeyEvent;
 
 public class TestScene2 extends Scene {
+
+    private MouseHotspot changeToScene1;
+
     public TestScene2 () {
         super();
+        changeToScene1 = new MouseHotspot(5, Constants.HEIGHT/2 - 50, 100, 100, () -> {
+           var a = Entry.Instance;
+           a.ActiveScene = "TestScene1";
+        });
     }
 
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
-        if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(a.mouseX >= 5 && a.mouseX <= 105 && a.mouseY >= 400 && a.mouseY <= 500)
-                a.ActiveScene = "TestScene1";
-        }
+        changeToScene1.update(deltaTime);
     }
 
     @Override
     public void render () {
         var a = Entry.Instance;
         a.pushMatrix();
-        a.fill(0xffaaaaaa);
-        a.rect(5, Constants.HEIGHT/2 - 50, 100, 100);
+//        a.fill(0xffaaaaaa);
+//        a.rect(5, Constants.HEIGHT/2 - 50, 100, 100);
+        changeToScene1.render();
 
         a.fill(0,0,255);
         a.textSize(35);
