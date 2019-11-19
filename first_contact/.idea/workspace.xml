@@ -2,34 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/BulletManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/MainApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/RectCollider2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/Transform.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/math/PVectorConstants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/math/SimplexNoise$Grad.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/math/SimplexNoise.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/CollisionLayer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/first_contact/misc/Input.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/Loopable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/first_contact/misc/Loopable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/RenderLayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/TileDictionary.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/objects/Bullet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/objects/Camera.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/objects/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/first_contact/objects/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/objects/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/objects/Wall.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/objects/World.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/test/SimplexNoiseTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/first_contact/MainAppTest.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -164,7 +143,7 @@
       <workItem from="1573921751142" duration="99000" />
       <workItem from="1573921884081" duration="1209000" />
       <workItem from="1574085713621" duration="3531000" />
-      <workItem from="1574163970665" duration="10581000" />
+      <workItem from="1574163970665" duration="11068000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>
