@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Transform.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/misc/Input.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/misc/Loopable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/objects/GameObject.java" afterDir="false" />
+    <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/BulletManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/BulletManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/RectCollider2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/RectCollider2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/Transform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/math/PVectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/math/PVectorConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/math/SimplexNoise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/math/SimplexNoise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/CollisionLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/misc/CollisionLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Loopable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Loopable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/RenderLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/misc/RenderLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/misc/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/TileDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/misc/TileDictionary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/objects/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/objects/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/objects/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/objects/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/objects/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/test/SimplexNoiseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact_old/test/SimplexNoiseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/first_contact/MainAppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/first_contact_old/MainAppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/BulletManager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/MainApp.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/RectCollider2D.class" beforeDir="false" />
@@ -41,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/math/SimplexNoise$Grad.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/math/SimplexNoise.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/CollisionLayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/first_contact/misc/Input.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/Loopable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/first_contact/misc/Loopable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/RenderLayer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/Tile.class" beforeDir="false" />
@@ -69,7 +46,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Teodor Vecerdi &lt;teodor.vecerdi@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -81,6 +64,7 @@
   <component name="ProjectId" id="1ThoYdif5E8xpjWV5aLfG1mvNZ2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="JGlo-board" value="5d88d904ce0611000f94a2e1" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -180,8 +164,23 @@
       <workItem from="1573921751142" duration="99000" />
       <workItem from="1573921884081" duration="1209000" />
       <workItem from="1574085713621" duration="3531000" />
-      <workItem from="1574163970665" duration="3777000" />
+      <workItem from="1574163970665" duration="10581000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
+      <created>1574175679444</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574175679444</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update .gitignore">
+      <created>1574175783282</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574175783282</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,5 +196,14 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Fix Input OnButtonDown and OnKeyDown implementations" />
+    <MESSAGE value="Update .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update .gitignore" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

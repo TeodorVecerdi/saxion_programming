@@ -16,7 +16,7 @@ public abstract class GameObject implements Loopable {
         Position = Transform.Position;
         Size = Transform.Size;
         Tag = "Untagged";
-        Name = String.format("[%s %s]", getClass().getSimpleName(), hashCode());
+        Name = String.format("%s-%s", getClass().getSimpleName(), hashCode());
     }
 
     @Override public String toString () {
