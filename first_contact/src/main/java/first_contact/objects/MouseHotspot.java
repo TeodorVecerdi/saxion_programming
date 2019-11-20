@@ -46,7 +46,7 @@ public class MouseHotspot extends GameObject {
         if(!ShowMouseHotspots) return;
 
         var a = Entry.Instance;
-        a.fill(0xaabbbbbb);
+        a.fill(0xaa00ff00);
         a.noStroke();
         a.rect(x, y, w, h);
     }

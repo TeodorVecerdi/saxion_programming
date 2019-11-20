@@ -1,13 +1,15 @@
 package first_contact;
 
+import first_contact.inventory.InventoryScene;
 import first_contact.misc.Constants;
 import first_contact.misc.Input;
-import first_contact.objects.MouseHotspot;
-import first_contact.objects.Scene;
-import first_contact.objects.TestScene1;
-import first_contact.objects.TestScene2;
+import first_contact.inventory.Items;
+import first_contact.objects.*;
+import first_contact.scenes.Scene_Room2Main;
+import first_contact.scenes.Scene_Room2ZoomCoffee;
+import first_contact.scenes.Scene_Room2ZoomLock;
+import first_contact.scenes.TestScene1;
 import processing.core.PApplet;
-import processing.event.KeyEvent;
 import processing.event.MouseEvent;
 
 import java.util.AbstractMap;
@@ -16,14 +18,10 @@ import java.util.Map;
 public class Entry extends PApplet {
     public static Entry Instance;
     public float deltaTime = 0f;
-
-    //@formatter:off
-    public Map<String, Scene> Scenes = Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Scene>("TestScene1", new TestScene1()),
-            new AbstractMap.SimpleEntry<String, Scene>("TestScene2", new TestScene2())
-    );
-    //@formatter:on
-    public String ActiveScene = "TestScene1";
+    public Map<String, Scene> Scenes;
+    public String ActiveScene;
+    public first_contact.inventory.InventoryScene InventoryScene;
+    public Items Items;
 
     public static void main (String[] args) {
         PApplet.main(Entry.class.getName());
@@ -32,30 +30,43 @@ public class Entry extends PApplet {
     public void settings () {
         Instance = this;
         size(Constants.WIDTH, Constants.HEIGHT);
+        fullScreen();
     }
 
     public void setup () {
         frameRate(1000);
+        ActiveScene = "TestScene1";
+        Items = new Items();
+        //@formatter:off
+        Scenes = Map.ofEntries(
+                new AbstractMap.SimpleEntry<String, Scene>("TestScene1", new TestScene1()),
+                new AbstractMap.SimpleEntry<String, Scene>("Room2/Main", new Scene_Room2Main()),
+                new AbstractMap.SimpleEntry<String, Scene>("Room2/ZoomCoffee", new Scene_Room2ZoomCoffee()),
+                new AbstractMap.SimpleEntry<String, Scene>("Room2/ZoomLock", new Scene_Room2ZoomLock())
+        );
+        InventoryScene = new InventoryScene();
+        //@formatter:on
     }
 
     public void update () {
         Scenes.get(ActiveScene).update(deltaTime);
+        InventoryScene.update(deltaTime);
 
         // TODO: IS DEBUG, REMOVE
-        if(Input.GetKeyDown(java.awt.event.KeyEvent.VK_SPACE)) {
+        if (Input.GetKeyDown(java.awt.event.KeyEvent.VK_SPACE)) {
             MouseHotspot.ShowMouseHotspots = !MouseHotspot.ShowMouseHotspots;
         }
     }
 
     public void render () {
-        background(0x55);
-
+        background(0);
         Scenes.get(ActiveScene).render();
+        InventoryScene.render();
 
         fill(0, 255, 0);
         textSize(20);
         text(String.format("FPS %.4f\ndT  %.6f", frameRate, deltaTime), Constants.WIDTH - 200, 20);
-        fill(255);
+        fill(0);
         text(String.format("%s", Input.MousePosition), Constants.WIDTH - 250, 90);
     }
 

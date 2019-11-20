@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
+      <change afterPath="$PROJECT_DIR$/data/Room2/coffeeZoom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Room2/coffeeZoomGotCoffee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Room2/coffeeZoomMadeCoffee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Room2/lockZoom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Room2/mainRoom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/bedroom.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/coffeeCup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/emptyCup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/items.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/waterCup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Scene_Room2Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Scene_Room2ZoomCoffee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Scene_Room2ZoomLock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/TestScene1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/first_contact/misc/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/first_contact/misc/Input.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/TestScene2.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +64,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/first_contact" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,18 +73,25 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="first_contact.misc" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -88,7 +112,7 @@
       <module name="first_contact" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="first_contact.*" />
+          <option name="PATTERN" value="first_contact.inventory.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,7 +167,8 @@
       <workItem from="1573921751142" duration="99000" />
       <workItem from="1573921884081" duration="1209000" />
       <workItem from="1574085713621" duration="3531000" />
-      <workItem from="1574163970665" duration="11068000" />
+      <workItem from="1574163970665" duration="11657000" />
+      <workItem from="1574262225124" duration="11665000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>
@@ -170,7 +195,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
