@@ -5,10 +5,7 @@ import first_contact.misc.Constants;
 import first_contact.misc.Input;
 import first_contact.inventory.Items;
 import first_contact.objects.*;
-import first_contact.scenes.Scene_Room2Main;
-import first_contact.scenes.Scene_Room2ZoomCoffee;
-import first_contact.scenes.Scene_Room2ZoomLock;
-import first_contact.scenes.TestScene1;
+import first_contact.scenes.*;
 import processing.core.PApplet;
 import processing.event.MouseEvent;
 
@@ -35,14 +32,16 @@ public class Entry extends PApplet {
 
     public void setup () {
         frameRate(1000);
-        ActiveScene = "TestScene1";
+        ActiveScene = "Bedroom/Main";
         Items = new Items();
         //@formatter:off
         Scenes = Map.ofEntries(
-                new AbstractMap.SimpleEntry<String, Scene>("TestScene1", new TestScene1()),
-                new AbstractMap.SimpleEntry<String, Scene>("Room2/Main", new Scene_Room2Main()),
-                new AbstractMap.SimpleEntry<String, Scene>("Room2/ZoomCoffee", new Scene_Room2ZoomCoffee()),
-                new AbstractMap.SimpleEntry<String, Scene>("Room2/ZoomLock", new Scene_Room2ZoomLock())
+                new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
+                new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),
+                new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomLock", new WaitingRoomZoomLock()),
+                new AbstractMap.SimpleEntry<String, Scene>("Bedroom/Main", new BedroomMain()),
+                new AbstractMap.SimpleEntry<String, Scene>("Bedroom/ZoomBed", new BedroomZoomBed()),
+                new AbstractMap.SimpleEntry<String, Scene>("Bedroom/ZoomStuffedAnimals", new BedroomZoomStuffedAnimals())
         );
         InventoryScene = new InventoryScene();
         //@formatter:on
