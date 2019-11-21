@@ -12,11 +12,12 @@ public class Inventory {
     public Inventory () {
         Items = new ArrayList<>();
         InventoryChecks = new HashMap<>();
-        InventoryChecks.put("GotEmptyCup", false);
-        InventoryChecks.put("GotWaterCup", false);
-        InventoryChecks.put("CoffeeMachineHasWater", false);
-        InventoryChecks.put("CoffeeMachineHasCoffee", false);
-        InventoryChecks.put("GotCoffee", false);
+        InventoryChecks.put("Room2/GotEmptyCup", false);
+        InventoryChecks.put("Room2/GotWaterCup", false);
+        InventoryChecks.put("Room2/CoffeeMachineHasWater", false);
+        InventoryChecks.put("Room2/CoffeeMachineHasCoffee", false);
+        InventoryChecks.put("Room2/GotCoffee", false);
+        InventoryChecks.put("Room2/Unlocked", false);
     }
 
     public void AddItem (Item item) {

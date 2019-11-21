@@ -26,20 +26,20 @@ public class TestScene1 extends Scene {
            }
         });
         getEmptyCup = new MouseHotspot(190, 600, 400, 250, () -> {
-            if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("GotEmptyCup")) {
+            if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("Room2/GotEmptyCup")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.EmptyCup);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("GotEmptyCup", true);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/GotEmptyCup", true);
             }
         });
 
         fillEmptyCup = new MouseHotspot(1485, 250, 100, 170, () -> {
             if(a.InventoryScene.PlayerInventory.SelectedItem != -1
                     && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup")
-                    && !a.InventoryScene.PlayerInventory.InventoryChecks.get("GotWaterCup")
+                    && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Room2/GotWaterCup")
             ) {
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.EmptyCup);
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.WaterCup);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("GotWaterCup", true);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/GotWaterCup", true);
             }
         });
         bedroomBackground = a.loadImage("bedroom.jpg");

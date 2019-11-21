@@ -7,9 +7,9 @@ import processing.core.PImage;
 
 public class Scene_Room2ZoomCoffee extends Scene {
 
-    private MouseHotspot getCupHotspot;
-    private MouseHotspot coffeeMachineHotspot;
-    private MouseHotspot backHotspot;
+    public MouseHotspot getCupHotspot;
+    public MouseHotspot coffeeMachineHotspot;
+    public MouseHotspot backHotspot;
 
     private PImage Background;
 
@@ -22,9 +22,9 @@ public class Scene_Room2ZoomCoffee extends Scene {
             a.ActiveScene = "Room2/Main";
         });
         getCupHotspot = new MouseHotspot(960, 580, 180, 190, () -> {
-            if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("GotEmptyCup")) {
+            if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("Room2/GotEmptyCup")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.EmptyCup);
-//                a.InventoryScene.PlayerInventory.InventoryChecks.put("GotEmptyCup", true);
+//                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/GotEmptyCup", true);
             }
         });
         coffeeMachineHotspot = new MouseHotspot(625, 280, 335, 500, () -> {
@@ -34,24 +34,24 @@ public class Scene_Room2ZoomCoffee extends Scene {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.WaterCup);
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.EmptyCup);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("CoffeeMachineHasWater", true);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/CoffeeMachineHasWater", true);
             }
-            else if(a.InventoryScene.PlayerInventory.InventoryChecks.get("CoffeeMachineHasWater") &&
-                    !a.InventoryScene.PlayerInventory.InventoryChecks.get("CoffeeMachineHasCoffee")) {
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("CoffeeMachineHasCoffee", true);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("CoffeeMachineHasWater", false);
+            else if(a.InventoryScene.PlayerInventory.InventoryChecks.get("Room2/CoffeeMachineHasWater") &&
+                    !a.InventoryScene.PlayerInventory.InventoryChecks.get("Room2/CoffeeMachineHasCoffee")) {
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/CoffeeMachineHasCoffee", true);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/CoffeeMachineHasWater", false);
                 Background = a.loadImage("Room2/coffeeZoomMadeCoffee.png");
             }
             else if(a.InventoryScene.PlayerInventory.SelectedItem != -1
                     && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup")
-                    && a.InventoryScene.PlayerInventory.InventoryChecks.get("CoffeeMachineHasCoffee")
+                    && a.InventoryScene.PlayerInventory.InventoryChecks.get("Room2/CoffeeMachineHasCoffee")
             ) {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.EmptyCup);
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.CoffeeCup);
                 Background = a.loadImage("Room2/coffeeZoomGotCoffee.png");
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("CoffeeMachineHasWater", false);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("GotCoffee", true);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/CoffeeMachineHasWater", false);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/GotCoffee", true);
             } else {
                 System.out.println("You clicked on the coffee machine. You get 3 free wishes.");
             }

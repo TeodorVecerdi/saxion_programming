@@ -1,7 +1,6 @@
 package first_contact.objects;
 
 import first_contact.Entry;
-import first_contact.misc.Constants;
 import first_contact.misc.Input;
 
 import java.awt.event.KeyEvent;
@@ -13,6 +12,7 @@ public class MouseHotspot extends GameObject {
     public int w;
     public int h;
     public Runnable Action;
+    public boolean Enabled;
 
 
     public MouseHotspot () {
@@ -34,17 +34,18 @@ public class MouseHotspot extends GameObject {
         this.w = w;
         this.h = h;
         Action = action;
+        Enabled = true;
     }
 
     @Override
     public void update (float deltaTime) {
+        if (!Enabled) return;
         if (Input.GetButtonDown(KeyEvent.VK_LEFT) && IsMouseInside()) Action.run();
     }
 
     @Override
     public void render () {
-        if(!ShowMouseHotspots) return;
-
+        if(!ShowMouseHotspots || !Enabled) return;
         var a = Entry.Instance;
         a.fill(0xaa00ff00);
         a.noStroke();
@@ -55,5 +56,8 @@ public class MouseHotspot extends GameObject {
         return Input.MouseX >= x && Input.MouseX <= x + w && Input.MouseY >= y && Input.MouseY <= y + h;
     }
 
+    public void SetEnabled(boolean enabled) {
+        Enabled = enabled;
+    }
 
 }

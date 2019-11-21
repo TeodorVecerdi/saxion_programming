@@ -8,10 +8,10 @@ import processing.core.PImage;
 
 public class Scene_Room2Main extends Scene {
 
-    private MouseHotspot changeToScene1;
-    private MouseHotspot coffeeHotspot;
-    private MouseHotspot lockHotspot;
-    private MouseHotspot sinkHotspot;
+    public MouseHotspot changeToScene1;
+    public MouseHotspot coffeeHotspot;
+    public MouseHotspot lockHotspot;
+    public MouseHotspot sinkHotspot;
 
     private PImage Background;
 
@@ -31,12 +31,12 @@ public class Scene_Room2Main extends Scene {
         sinkHotspot = new MouseHotspot(1320, 465, 315, 300, () -> {
             if(a.InventoryScene.PlayerInventory.SelectedItem != -1
                     && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup")
-                    && !a.InventoryScene.PlayerInventory.InventoryChecks.get("GotWaterCup")
+                    && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Room2/GotWaterCup")
             ) {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.EmptyCup);
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.WaterCup);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("GotWaterCup", true);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/GotWaterCup", true);
             }
         });
     }
