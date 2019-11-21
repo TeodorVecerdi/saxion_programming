@@ -12,19 +12,25 @@ public class WaitingRoomZoomCoffee extends Scene {
     public MouseHotspot backHotspot;
 
     private PImage Background;
+    public PImage CoffeeCornerWithoutCup, CoffeeCornerWithCoffee, CoffeeCornerWithCode;
 
     public WaitingRoomZoomCoffee () {
         super();
         var a = Entry.Instance;
 
-        Background = a.loadImage("WaitingRoom/coffeeZoom.png");
+        Background = a.loadImage("WaitingRoom/coffeeCornerWithCup.png");
+        CoffeeCornerWithoutCup = a.loadImage("WaitingRoom/coffeeCornerWithoutCup.png");
+        CoffeeCornerWithCoffee = a.loadImage("WaitingRoom/coffeeCornerWithCoffee.png");
+        CoffeeCornerWithCode = a.loadImage("WaitingRoom/coffeeCornerWithCode.png");
         backHotspot = new MouseHotspot(660, 890, 550, 190, () -> {
             a.ActiveScene = "WaitingRoom/Main";
         });
         getCupHotspot = new MouseHotspot(960, 580, 180, 190, () -> {
             if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotEmptyCup")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.EmptyCup);
-//                a.InventoryScene.PlayerInventory.InventoryChecks.put("Room2/GotEmptyCup", true);
+                Background = CoffeeCornerWithoutCup;
+                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                main.Background = main.WaitingRoomWithoutCup;
             }
         });
         coffeeMachineHotspot = new MouseHotspot(625, 280, 335, 500, () -> {
@@ -40,7 +46,9 @@ public class WaitingRoomZoomCoffee extends Scene {
                     !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")) {
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasCoffee", true);
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
-                Background = a.loadImage("WaitingRoom/coffeeZoomMadeCoffee.png");
+                Background = CoffeeCornerWithCoffee;
+                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                main.Background = main.WaitingRoomWithCoffee;
             }
             else if(a.InventoryScene.PlayerInventory.SelectedItem != -1
                     && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup")
@@ -49,7 +57,9 @@ public class WaitingRoomZoomCoffee extends Scene {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.EmptyCup);
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.CoffeeCup);
-                Background = a.loadImage("WaitingRoom/coffeeZoomGotCoffee.png");
+                Background = CoffeeCornerWithCode;
+                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                main.Background = main.WaitingRoomWithCode;
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/GotCoffee", true);
             } else {

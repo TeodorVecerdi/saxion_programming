@@ -2,36 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/bedController.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/bedControllerSecond.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/main.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/mainSecond.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/stuffedAnimals.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/bedroomDrawerKey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/lockpick.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomBed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomStuffedAnimals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Room2/coffeeZoom.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/WaitingRoom/coffeeZoom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Room2/coffeeZoomGotCoffee.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/WaitingRoom/coffeeZoomGotCoffee.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Room2/coffeeZoomMadeCoffee.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/WaitingRoom/coffeeZoomMadeCoffee.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Room2/lockZoom.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/WaitingRoom/lockZoom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Room2/mainRoom.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/WaitingRoom/mainRoom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/items.psd" beforeDir="false" afterPath="$PROJECT_DIR$/data/items.psd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Scene_Room2Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Scene_Room2ZoomCoffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Scene_Room2ZoomLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/TestScene1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="4" />
+    <option name="PRINT_LINE_NUMBERS" value="true" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../first_contact\exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,16 +68,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="first_contact.misc" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
     </key>
@@ -170,7 +159,8 @@
       <workItem from="1574163970665" duration="11657000" />
       <workItem from="1574262225124" duration="11814000" />
       <workItem from="1574284057802" duration="386000" />
-      <workItem from="1574322339925" duration="11745000" />
+      <workItem from="1574322339925" duration="12390000" />
+      <workItem from="1574340641367" duration="3729000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>

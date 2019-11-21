@@ -8,20 +8,21 @@ import processing.core.PImage;
 
 public class WaitingRoomMain extends Scene {
 
-    public MouseHotspot changeToScene1;
     public MouseHotspot coffeeHotspot;
     public MouseHotspot lockHotspot;
     public MouseHotspot sinkHotspot;
 
-    private PImage Background;
+    public PImage Background;
+    public PImage WaitingRoomWithoutCup, WaitingRoomWithCoffee, WaitingRoomWithCode, WaitingRoomUnlocked;
 
     public WaitingRoomMain () {
         super();
         var a = Entry.Instance;
-        Background = a.loadImage("WaitingRoom/mainRoom.png");
-        changeToScene1 = new MouseHotspot(5, Constants.HEIGHT / 2 - 50, 100, 100, () -> {
-            a.ActiveScene = "TestScene1";
-        });
+        Background = a.loadImage("WaitingRoom/waitingRoomWithCup.png");
+        WaitingRoomWithoutCup = a.loadImage("WaitingRoom/waitingRoomWithoutCup.png");
+        WaitingRoomWithCoffee = a.loadImage("WaitingRoom/waitingRoomWithCoffee.png");
+        WaitingRoomWithCode = a.loadImage("WaitingRoom/waitingRoomWithCode.png");
+        WaitingRoomUnlocked = a.loadImage("WaitingRoom/waitingRoomUnlocked.png");
         coffeeHotspot = new MouseHotspot(930, 400, 350, 300, () -> {
             a.ActiveScene = "WaitingRoom/ZoomCoffee";
         });
@@ -44,7 +45,6 @@ public class WaitingRoomMain extends Scene {
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
-        changeToScene1.update(deltaTime);
         coffeeHotspot.update(deltaTime);
         lockHotspot.update(deltaTime);
         sinkHotspot.update(deltaTime);
@@ -55,7 +55,6 @@ public class WaitingRoomMain extends Scene {
         var a = Entry.Instance;
         a.pushMatrix();
         a.image(Background, 0, 0);
-        changeToScene1.render();
         coffeeHotspot.render();
         lockHotspot.render();
         sinkHotspot.render();

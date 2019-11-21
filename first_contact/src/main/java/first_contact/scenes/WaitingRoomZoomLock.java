@@ -16,7 +16,7 @@ public class WaitingRoomZoomLock extends Scene {
     public MouseHotspot ld3iHotspot;
 
     private int[] lockNumbers = {0, 0, 0};
-    private int[] correctCode = {1, 2, 3};
+    private int[] correctCode = {2, 4, 8};
 
 
     private PImage Background;
@@ -62,10 +62,12 @@ public class WaitingRoomZoomLock extends Scene {
 
         if (a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotCoffee") && lockNumbers[0] == correctCode[0] && lockNumbers[1] == correctCode[1] && lockNumbers[2] == correctCode[2]) {
             System.out.println("YES YOU WON BYE");
-            ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main")).lockHotspot.SetEnabled(false);
-            ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main")).coffeeHotspot.SetEnabled(false);
+            var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+            main.lockHotspot.SetEnabled(false);
+            main.coffeeHotspot.SetEnabled(false);
             a.InventoryScene.PlayerInventory.AddItem(a.Items.Crowbar);
             a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/Unlocked", true);
+            main.Background = main.WaitingRoomUnlocked;
             a.ActiveScene = "WaitingRoom/Main";
         }
     }

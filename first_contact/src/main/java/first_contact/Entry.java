@@ -1,10 +1,11 @@
 package first_contact;
 
 import first_contact.inventory.InventoryScene;
+import first_contact.inventory.Items;
 import first_contact.misc.Constants;
 import first_contact.misc.Input;
-import first_contact.inventory.Items;
-import first_contact.objects.*;
+import first_contact.objects.MouseHotspot;
+import first_contact.objects.Scene;
 import first_contact.scenes.*;
 import processing.core.PApplet;
 import processing.event.MouseEvent;
@@ -32,9 +33,9 @@ public class Entry extends PApplet {
 
     public void setup () {
         frameRate(1000);
-        ActiveScene = "Bedroom/Main";
         Items = new Items();
-        //@formatter:off
+//        @formatter:off
+        ActiveScene = "Bedroom/Main";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),

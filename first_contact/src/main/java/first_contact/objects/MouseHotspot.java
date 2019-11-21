@@ -14,7 +14,6 @@ public class MouseHotspot extends GameObject {
     public Runnable Action;
     public boolean Enabled;
 
-
     public MouseHotspot () {
         this(0, 0, 0, 0, () -> {
             System.out.println("Hotspot clicked");
@@ -39,24 +38,23 @@ public class MouseHotspot extends GameObject {
 
     @Override
     public void update (float deltaTime) {
-        if (!Enabled) return;
-        if (Input.GetButtonDown(KeyEvent.VK_LEFT) && IsMouseInside()) Action.run();
-    }
-
-    @Override
-    public void render () {
-        if(!ShowMouseHotspots || !Enabled) return;
-        var a = Entry.Instance;
-        a.fill(0xaa00ff00);
-        a.noStroke();
-        a.rect(x, y, w, h);
+        if (Enabled && Input.GetButtonDown(KeyEvent.VK_LEFT) && IsMouseInside()) Action.run();
     }
 
     public boolean IsMouseInside () {
         return Input.MouseX >= x && Input.MouseX <= x + w && Input.MouseY >= y && Input.MouseY <= y + h;
     }
 
-    public void SetEnabled(boolean enabled) {
+    @Override
+    public void render () {
+        if (!ShowMouseHotspots || !Enabled) return;
+        var a = Entry.Instance;
+        a.fill(0xaa00ff00);
+        a.noStroke();
+        a.rect(x, y, w, h);
+    }
+
+    public void SetEnabled (boolean enabled) {
         Enabled = enabled;
     }
 
