@@ -1,5 +1,6 @@
 package first_contact.misc;
 
+import first_contact.objects.MouseHotspot;
 import processing.core.PVector;
 
 import java.util.HashMap;
@@ -90,5 +91,13 @@ public class Input {
             return !_buttonsCheck.get(key);
         }
         return false;
+    }
+
+    public static boolean IsMouseInside(int x, int y, int w, int h) {
+        return MouseX >= x && MouseX <= x+w && MouseY >= y && MouseY <= y+h;
+    }
+
+    public static boolean IsMouseInside(MouseHotspot hotspot) {
+        return IsMouseInside(hotspot.x, hotspot.y, hotspot.w, hotspot.h);
     }
 }

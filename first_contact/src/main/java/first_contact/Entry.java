@@ -3,6 +3,7 @@ package first_contact;
 import first_contact.inventory.InventoryScene;
 import first_contact.inventory.Items;
 import first_contact.misc.Constants;
+import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
@@ -10,16 +11,21 @@ import first_contact.scenes.*;
 import processing.core.PApplet;
 import processing.event.MouseEvent;
 
+import java.security.SecureRandom;
 import java.util.AbstractMap;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class Entry extends PApplet {
     public static Entry Instance;
     public float deltaTime = 0f;
     public Map<String, Scene> Scenes;
     public String ActiveScene;
-    public first_contact.inventory.InventoryScene InventoryScene;
+    public InventoryScene InventoryScene;
     public Items Items;
+    public HashMap<UUID, FloatingText> FloatingTexts;
+    public SecureRandom SecureRandom;
 
     public static void main (String[] args) {
         PApplet.main(Entry.class.getName());
@@ -28,11 +34,12 @@ public class Entry extends PApplet {
     public void settings () {
         Instance = this;
         size(Constants.WIDTH, Constants.HEIGHT);
-        fullScreen();
+        fullScreen(2);
     }
 
     public void setup () {
         frameRate(1000);
+        SecureRandom = new SecureRandom();
         Items = new Items();
 //        @formatter:off
         ActiveScene = "Bedroom/Main";
@@ -46,12 +53,15 @@ public class Entry extends PApplet {
                 new AbstractMap.SimpleEntry<String, Scene>("Hallway/Main", new Hallway())
         );
         InventoryScene = new InventoryScene();
+        FloatingTexts = new HashMap<>();
         //@formatter:on
     }
 
     public void update () {
         Scenes.get(ActiveScene).update(deltaTime);
         InventoryScene.update(deltaTime);
+        FloatingTexts.entrySet().removeIf(uuidFloatingTextEntry -> uuidFloatingTextEntry.getValue().done);
+        FloatingTexts.forEach(((uuid, floatingText) -> floatingText.update(deltaTime)));
 
         // TODO: IS DEBUG, REMOVE
         if (Input.GetKeyDown(java.awt.event.KeyEvent.VK_SPACE)) {
@@ -63,6 +73,7 @@ public class Entry extends PApplet {
         background(0);
         Scenes.get(ActiveScene).render();
         InventoryScene.render();
+        FloatingTexts.forEach(((uuid, floatingText) -> floatingText.render()));
 
         fill(0, 255, 0);
         textSize(20);

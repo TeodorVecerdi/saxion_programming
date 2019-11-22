@@ -49,9 +49,11 @@ public class MouseHotspot extends GameObject {
     public void render () {
         if (!ShowMouseHotspots || !Enabled) return;
         var a = Entry.Instance;
+        a.pushMatrix();
         a.fill(0xaa00ff00);
         a.noStroke();
         a.rect(x, y, w, h);
+        a.popMatrix();
     }
 
     public void SetEnabled (boolean enabled) {

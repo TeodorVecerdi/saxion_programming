@@ -1,5 +1,7 @@
 package first_contact.inventory;
 
+import first_contact.Entry;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,6 +24,7 @@ public class Inventory {
         InventoryChecks.put("Bedroom/PuzzleDone", false);
         InventoryChecks.put("Bedroom/GotLockpick", false);
         InventoryChecks.put("Bedroom/GotKey", false);
+        Items.add(Entry.Instance.Items.Crowbar);
     }
 
     public void AddItem (Item item) {

@@ -1,9 +1,15 @@
 package first_contact.scenes;
 
+import com.jogamp.newt.event.MouseEvent;
 import first_contact.Entry;
+import first_contact.misc.FloatingText;
+import first_contact.misc.Input;
+import first_contact.misc.Messages;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
+
+import java.awt.event.KeyEvent;
 
 public class WaitingRoomZoomCoffee extends Scene {
 
@@ -23,17 +29,21 @@ public class WaitingRoomZoomCoffee extends Scene {
         CoffeeCornerWithCoffee = a.loadImage("WaitingRoom/coffeeCornerWithCoffee.png");
         CoffeeCornerWithCode = a.loadImage("WaitingRoom/coffeeCornerWithCode.png");
         backHotspot = new MouseHotspot(660, 890, 550, 190, () -> {
+            HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/Main";
         });
         getCupHotspot = new MouseHotspot(960, 580, 180, 190, () -> {
+            HotspotClickedThisFrame = true;
             if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotEmptyCup")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.EmptyCup);
                 Background = CoffeeCornerWithoutCup;
                 var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
                 main.Background = main.WaitingRoomWithoutCup;
+                getCupHotspot.SetEnabled(false);
             }
         });
         coffeeMachineHotspot = new MouseHotspot(625, 280, 335, 500, () -> {
+            HotspotClickedThisFrame = true;
             if(a.InventoryScene.PlayerInventory.SelectedItem != -1
                     && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Water Cup")
             ) {
@@ -62,8 +72,11 @@ public class WaitingRoomZoomCoffee extends Scene {
                 main.Background = main.WaitingRoomWithCode;
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/GotCoffee", true);
+                coffeeMachineHotspot.SetEnabled(false);
+            } else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
+                new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
             } else {
-                System.out.println("You clicked on the coffee machine. You get 3 free wishes.");
+                new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
             }
         });
     }
@@ -74,6 +87,13 @@ public class WaitingRoomZoomCoffee extends Scene {
         backHotspot.update(deltaTime);
         getCupHotspot.update(deltaTime);
         coffeeMachineHotspot.update(deltaTime);
+
+        if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
+            if(!HotspotClickedThisFrame) {
+                new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
+            }
+        }
+        HotspotClickedThisFrame = false;
     }
 
     @Override
@@ -90,4 +110,5 @@ public class WaitingRoomZoomCoffee extends Scene {
         a.text(String.format("%s (%s)", Name, SceneName), 20, 30);
         a.popMatrix();
     }
+
 }

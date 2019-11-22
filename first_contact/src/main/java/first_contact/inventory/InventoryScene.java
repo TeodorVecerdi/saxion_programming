@@ -1,5 +1,6 @@
 package first_contact.inventory;
 
+import com.jogamp.newt.event.MouseEvent;
 import first_contact.Entry;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
@@ -53,6 +54,7 @@ public class InventoryScene extends Scene {
     @Override
     public void render () {
         var a = Entry.Instance;
+        a.pushMatrix();
         int numSlots = Math.max(numSlotsStart, PlayerInventory.Items.size());
         for (int i = 0; i < numSlots; i++) {
             a.fill(0xff222222);
@@ -71,9 +73,11 @@ public class InventoryScene extends Scene {
         for (var inventorySlotHotspot : inventorySlotHotspots) {
             inventorySlotHotspot.render();
         }
+        a.popMatrix();
     }
 
     private void TrySelectSlot (int slot) {
         if (PlayerInventory.Items.size() > slot) PlayerInventory.SelectedItem = slot;
     }
+
 }

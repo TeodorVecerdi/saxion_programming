@@ -1,9 +1,15 @@
 package first_contact.scenes;
 
+import com.jogamp.newt.event.MouseEvent;
 import first_contact.Entry;
+import first_contact.misc.FloatingText;
+import first_contact.misc.Input;
+import first_contact.misc.Messages;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
+
+import java.awt.event.KeyEvent;
 
 public class WaitingRoomZoomLock extends Scene {
 
@@ -27,24 +33,31 @@ public class WaitingRoomZoomLock extends Scene {
 
         Background = a.loadImage("WaitingRoom/lockZoom.png");
         backHotspot = new MouseHotspot(660, 890, 550, 190, () -> {
+            HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/Main";
         });
         ld1dHotspot = new MouseHotspot(1008, 471, 26, 40, () -> {
+            HotspotClickedThisFrame = true;
             lockNumbers[0] = Math.floorMod(lockNumbers[0] - 1, 10);
         });
         ld2dHotspot = new MouseHotspot(1008, 471 + 71, 26, 40, () -> {
+            HotspotClickedThisFrame = true;
             lockNumbers[1] = Math.floorMod(lockNumbers[1] - 1, 10);
         });
         ld3dHotspot = new MouseHotspot(1008, 471 + 71 + 74, 26, 40, () -> {
+            HotspotClickedThisFrame = true;
             lockNumbers[2] = Math.floorMod(lockNumbers[2] - 1, 10);
         });
         ld1iHotspot = new MouseHotspot(1008 + 113, 471, 26, 40, () -> {
+            HotspotClickedThisFrame = true;
             lockNumbers[0] = Math.floorMod(lockNumbers[0] + 1, 10);
         });
         ld2iHotspot = new MouseHotspot(1008 + 113, 471 + 71, 26, 40, () -> {
+            HotspotClickedThisFrame = true;
             lockNumbers[1] = Math.floorMod(lockNumbers[1] + 1, 10);
         });
         ld3iHotspot = new MouseHotspot(1008 + 113, 471 + 71 + 74, 26, 40, () -> {
+            HotspotClickedThisFrame = true;
             lockNumbers[2] = Math.floorMod(lockNumbers[2] + 1, 10);
         });
     }
@@ -70,6 +83,13 @@ public class WaitingRoomZoomLock extends Scene {
             main.Background = main.WaitingRoomUnlocked;
             a.ActiveScene = "WaitingRoom/Main";
         }
+
+        if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
+            if(!HotspotClickedThisFrame) {
+                new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
+            }
+        }
+        HotspotClickedThisFrame = false;
     }
 
     @Override
@@ -95,4 +115,5 @@ public class WaitingRoomZoomLock extends Scene {
         a.text(String.format("%s (%s)", Name, SceneName), 20, 30);
         a.popMatrix();
     }
+
 }
