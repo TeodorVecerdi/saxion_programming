@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
+      <change afterPath="$PROJECT_DIR$/data/Hallway/hallwayLitUp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Hallway/hallwayNotLitUp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Hallway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +54,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/Hallway" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -68,17 +70,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="first_contact.misc" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Hallway" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
     </key>
@@ -160,7 +163,8 @@
       <workItem from="1574262225124" duration="11814000" />
       <workItem from="1574284057802" duration="386000" />
       <workItem from="1574322339925" duration="12390000" />
-      <workItem from="1574340641367" duration="3729000" />
+      <workItem from="1574340641367" duration="4104000" />
+      <workItem from="1574413747196" duration="4690000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>

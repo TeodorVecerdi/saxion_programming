@@ -21,6 +21,7 @@ public class Inventory {
         InventoryChecks.put("Bedroom/DrawerUnlocked", false);
         InventoryChecks.put("Bedroom/PuzzleDone", false);
         InventoryChecks.put("Bedroom/GotLockpick", false);
+        InventoryChecks.put("Bedroom/GotKey", false);
     }
 
     public void AddItem (Item item) {

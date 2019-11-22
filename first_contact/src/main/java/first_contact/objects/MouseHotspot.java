@@ -6,7 +6,7 @@ import first_contact.misc.Input;
 import java.awt.event.KeyEvent;
 
 public class MouseHotspot extends GameObject {
-    public static Boolean ShowMouseHotspots = true;
+    public static Boolean ShowMouseHotspots = false;
     public int x;
     public int y;
     public int w;

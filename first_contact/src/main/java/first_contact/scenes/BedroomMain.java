@@ -38,7 +38,10 @@ public class BedroomMain extends Scene {
             }
         });
         keyHotspot = new MouseHotspot(1027, 753, 100, 92, () -> {
-            a.InventoryScene.PlayerInventory.AddItem(a.Items.BedroomDrawerKey);
+            if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
+                a.InventoryScene.PlayerInventory.AddItem(a.Items.BedroomDrawerKey);
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotKey", true);
+            }
         });
         keyHotspot.SetEnabled(false);
         doorHotspot = new MouseHotspot(621, 317, 204, 430, () -> {

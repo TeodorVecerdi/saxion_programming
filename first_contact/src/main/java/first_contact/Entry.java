@@ -42,7 +42,8 @@ public class Entry extends PApplet {
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomLock", new WaitingRoomZoomLock()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/Main", new BedroomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/ZoomBed", new BedroomZoomBed()),
-                new AbstractMap.SimpleEntry<String, Scene>("Bedroom/ZoomStuffedAnimals", new BedroomZoomStuffedAnimals())
+                new AbstractMap.SimpleEntry<String, Scene>("Bedroom/ZoomStuffedAnimals", new BedroomZoomStuffedAnimals()),
+                new AbstractMap.SimpleEntry<String, Scene>("Hallway/Main", new Hallway())
         );
         InventoryScene = new InventoryScene();
         //@formatter:on

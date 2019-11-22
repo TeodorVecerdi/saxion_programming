@@ -1,0 +1,31 @@
+offee machine is cable broken, you get tape to fix the cable when you
+
+ do the xilophone puzzle opening the drawer. The coffee machine needs water.
+
+  There will be a poster next to the coffee machine telling you that and also
+
+   a flashing LED if the machine has power.
+
+    
+
+    Radio has multipe channels with static noise and when you get the correct 
+
+    channel the song plays. To finish the challenge you have to replay the same 
+
+    song on the xilophone.
+
+
+
+
+
+    ++ Add another puzzle to the bedroom, involving more of the furniture
+
+    ++ Add a puzzle / item you can pick up in the hallway
+
+    ++ Make the hallway flicker less frequently (and more randomly?)
+
+    !! The inventory crashes if it has more than one of the same item and you
+
+    try to remove that item.
+
+    ++ We need more interaction
