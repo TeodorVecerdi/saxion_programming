@@ -1,11 +1,11 @@
 Coffee machine is cable broken, you get tape to fix the cable when you
-do the xilophone puzzle opening the drawer. The coffee machine needs water.
+do the xylophone puzzle opening the drawer. The coffee machine needs water.
 There will be a poster next to the coffee machine telling you that and also
 a flashing LED if the machine has power.
 
-Radio has multipe channels with static noise and when you get the correct 
+Radio has multiple channels with static noise and when you get the correct
 channel the song plays. To finish the challenge you have to replay the same 
-song on the xilophone.
+song on the xylophone.
 
 ++ Add another puzzle to the bedroom, involving more of the furniture
 ++ Add a puzzle / item you can pick up in the hallway
@@ -17,3 +17,6 @@ song on the xilophone.
     Should say 'Messages.NoHotspot' / Disable hotspot 
 !! Explicitly say noStroke in inventory render. (And other places where
     you don't need a stroke so other render methods don't fuck you up)
+++ Add Doctor's Office room
+++ Add final art for bedroom
+++ Add final art for waiting room
