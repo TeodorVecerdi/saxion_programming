@@ -80,7 +80,7 @@ public class BedroomZoomBed extends Scene {
             ((BedroomMain) a.Scenes.get("Bedroom/Main")).bedControllerHotspot.SetEnabled(false);
             ((BedroomMain) a.Scenes.get("Bedroom/Main")).stuffedAnimalsHotspot.SetEnabled(false);
             ((BedroomMain) a.Scenes.get("Bedroom/Main")).keyHotspot.SetEnabled(true);
-            ((BedroomMain) a.Scenes.get("Bedroom/Main")).Background = a.Assets.GetSprite("scene/mainSecond");
+            ((BedroomMain) a.Scenes.get("Bedroom/Main")).Background = ((BedroomMain) a.Scenes.get("Bedroom/Main")).BedroomBedLifted;
             a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/PuzzleDone", true);
         }
         if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {

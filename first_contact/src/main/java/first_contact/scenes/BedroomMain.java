@@ -21,12 +21,15 @@ public class BedroomMain extends Scene {
     public MouseHotspot doorHotspot;
 
     public PImage Background;
+    public PImage BedroomKeyTaken, BedroomBedLifted;
 
 
     public BedroomMain () {
         super();
         var a = Entry.Instance;
-        Background = a.Assets.GetSprite("scene/main");
+        Background = a.Assets.GetSprite("scene/bedroomMain");
+        BedroomKeyTaken = a.Assets.GetSprite("scene/bedroomKeyTaken");
+        BedroomBedLifted = a.Assets.GetSprite("scene/bedroomBedLifted");
         stuffedAnimalsHotspot = new MouseHotspot(347, 591, 142, 130, () -> {
             Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "Bedroom/ZoomStuffedAnimals";
@@ -56,6 +59,7 @@ public class BedroomMain extends Scene {
             if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("bedroomDrawerKey"));
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotKey", true);
+                Background = BedroomKeyTaken;
             }
         });
         keyHotspot.SetEnabled(false);
