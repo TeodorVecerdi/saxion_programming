@@ -79,6 +79,15 @@
     },{
       "id": "scene/stuffedAnimals",
       "sprite": "Bedroom/stuffedAnimals.png"
+    },{
+      "id": "scene/bedroomBedLifted",
+      "sprite": "Bedroom/bedroomBedLifted.png"
+    },{
+      "id": "scene/bedroomMain",
+      "sprite": "Bedroom/bedroomMain.png"
+    },{
+      "id": "scene/bedroomKeyTaken",
+      "sprite": "Bedroom/bedroomKeyTaken.png"
     }
   ]
 }
