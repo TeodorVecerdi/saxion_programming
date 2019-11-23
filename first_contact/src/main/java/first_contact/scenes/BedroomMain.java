@@ -26,24 +26,24 @@ public class BedroomMain extends Scene {
     public BedroomMain () {
         super();
         var a = Entry.Instance;
-        Background = a.loadImage("Bedroom/main.png");
+        Background = a.Assets.GetSprite("scene/main");
         stuffedAnimalsHotspot = new MouseHotspot(347, 591, 142, 130, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "Bedroom/ZoomStuffedAnimals";
         });
         bedControllerHotspot = new MouseHotspot(1595, 685, 325, 252, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "Bedroom/ZoomBed";
         });
         drawerHotspot = new MouseHotspot(500, 660, 100, 92, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             if(a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DrawerUnlocked")
             && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotLockpick")) {
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.Lockpick);
+                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotLockpick", true);
             }else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Bedroom Drawer Key")) {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.BedroomDrawerKey);
+                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("bedroomDrawerKey"));
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DrawerUnlocked", true);
             }else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
                 new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
@@ -52,17 +52,17 @@ public class BedroomMain extends Scene {
             }
         });
         keyHotspot = new MouseHotspot(1027, 753, 100, 92, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.BedroomDrawerKey);
+                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("bedroomDrawerKey"));
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotKey", true);
             }
         });
         keyHotspot.SetEnabled(false);
         doorHotspot = new MouseHotspot(621, 317, 204, 430, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Lockpick")) {
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.Lockpick);
+                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("lockpick"));
                 a.ActiveScene = "Hallway/Main";
             }else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
                 new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
@@ -83,12 +83,10 @@ public class BedroomMain extends Scene {
         doorHotspot.update(deltaTime);
 
         if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(!HotspotClickedThisFrame) {
+            if(!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
             }
         }
-
-        HotspotClickedThisFrame = false;
     }
 
     @Override

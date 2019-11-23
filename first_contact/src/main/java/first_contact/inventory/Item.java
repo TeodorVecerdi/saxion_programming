@@ -4,12 +4,16 @@ import first_contact.Entry;
 import processing.core.PImage;
 
 public class Item {
+    public String ItemID;
     public String ItemName;
-    public PImage ItemImage;
 
-    public Item(String itemName, String itemImageName) {
+    public Item(String itemID, String itemName) {
+        ItemID = itemID;
         ItemName = itemName;
-        ItemImage = Entry.Instance.loadImage(itemImageName);
+    }
+
+    public PImage ItemSprite() {
+        return Entry.Instance.Assets.GetSprite("items/"+ItemID);
     }
 }
 

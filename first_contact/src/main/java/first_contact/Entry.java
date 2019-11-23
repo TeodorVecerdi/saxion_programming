@@ -2,6 +2,7 @@ package first_contact;
 
 import first_contact.inventory.InventoryScene;
 import first_contact.inventory.Items;
+import first_contact.misc.Assets;
 import first_contact.misc.Constants;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
@@ -9,6 +10,7 @@ import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import first_contact.scenes.*;
 import processing.core.PApplet;
+import processing.core.PConstants;
 import processing.event.MouseEvent;
 
 import java.security.SecureRandom;
@@ -26,6 +28,7 @@ public class Entry extends PApplet {
     public Items Items;
     public HashMap<UUID, FloatingText> FloatingTexts;
     public SecureRandom SecureRandom;
+    public Assets Assets;
 
     public static void main (String[] args) {
         PApplet.main(Entry.class.getName());
@@ -39,9 +42,13 @@ public class Entry extends PApplet {
 
     public void setup () {
         frameRate(1000);
+
+        InventoryScene = new InventoryScene();
+        FloatingTexts = new HashMap<>();
         SecureRandom = new SecureRandom();
+        Assets = new Assets();
         Items = new Items();
-//        @formatter:off
+        //        @formatter:off
         ActiveScene = "Bedroom/Main";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
@@ -52,14 +59,14 @@ public class Entry extends PApplet {
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/ZoomStuffedAnimals", new BedroomZoomStuffedAnimals()),
                 new AbstractMap.SimpleEntry<String, Scene>("Hallway/Main", new Hallway())
         );
-        InventoryScene = new InventoryScene();
-        FloatingTexts = new HashMap<>();
+
         //@formatter:on
     }
 
     public void update () {
-        Scenes.get(ActiveScene).update(deltaTime);
         InventoryScene.update(deltaTime);
+        Scenes.get(ActiveScene).update(deltaTime);
+        Scene.HotspotClickedThisFrame = false;
         FloatingTexts.entrySet().removeIf(uuidFloatingTextEntry -> uuidFloatingTextEntry.getValue().done);
         FloatingTexts.forEach(((uuid, floatingText) -> floatingText.update(deltaTime)));
 

@@ -1,6 +1,5 @@
 package first_contact.inventory;
 
-import com.jogamp.newt.event.MouseEvent;
 import first_contact.Entry;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
@@ -20,6 +19,7 @@ public class InventoryScene extends Scene {
         for (int i = 0; i < numSlotsStart; i++) {
             final int slot = i;
             inventorySlotHotspots.add(new MouseHotspot(i * 150 + i * 10 + 10, 10, 150, 150, () -> {
+                Scene.HotspotClickedThisFrame = true;
                 TrySelectSlot(slot);
             }));
         }
@@ -31,21 +31,21 @@ public class InventoryScene extends Scene {
         //increase/decrease inventory
 
         int numSlots = Math.max(numSlotsStart, PlayerInventory.Items.size());
-        if(numSlots > inventorySlotHotspots.size()) {
-            for(int i = inventorySlotHotspots.size(); i < numSlots; i++) {
+        if (numSlots > inventorySlotHotspots.size()) {
+            for (int i = inventorySlotHotspots.size(); i < numSlots; i++) {
                 final int slot = i;
                 inventorySlotHotspots.add(new MouseHotspot(i * 150 + i * 10 + 10, 10, 150, 150, () -> {
+                    Scene.HotspotClickedThisFrame = true;
                     TrySelectSlot(slot);
                 }));
             }
         } else if (numSlots < inventorySlotHotspots.size() && inventorySlotHotspots.size() > numSlotsStart) {
-            for(int i = inventorySlotHotspots.size()-1; i >= numSlotsStart; i--) {
+            for (int i = inventorySlotHotspots.size() - 1; i >= numSlotsStart; i--) {
                 inventorySlotHotspots.remove(i);
             }
         }
 
-        if (PlayerInventory.Items.isEmpty() && PlayerInventory.SelectedItem != -1)
-            PlayerInventory.SelectedItem = -1;
+        if (PlayerInventory.Items.isEmpty() && PlayerInventory.SelectedItem != -1) PlayerInventory.SelectedItem = -1;
         for (var inventorySlotHotspot : inventorySlotHotspots) {
             inventorySlotHotspot.update(deltaTime);
         }
@@ -57,17 +57,19 @@ public class InventoryScene extends Scene {
         a.pushMatrix();
         int numSlots = Math.max(numSlotsStart, PlayerInventory.Items.size());
         for (int i = 0; i < numSlots; i++) {
+            a.fill(0xaa222222);
+            a.rect(i * 150 + i * 10 + 20, 10 + 10, 130, 130);
+        }
+        for (int i = 0; i < a.InventoryScene.PlayerInventory.Items.size(); i++) {
+            a.image(a.InventoryScene.PlayerInventory.Items.get(i).ItemSprite(), i * 150 + i * 10 + 10, 10);
+        }
+        for (int i = 0; i < numSlots; i++) {
             a.fill(0xff222222);
             if (PlayerInventory.SelectedItem == i) a.fill(0xffaaaaaa);
             a.rect(i * 150 + i * 10 + 10, 10, 10, 150);
             a.rect(i * 150 + i * 10 + 150, 10, 10, 150);
             a.rect(i * 150 + i * 10 + 10, 10, 150, 10);
             a.rect(i * 150 + i * 10 + 10, 10 + 140, 150, 10);
-            a.fill(0xaa222222);
-            a.rect(i * 150 + i * 10 + 20, 10 + 10, 130, 130);
-        }
-        for (int i = 0; i < a.InventoryScene.PlayerInventory.Items.size(); i++) {
-            a.image(a.InventoryScene.PlayerInventory.Items.get(i).ItemImage, i * 150 + i * 10 + 10, 10);
         }
 
         for (var inventorySlotHotspot : inventorySlotHotspots) {

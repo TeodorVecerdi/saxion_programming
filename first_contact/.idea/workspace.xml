@@ -2,14 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
-      <change afterPath="$PROJECT_DIR$/data/Hallway/hallwayLitUp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Hallway/hallwayNotLitUp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Hallway.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/items.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/items/errorItem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sprites.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Assets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/LoadingScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Items/bedroomDrawerKey.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/items/bedroomDrawerKey.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Items/coffeeCup.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/items/coffeeCup.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Items/crowbar.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/items/crowbar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Items/emptyCup.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/items/emptyCup.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Items/lockpick.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/items/lockpick.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Items/waterCup.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/items/waterCup.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/coffeeZoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/coffeeZoomGotCoffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/coffeeZoomMadeCoffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/mainRoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/items.psd" beforeDir="false" afterPath="$PROJECT_DIR$/data/items.psd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/FloatingText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/FloatingText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomBed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomStuffedAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomStuffedAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Hallway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Hallway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../suggestions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../suggestions.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,20 +94,20 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Hallway" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="first_contact.misc" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Hallway" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -164,7 +188,9 @@
       <workItem from="1574284057802" duration="386000" />
       <workItem from="1574322339925" duration="12390000" />
       <workItem from="1574340641367" duration="4104000" />
-      <workItem from="1574413747196" duration="4690000" />
+      <workItem from="1574413747196" duration="5134000" />
+      <workItem from="1574430750844" duration="7890000" />
+      <workItem from="1574524377186" duration="5613000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>

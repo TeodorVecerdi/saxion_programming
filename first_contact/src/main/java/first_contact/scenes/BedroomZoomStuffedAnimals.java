@@ -17,9 +17,9 @@ public class BedroomZoomStuffedAnimals extends Scene {
 
     public BedroomZoomStuffedAnimals() {
         var a = Entry.Instance;
-        Background = a.loadImage("Bedroom/stuffedAnimals.png");
+        Background = a.Assets.GetSprite("scene/stuffedAnimals");
         backHotspot = new MouseHotspot(721, 937, 474, 143, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "Bedroom/Main";
         });
     }
@@ -29,11 +29,10 @@ public class BedroomZoomStuffedAnimals extends Scene {
         var a = Entry.Instance;
         backHotspot.update(deltaTime);
         if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(!HotspotClickedThisFrame) {
+            if(!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
             }
         }
-        HotspotClickedThisFrame = false;
     }
 
     @Override

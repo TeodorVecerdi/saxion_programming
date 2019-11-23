@@ -24,28 +24,28 @@ public class WaitingRoomMain extends Scene {
     public WaitingRoomMain () {
         super();
         var a = Entry.Instance;
-        Background = a.loadImage("WaitingRoom/waitingRoomWithCup.png");
-        WaitingRoomWithoutCup = a.loadImage("WaitingRoom/waitingRoomWithoutCup.png");
-        WaitingRoomWithCoffee = a.loadImage("WaitingRoom/waitingRoomWithCoffee.png");
-        WaitingRoomWithCode = a.loadImage("WaitingRoom/waitingRoomWithCode.png");
-        WaitingRoomUnlocked = a.loadImage("WaitingRoom/waitingRoomUnlocked.png");
+        Background = a.Assets.GetSprite("scene/waitingRoomWithCup");
+        WaitingRoomWithoutCup = a.Assets.GetSprite("scene/waitingRoomWithoutCup");
+        WaitingRoomWithCoffee = a.Assets.GetSprite("scene/waitingRoomWithCoffee");
+        WaitingRoomWithCode = a.Assets.GetSprite("scene/waitingRoomWithCode");
+        WaitingRoomUnlocked = a.Assets.GetSprite("scene/waitingRoomUnlocked");
         coffeeHotspot = new MouseHotspot(930, 400, 350, 300, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/ZoomCoffee";
         });
         lockHotspot = new MouseHotspot(600, 530, 250, 220, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/ZoomLock";
         });
         sinkHotspot = new MouseHotspot(1320, 465, 315, 300, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             if(a.InventoryScene.PlayerInventory.SelectedItem != -1
                     && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup")
                     && !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotWaterCup")
             ) {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.EmptyCup);
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.WaterCup);
+                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("emptyCup"));
+                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("waterCup"));
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/GotWaterCup", true);
             } else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
                 new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
@@ -63,11 +63,10 @@ public class WaitingRoomMain extends Scene {
         sinkHotspot.update(deltaTime);
 
         if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(!HotspotClickedThisFrame) {
+            if(!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
             }
         }
-        HotspotClickedThisFrame = false;
     }
 
     @Override

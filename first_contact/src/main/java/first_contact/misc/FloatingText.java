@@ -52,9 +52,12 @@ public class FloatingText extends GameObject {
         a.scale(scale);
         a.translate(-x, -y);
 
+        a.fill(0xaa, opacity);
+        a.textSize(24);
+        a.text(text, x+1, y);
         a.fill(0x44, opacity);
         a.textSize(24);
-        a.text(text, x, y);
+        a.text(text, x, y+1);
         a.popMatrix();
     }
 }

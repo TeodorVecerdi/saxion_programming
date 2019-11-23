@@ -1,0 +1,84 @@
+{
+  "itemSprites": [
+    {
+      "id": "items/errorItem",
+      "sprite": "items/errorItem.png"
+    },
+    {
+      "id": "items/emptyCup",
+      "sprite": "items/emptyCup.png"
+    },{
+      "id": "items/waterCup",
+      "sprite": "items/waterCup.png"
+    },{
+      "id": "items/coffeeCup",
+      "sprite": "items/coffeeCup.png"
+    },{
+      "id": "items/lockpick",
+      "sprite": "items/lockpick.png"
+    },{
+      "id": "items/crowbar",
+      "sprite": "items/crowbar.png"
+    },{
+      "id": "items/bedroomDrawerKey",
+      "sprite": "items/bedroomDrawerKey.png"
+    }
+  ],
+  "sceneSprites": [
+    {
+      "id": "scene/hallwayLitUp",
+      "sprite": "Hallway/hallwayLitUp.png"
+    },{
+      "id": "scene/hallwayNotLitUp",
+      "sprite": "Hallway/hallwayNotLitUp.png"
+    },{
+      "id": "scene/hallwayLitUp",
+      "sprite": "Hallway/hallwayLitUp.png"
+    },{
+      "id": "scene/coffeeCornerWithCode",
+      "sprite": "WaitingRoom/coffeeCornerWithCode.png"
+    },{
+      "id": "scene/coffeeCornerWithCoffee",
+      "sprite": "WaitingRoom/coffeeCornerWithCoffee.png"
+    },{
+      "id": "scene/coffeeCornerWithCup",
+      "sprite": "WaitingRoom/coffeeCornerWithCup.png"
+    },{
+      "id": "scene/coffeeCornerWithoutCup",
+      "sprite": "WaitingRoom/coffeeCornerWithoutCup.png"
+    },{
+      "id": "scene/lockZoom",
+      "sprite": "WaitingRoom/lockZoom.png"
+    },{
+      "id": "scene/waitingRoomUnlocked",
+      "sprite": "WaitingRoom/waitingRoomUnlocked.png"
+    },{
+      "id": "scene/waitingRoomWithCode",
+      "sprite": "WaitingRoom/waitingRoomWithCode.png"
+    },{
+      "id": "scene/waitingRoomWithCoffee",
+      "sprite": "WaitingRoom/waitingRoomWithCoffee.png"
+    },{
+      "id": "scene/waitingRoomWithCup",
+      "sprite": "WaitingRoom/waitingRoomWithCup.png"
+    },{
+      "id": "scene/waitingRoomWithoutCup",
+      "sprite": "WaitingRoom/waitingRoomWithoutCup.png"
+    },{
+      "id": "scene/bedController",
+      "sprite": "Bedroom/bedController.png"
+    },{
+      "id": "scene/bedControllerSecond",
+      "sprite": "Bedroom/bedControllerSecond.png"
+    },{
+      "id": "scene/main",
+      "sprite": "Bedroom/main.png"
+    },{
+      "id": "scene/mainSecond",
+      "sprite": "Bedroom/mainSecond.png"
+    },{
+      "id": "scene/stuffedAnimals",
+      "sprite": "Bedroom/stuffedAnimals.png"
+    }
+  ]
+}

@@ -28,33 +28,33 @@ public class BedroomZoomBed extends Scene {
 
     public BedroomZoomBed () {
         var a = Entry.Instance;
-        Background = a.loadImage("Bedroom/bedController.png");
+        Background = a.Assets.GetSprite("scene/bedController");
         B1PHotspot = new MouseHotspot(736, 327, 75, 48, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             b1 = 1;
         });
         B1MHotspot = new MouseHotspot(736, 327 + 87, 75, 48, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             b1 = -1;
         });
         B2PHotspot = new MouseHotspot(736 + 162, 327, 75, 48, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             b2 = 1;
         });
         B2MHotspot = new MouseHotspot(736 + 162, 327 + 87, 75, 48, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             b2 = -1;
         });
         B3PHotspot = new MouseHotspot(736 + 162 + 158, 327, 75, 48, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             b3 = 1;
         });
         B3MHotspot = new MouseHotspot(736 + 162 + 158, 327 + 87, 75, 48, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             b3 = -1;
         });
         backHotspot = new MouseHotspot(721, 937, 474, 143, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "Bedroom/Main";
         });
     }
@@ -76,19 +76,18 @@ public class BedroomZoomBed extends Scene {
             B2MHotspot.SetEnabled(false);
             B3PHotspot.SetEnabled(false);
             B3MHotspot.SetEnabled(false);
-            Background = a.loadImage("Bedroom/bedControllerSecond.png");
+            Background = a.Assets.GetSprite("scene/bedControllerSecond");
             ((BedroomMain) a.Scenes.get("Bedroom/Main")).bedControllerHotspot.SetEnabled(false);
             ((BedroomMain) a.Scenes.get("Bedroom/Main")).stuffedAnimalsHotspot.SetEnabled(false);
             ((BedroomMain) a.Scenes.get("Bedroom/Main")).keyHotspot.SetEnabled(true);
-            ((BedroomMain) a.Scenes.get("Bedroom/Main")).Background = a.loadImage("Bedroom/mainSecond.png");
+            ((BedroomMain) a.Scenes.get("Bedroom/Main")).Background = a.Assets.GetSprite("scene/mainSecond");
             a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/PuzzleDone", true);
         }
         if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(!HotspotClickedThisFrame) {
+            if(!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
             }
         }
-        HotspotClickedThisFrame = false;
     }
 
     @Override

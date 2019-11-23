@@ -1,14 +1,25 @@
 package first_contact.inventory;
 
+import first_contact.Entry;
+import processing.data.JSONArray;
+import processing.data.JSONObject;
+
+import java.util.HashMap;
+
 public class Items {
-    public Item EmptyCup, WaterCup, CoffeeCup, Crowbar, Lockpick, BedroomDrawerKey;
+    public HashMap<String, Item> Items;
 
     public Items () {
-        EmptyCup = new Item("Empty Cup", "Items/emptyCup.png");
-        WaterCup = new Item("Water Cup", "Items/waterCup.png");
-        CoffeeCup = new Item("Coffee Cup", "Items/coffeeCup.png");
-        Crowbar = new Item("Crowbar", "Items/crowbar.png");
-        Lockpick = new Item("Lockpick", "Items/lockpick.png");
-        BedroomDrawerKey = new Item("Bedroom Drawer Key", "Items/bedroomDrawerKey.png");
+        Items = new HashMap<>();
+        var items = (JSONArray) (Entry.Instance.loadJSONObject("items.json").get("items"));
+        for (int i = 0; i < items.size(); i++) {
+            var item = (JSONObject) items.get(i);
+            Items.put(item.getString("id"), new Item(item.getString("id"), item.getString("name")));
+        }
+    }
+
+    public Item GetItem(String id) {
+        if(!Items.containsKey(id)) System.err.println(String.format("Item '%s' not found.", id));
+        return Items.getOrDefault(id, Items.get("errorItem"));
     }
 }

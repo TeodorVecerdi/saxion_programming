@@ -25,18 +25,18 @@ public class Hallway extends Scene{
     public Hallway() {
         super();
         var a = Entry.Instance;
-        HallwayLitUp = a.loadImage("Hallway/hallwayLitUp.png");
-        HallwayNotLitUp = a.loadImage("Hallway/hallwayNotLitUp.png");
+        HallwayLitUp = a.Assets.GetSprite("scene/hallwayLitUp");
+        HallwayNotLitUp = a.Assets.GetSprite("scene/hallwayNotLitUp");
         hallwayAnimation = new __animation[]{
                 new __animation(4f, HallwayLitUp), new __animation(0.1f, HallwayNotLitUp),
                 new __animation(0.4f, HallwayLitUp), new __animation(0.2f, HallwayNotLitUp)};
         Background = HallwayLitUp;
         bedroomDoorHotspot = new MouseHotspot(192,338,214,516, ()-> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             new FloatingText(Messages.GetRandom(Messages.WrongRoom), 1.5f);
         });
         waitingRoomDoorHotspot = new MouseHotspot(1522, 346, 214, 516, ()-> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/Main";
         });
     }
@@ -56,11 +56,10 @@ public class Hallway extends Scene{
         waitingRoomDoorHotspot.update(deltaTime);
 
         if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(!HotspotClickedThisFrame) {
+            if(!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
             }
         }
-        HotspotClickedThisFrame = false;
     }
 
     @Override

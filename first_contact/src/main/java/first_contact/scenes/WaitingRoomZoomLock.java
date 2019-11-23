@@ -31,33 +31,33 @@ public class WaitingRoomZoomLock extends Scene {
         super();
         var a = Entry.Instance;
 
-        Background = a.loadImage("WaitingRoom/lockZoom.png");
+        Background = a.Assets.GetSprite("scene/lockZoom");
         backHotspot = new MouseHotspot(660, 890, 550, 190, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/Main";
         });
         ld1dHotspot = new MouseHotspot(1008, 471, 26, 40, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             lockNumbers[0] = Math.floorMod(lockNumbers[0] - 1, 10);
         });
         ld2dHotspot = new MouseHotspot(1008, 471 + 71, 26, 40, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             lockNumbers[1] = Math.floorMod(lockNumbers[1] - 1, 10);
         });
         ld3dHotspot = new MouseHotspot(1008, 471 + 71 + 74, 26, 40, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             lockNumbers[2] = Math.floorMod(lockNumbers[2] - 1, 10);
         });
         ld1iHotspot = new MouseHotspot(1008 + 113, 471, 26, 40, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             lockNumbers[0] = Math.floorMod(lockNumbers[0] + 1, 10);
         });
         ld2iHotspot = new MouseHotspot(1008 + 113, 471 + 71, 26, 40, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             lockNumbers[1] = Math.floorMod(lockNumbers[1] + 1, 10);
         });
         ld3iHotspot = new MouseHotspot(1008 + 113, 471 + 71 + 74, 26, 40, () -> {
-            HotspotClickedThisFrame = true;
+            Scene.HotspotClickedThisFrame = true;
             lockNumbers[2] = Math.floorMod(lockNumbers[2] + 1, 10);
         });
     }
@@ -78,18 +78,17 @@ public class WaitingRoomZoomLock extends Scene {
             var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
             main.lockHotspot.SetEnabled(false);
             main.coffeeHotspot.SetEnabled(false);
-            a.InventoryScene.PlayerInventory.AddItem(a.Items.Crowbar);
+            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("crowbar"));
             a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/Unlocked", true);
             main.Background = main.WaitingRoomUnlocked;
             a.ActiveScene = "WaitingRoom/Main";
         }
 
         if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(!HotspotClickedThisFrame) {
+            if(!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
             }
         }
-        HotspotClickedThisFrame = false;
     }
 
     @Override
