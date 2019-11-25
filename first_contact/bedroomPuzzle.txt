@@ -1,0 +1,7 @@
+The player has to do the bed controller puzzle to raise the bed and receive the note (see the note, not receive). The note has a time written on it and the player has to input the time into the digital clock on the desk and the clock on the wall. When the correct time is put into both of the clocks, the physical clock's handles fall and turn into lockpicks. The player then uses said lockpicks to unlock the drawer which then gives the player a key. The key is used to unlock the door and escape into the hallway.
+
+Scenes:
+    - Main
+    - Desk
+    - Clock
+    - Bed Controller

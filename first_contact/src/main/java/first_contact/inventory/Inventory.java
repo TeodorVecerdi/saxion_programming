@@ -22,6 +22,9 @@ public class Inventory {
         InventoryChecks.put("WaitingRoom/Unlocked", false);
         InventoryChecks.put("Bedroom/DrawerUnlocked", false);
         InventoryChecks.put("Bedroom/PuzzleDone", false);
+        InventoryChecks.put("Bedroom/ClockPuzzleDone", false);
+        InventoryChecks.put("Bedroom/ClockPuzzleFeedback", false);
+        InventoryChecks.put("Bedroom/DoorOpen", false);
         InventoryChecks.put("Bedroom/GotLockpick", false);
         InventoryChecks.put("Bedroom/GotKey", false);
     }

@@ -1,0 +1,2 @@
+Coffee machine is cable broken, you get tape to fix the cable when you do the xylophone puzzle opening the drawer. The coffee machine needs water. There will be a poster next to the coffee machine telling you that and also a flashing LED if the machine has power.
+Radio has multiple channels with static noise and when you get the correct channel the song plays. To finish the challenge you have to replay the same song on the xylophone.

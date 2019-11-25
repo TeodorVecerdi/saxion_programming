@@ -55,6 +55,7 @@ public class InventoryScene extends Scene {
     public void render () {
         var a = Entry.Instance;
         a.pushMatrix();
+        a.noStroke();
         int numSlots = Math.max(numSlotsStart, PlayerInventory.Items.size());
         for (int i = 0; i < numSlots; i++) {
             a.fill(0xaa222222);

@@ -20,8 +20,8 @@
       "id": "items/crowbar",
       "sprite": "items/crowbar.png"
     },{
-      "id": "items/bedroomDrawerKey",
-      "sprite": "items/bedroomDrawerKey.png"
+      "id": "items/bedroomKey",
+      "sprite": "items/bedroomKey.png"
     }
   ],
   "sceneSprites": [
@@ -64,30 +64,27 @@
     },{
       "id": "scene/waitingRoomWithoutCup",
       "sprite": "WaitingRoom/waitingRoomWithoutCup.png"
-    },{
-      "id": "scene/bedController",
-      "sprite": "Bedroom/bedController.png"
-    },{
-      "id": "scene/bedControllerSecond",
-      "sprite": "Bedroom/bedControllerSecond.png"
-    },{
-      "id": "scene/main",
-      "sprite": "Bedroom/main.png"
-    },{
-      "id": "scene/mainSecond",
-      "sprite": "Bedroom/mainSecond.png"
-    },{
-      "id": "scene/stuffedAnimals",
-      "sprite": "Bedroom/stuffedAnimals.png"
-    },{
-      "id": "scene/bedroomBedLifted",
-      "sprite": "Bedroom/bedroomBedLifted.png"
-    },{
+    }, {
       "id": "scene/bedroomMain",
       "sprite": "Bedroom/bedroomMain.png"
-    },{
-      "id": "scene/bedroomKeyTaken",
-      "sprite": "Bedroom/bedroomKeyTaken.png"
+    }, {
+      "id": "scene/bedroomBedController",
+      "sprite": "Bedroom/bedroomBedController.png"
+    }, {
+      "id": "scene/bedroomBedControllerBedLifted",
+      "sprite": "Bedroom/bedroomBedControllerBedLifted.png"
+    }, {
+      "id": "scene/bedroomBedLifted",
+      "sprite": "Bedroom/bedroomBedLifted.png"
+    }, {
+      "id": "scene/bedroomDesk",
+      "sprite": "Bedroom/bedroomDesk.png"
+    }, {
+      "id": "scene/bedroomOpenDoor",
+      "sprite": "Bedroom/bedroomOpenDoor.png"
+    }, {
+      "id": "scene/bedroomClock",
+      "sprite": "Bedroom/bedroomClock.png"
     }
   ]
 }

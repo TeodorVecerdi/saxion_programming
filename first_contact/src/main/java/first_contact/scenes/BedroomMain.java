@@ -1,6 +1,5 @@
 package first_contact.scenes;
 
-import com.jogamp.newt.event.MouseEvent;
 import first_contact.Entry;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
@@ -10,65 +9,47 @@ import first_contact.objects.Scene;
 import processing.core.PImage;
 
 import java.awt.event.KeyEvent;
-import java.util.UUID;
 
 public class BedroomMain extends Scene {
 
-    public MouseHotspot stuffedAnimalsHotspot;
+    public MouseHotspot deskHotspot;
+    public MouseHotspot clockHotspot;
     public MouseHotspot bedControllerHotspot;
-    public MouseHotspot drawerHotspot;
-    public MouseHotspot keyHotspot;
     public MouseHotspot doorHotspot;
 
     public PImage Background;
-    public PImage BedroomKeyTaken, BedroomBedLifted;
-
+    public PImage BedroomMain, BedroomBedLifted, BedroomOpenDoor;
+    private int correctTime = 13*60+15;
 
     public BedroomMain () {
         super();
         var a = Entry.Instance;
-        Background = a.Assets.GetSprite("scene/bedroomMain");
-        BedroomKeyTaken = a.Assets.GetSprite("scene/bedroomKeyTaken");
+        BedroomMain = a.Assets.GetSprite("scene/bedroomMain");
         BedroomBedLifted = a.Assets.GetSprite("scene/bedroomBedLifted");
-        stuffedAnimalsHotspot = new MouseHotspot(347, 591, 142, 130, () -> {
+        BedroomOpenDoor = a.Assets.GetSprite("scene/bedroomOpenDoor");
+        Background = BedroomMain;
+
+        deskHotspot = new MouseHotspot(189, 555, 416, 282, () -> {
             Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/ZoomStuffedAnimals";
+            a.ActiveScene = "Bedroom/Desk";
         });
-        bedControllerHotspot = new MouseHotspot(1595, 685, 325, 252, () -> {
+        clockHotspot = new MouseHotspot(1467, 245, 109, 198, () -> {
             Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/ZoomBed";
+            a.ActiveScene = "Bedroom/Clock";
         });
-        drawerHotspot = new MouseHotspot(500, 660, 100, 92, () -> {
+        bedControllerHotspot = new MouseHotspot(1547, 669, 373, 286, () -> {
             Scene.HotspotClickedThisFrame = true;
-            if(a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DrawerUnlocked")
-            && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotLockpick")) {
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotLockpick", true);
-            }else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Bedroom Drawer Key")) {
-                a.InventoryScene.PlayerInventory.SelectedItem = -1;
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("bedroomDrawerKey"));
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DrawerUnlocked", true);
-            }else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
-                new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
-            } else {
-                new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
-            }
+            a.ActiveScene = "Bedroom/BedController";
         });
-        keyHotspot = new MouseHotspot(1027, 753, 100, 92, () -> {
+        doorHotspot = new MouseHotspot(605, 300, 234, 444, () -> {
             Scene.HotspotClickedThisFrame = true;
-            if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("bedroomDrawerKey"));
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotKey", true);
-                Background = BedroomKeyTaken;
-            }
-        });
-        keyHotspot.SetEnabled(false);
-        doorHotspot = new MouseHotspot(621, 317, 204, 430, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Lockpick")) {
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("lockpick"));
+            if(a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DoorOpen")) {
                 a.ActiveScene = "Hallway/Main";
-            }else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
+            } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("bedroomKey")) {
+                Background = BedroomOpenDoor;
+                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DoorOpen", true);
+                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("bedroomKey"));
+            } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1) {
                 new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
             } else {
                 new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
@@ -79,15 +60,19 @@ public class BedroomMain extends Scene {
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
-
-        stuffedAnimalsHotspot.update(deltaTime);
+        deskHotspot.update(deltaTime);
+        clockHotspot.update(deltaTime);
         bedControllerHotspot.update(deltaTime);
-        keyHotspot.update(deltaTime);
-        drawerHotspot.update(deltaTime);
         doorHotspot.update(deltaTime);
 
-        if(Input.GetButtonDown(KeyEvent.VK_LEFT)) {
-            if(!Scene.HotspotClickedThisFrame) {
+         var bedroomDeskScene = ((BedroomDesk) a.Scenes.get("Bedroom/Desk"));
+        var bedroomClockScene = ((BedroomClock) a.Scenes.get("Bedroom/Clock"));
+        if(bedroomDeskScene.clockTime == correctTime && bedroomClockScene.clockTime == correctTime && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleDone")) {
+            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
+            a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/ClockPuzzleDone", true);
+        }
+        if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {
+            if (!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
             }
         }
@@ -96,22 +81,18 @@ public class BedroomMain extends Scene {
     @Override
     public void render () {
         var a = Entry.Instance;
-
         a.pushMatrix();
+
         a.image(Background, 0, 0);
-        stuffedAnimalsHotspot.render();
+
+        deskHotspot.render();
+        clockHotspot.render();
         bedControllerHotspot.render();
-        keyHotspot.render();
-        drawerHotspot.render();
         doorHotspot.render();
         //UI
         a.fill(0, 0, 255);
         a.textSize(35);
         a.text(String.format("%s (%s)", Name, SceneName), 20, 30);
         a.popMatrix();
-    }
-
-    private void mouseClicked() {
-
     }
 }
