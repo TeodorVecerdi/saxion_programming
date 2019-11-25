@@ -1,0 +1,32 @@
+{
+  "sounds": [
+    {
+      "id": "xylophone",
+      "path": "sounds/xylophone.mp3"
+    },
+    {
+      "id": "tvStatic",
+      "path": "sounds/tvStatic.mp3"
+    },
+    {
+      "id": "xylophone1",
+      "path": "sounds/xylophone_scale/xylo1.mp3"
+    },
+    {
+      "id": "xylophone2",
+      "path": "sounds/xylophone_scale/xylo2.mp3"
+    },
+    {
+      "id": "xylophone3",
+      "path": "sounds/xylophone_scale/xylo3.mp3"
+    },
+    {
+      "id": "xylophone4",
+      "path": "sounds/xylophone_scale/xylo4.mp3"
+    },
+    {
+      "id": "xylophone5",
+      "path": "sounds/xylophone_scale/xylo5.mp3"
+    }
+  ]
+}

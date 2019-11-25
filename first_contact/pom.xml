@@ -45,6 +45,11 @@
             <artifactId>annotations</artifactId>
             <version>17.0.0</version>
         </dependency>
+       <!-- <dependency>
+            <groupId>fr.delthas</groupId>
+            <artifactId>javamp3</artifactId>
+            <version>1.0.1</version>
+        </dependency>-->
     </dependencies>
 
     <build>

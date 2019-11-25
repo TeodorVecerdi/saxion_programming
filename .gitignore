@@ -5,3 +5,5 @@ first_contact/.idea/
 Q1_Programming/target/
 Q1_Programming/.idea/
 *.class
+# Audacity project files
+*.au

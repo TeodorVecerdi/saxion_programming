@@ -2,35 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
-      <change afterPath="$PROJECT_DIR$/bedroomPuzzle.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/bedroomBedController.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/bedroomBedControllerBedLifted.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/bedroomClock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/bedroomDesk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Bedroom/bedroomOpenDoor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomBedController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomClock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomDesk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waitingRoomPuzzle.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sounds.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sounds/audacity_projects/tv-static.aup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sounds/audacity_projects/xylophone.aup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sounds/tvStatic.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/sounds/xylophone.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedController.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedControllerSecond.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomBedLifted.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bedroom/bedroomBedLifted.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomKeyTaken.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomMain.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bedroom/bedroomMain.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/main.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/mainSecond.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/stuffedAnimals.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/items.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/items.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/items/bedroomDrawerKey.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/items/bedroomKey.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sprites.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/sprites.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/processing-sound/javamp3-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/javamp3/javamp3-1.0.4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/processing-sound/jsyn-20171016.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/jsyn/jsyn-20171016.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomBed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomZoomStuffedAnimals.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/suggestions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/suggestions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Assets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/first_contact_old/MainAppTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +60,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/Bedroom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/processing-sound/processing" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -85,27 +70,28 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\resources" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\processing-sound" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\sounds" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Bedroom" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Hallway" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="first_contact.misc" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Bedroom" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Hallway" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\src\main\java\first_contact" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\processing-sound\processing\sound" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\javamp3" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\jsyn" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -189,7 +175,8 @@
       <workItem from="1574413747196" duration="5134000" />
       <workItem from="1574430750844" duration="7890000" />
       <workItem from="1574524377186" duration="7550000" />
-      <workItem from="1574684990072" duration="9278000" />
+      <workItem from="1574684990072" duration="9477000" />
+      <workItem from="1574699006453" duration="8659000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>
@@ -232,5 +219,16 @@
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/lib/javamp3/javamp3-1.0.4.jar!/fr/delthas/javamp3/Decoder.class</url>
+          <line>1277</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

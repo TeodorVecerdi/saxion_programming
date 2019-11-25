@@ -12,6 +12,7 @@ import first_contact.scenes.*;
 import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.event.MouseEvent;
+import processing.sound.SoundFile;
 
 import java.security.SecureRandom;
 import java.util.AbstractMap;
@@ -42,14 +43,18 @@ public class Entry extends PApplet {
 
     public void setup () {
         frameRate(1000);
-
+        var s1 = new SoundFile(this, "sounds/xylophone_scale/xylo1.mp3");
+        var s2 = new SoundFile(this, "sounds/xylophone_scale/xylo2.mp3");
+        var s3 = new SoundFile(this, "sounds/xylophone_scale/xylo3.mp3");
+        var s4 = new SoundFile(this, "sounds/xylophone_scale/xylo4.mp3");
+        var s5 = new SoundFile(this, "sounds/xylophone_scale/xylo5.mp3");
         InventoryScene = new InventoryScene();
         FloatingTexts = new HashMap<>();
         SecureRandom = new SecureRandom();
         Assets = new Assets();
         Items = new Items();
         //        @formatter:off
-        ActiveScene = "Bedroom/Main";
+        ActiveScene = "WaitingRoom/Main";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),
