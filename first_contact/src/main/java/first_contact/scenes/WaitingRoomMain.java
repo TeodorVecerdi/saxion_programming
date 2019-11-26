@@ -4,6 +4,7 @@ import first_contact.Entry;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.misc.Messages;
+import first_contact.misc.Utils;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
@@ -17,11 +18,11 @@ public class WaitingRoomMain extends Scene {
     public MouseHotspot sinkHotspot;
     public MouseHotspot changeChannelHotspot;
     public MouseHotspot togglePlayRadioHotspot;
-    public MouseHotspot xylo11Hotspot, xylo12Hotspot, xylo13Hotspot;
-    public MouseHotspot xylo21Hotspot, xylo22Hotspot, xylo23Hotspot;
-    public MouseHotspot xylo31Hotspot, xylo32Hotspot;
-    public MouseHotspot xylo41Hotspot, xylo42Hotspot;
-    public MouseHotspot xylo51Hotspot, xylo52Hotspot;
+    public MouseHotspot xylo1Hotspot;
+    public MouseHotspot xylo2Hotspot;
+    public MouseHotspot xylo3Hotspot;
+    public MouseHotspot xylo4Hotspot;
+    public MouseHotspot xylo5Hotspot;
 
     public PImage Background;
     public PImage WaitingRoomWithoutCup, WaitingRoomWithCoffee, WaitingRoomWithCode, WaitingRoomUnlocked;
@@ -41,15 +42,15 @@ public class WaitingRoomMain extends Scene {
         WaitingRoomWithCoffee = a.Assets.GetSprite("scene/waitingRoomWithCoffee");
         WaitingRoomWithCode = a.Assets.GetSprite("scene/waitingRoomWithCode");
         WaitingRoomUnlocked = a.Assets.GetSprite("scene/waitingRoomUnlocked");
-        coffeeHotspot = new MouseHotspot(930, 400, 350, 300, () -> {
+        coffeeHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(930, 400, 1280, 400, 930, 700)).AddCollisionTriangle(new Utils.Triangle(1280, 400, 930, 700, 1280, 700)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/ZoomCoffee";
         });
-        lockHotspot = new MouseHotspot(600, 530, 250, 220, () -> {
+        lockHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(600, 530, 850, 530, 600, 750)).AddCollisionTriangle(new Utils.Triangle(850, 530, 600, 750, 850, 750)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/ZoomLock";
         });
-        sinkHotspot = new MouseHotspot(1320, 465, 315, 300, () -> {
+        sinkHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1320, 465, 1635, 465, 1320, 765)).AddCollisionTriangle(new Utils.Triangle(1635, 465, 1320, 765, 1635, 765)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotWaterCup")) {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
@@ -62,91 +63,47 @@ public class WaitingRoomMain extends Scene {
                 new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
             }
         });
-        changeChannelHotspot = new MouseHotspot(759, 398, 26, 24, () -> {
+        changeChannelHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(759, 398, 785, 398, 759, 422)).AddCollisionTriangle(new Utils.Triangle(785, 398, 759, 422, 785, 422)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             channel++;
             channel %= 8;
             resetPlay = true;
         });
-        togglePlayRadioHotspot = new MouseHotspot(663, 367, 92, 80, () -> {
+        togglePlayRadioHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(663, 367, 755, 367, 663, 447)).AddCollisionTriangle(new Utils.Triangle(755, 367, 663, 447, 755, 447)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             resetPlay = true;
             shouldPlayRadio = !shouldPlayRadio;
         });
-        //region xylo hotspot init
-        xylo11Hotspot = new MouseHotspot(673, 890, 42, 39, () -> {
+        xylo1Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(673, 923, 717, 870, 700, 928)).AddCollisionTriangle(new Utils.Triangle(717, 870, 700, 928, 740, 871)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone1").play();
         });
-        xylo12Hotspot = new MouseHotspot(694, 881, 28, 20, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (xylophoneHotspotClickedThisFrame) return;
-            xylophoneHotspotClickedThisFrame = true;
-            a.Assets.GetSound("xylophone1").play();
-        });
-        xylo13Hotspot = new MouseHotspot(705, 867, 28, 20, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (xylophoneHotspotClickedThisFrame) return;
-            xylophoneHotspotClickedThisFrame = true;
-            a.Assets.GetSound("xylophone1").play();
-        });
-        xylo21Hotspot = new MouseHotspot(709, 888, 42, 39, () -> {
+        xylo2Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(708, 923, 744, 870, 740, 923)).AddCollisionTriangle(new Utils.Triangle(744, 870, 740, 923, 770, 870)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone2").play();
         });
-        xylo22Hotspot = new MouseHotspot(730, 881, 28, 20, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (xylophoneHotspotClickedThisFrame) return;
-            xylophoneHotspotClickedThisFrame = true;
-            a.Assets.GetSound("xylophone2").play();
-        });
-        xylo23Hotspot = new MouseHotspot(737, 867, 28, 20, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (xylophoneHotspotClickedThisFrame) return;
-            xylophoneHotspotClickedThisFrame = true;
-            a.Assets.GetSound("xylophone2").play();
-        });
-        xylo31Hotspot = new MouseHotspot(751, 881, 38, 44, () -> {
+        xylo3Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(749, 919, 778, 867, 778, 921)).AddCollisionTriangle(new Utils.Triangle(778, 867, 778, 921, 805, 867)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone3").play();
         });
-        xylo32Hotspot = new MouseHotspot(769, 864, 31, 26, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (xylophoneHotspotClickedThisFrame) return;
-            xylophoneHotspotClickedThisFrame = true;
-            a.Assets.GetSound("xylophone3").play();
-        });
-        xylo41Hotspot = new MouseHotspot(791, 881, 34, 44, () -> {
+        xylo4Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(790, 918, 812, 869, 819, 921)).AddCollisionTriangle(new Utils.Triangle(812, 869, 819, 921, 839, 871)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone4").play();
         });
-        xylo42Hotspot = new MouseHotspot(805, 868, 31, 19, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (xylophoneHotspotClickedThisFrame) return;
-            xylophoneHotspotClickedThisFrame = true;
-            a.Assets.GetSound("xylophone4").play();
-        });
-        xylo51Hotspot = new MouseHotspot(831, 881, 31, 44, () -> {
+        xylo5Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(830, 921, 843, 874, 857, 922)).AddCollisionTriangle(new Utils.Triangle(843, 874, 857, 922, 871, 879)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone5").play();
         });
-        xylo52Hotspot = new MouseHotspot(838, 875, 31, 19, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (xylophoneHotspotClickedThisFrame) return;
-            xylophoneHotspotClickedThisFrame = true;
-            a.Assets.GetSound("xylophone5").play();
-        });
-        //endregion
     }
 
     @Override
@@ -157,20 +114,11 @@ public class WaitingRoomMain extends Scene {
         sinkHotspot.update(deltaTime);
         changeChannelHotspot.update(deltaTime);
         togglePlayRadioHotspot.update(deltaTime);
-        //region xylo hotspot update
-        xylo11Hotspot.update(deltaTime);
-        xylo12Hotspot.update(deltaTime);
-        xylo13Hotspot.update(deltaTime);
-        xylo21Hotspot.update(deltaTime);
-        xylo22Hotspot.update(deltaTime);
-        xylo23Hotspot.update(deltaTime);
-        xylo31Hotspot.update(deltaTime);
-        xylo32Hotspot.update(deltaTime);
-        xylo41Hotspot.update(deltaTime);
-        xylo42Hotspot.update(deltaTime);
-        xylo51Hotspot.update(deltaTime);
-        xylo52Hotspot.update(deltaTime);
-        //endregion
+        xylo1Hotspot.update(deltaTime);
+        xylo2Hotspot.update(deltaTime);
+        xylo3Hotspot.update(deltaTime);
+        xylo4Hotspot.update(deltaTime);
+        xylo5Hotspot.update(deltaTime);
 
         if (resetPlay) {
             a.Assets.GetSound(activeSound).stop();
@@ -204,20 +152,11 @@ public class WaitingRoomMain extends Scene {
         sinkHotspot.render();
         changeChannelHotspot.render();
         togglePlayRadioHotspot.render();
-        //region xylo hotspot render
-        xylo11Hotspot.render();
-        xylo12Hotspot.render();
-        xylo13Hotspot.render();
-        xylo21Hotspot.render();
-        xylo22Hotspot.render();
-        xylo23Hotspot.render();
-        xylo31Hotspot.render();
-        xylo32Hotspot.render();
-        xylo41Hotspot.render();
-        xylo42Hotspot.render();
-        xylo51Hotspot.render();
-        xylo52Hotspot.render();
-        //endregion
+        xylo1Hotspot.render();
+        xylo2Hotspot.render();
+        xylo3Hotspot.render();
+        xylo4Hotspot.render();
+        xylo5Hotspot.render();
         //UI
         a.fill(0, 0, 255);
         a.textSize(35);

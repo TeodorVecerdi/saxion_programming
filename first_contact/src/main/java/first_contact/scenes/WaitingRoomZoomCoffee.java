@@ -5,6 +5,7 @@ import first_contact.Entry;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.misc.Messages;
+import first_contact.misc.Utils;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
@@ -28,57 +29,66 @@ public class WaitingRoomZoomCoffee extends Scene {
         CoffeeCornerWithoutCup = a.Assets.GetSprite("scene/coffeeCornerWithoutCup");
         CoffeeCornerWithCoffee = a.Assets.GetSprite("scene/coffeeCornerWithCoffee");
         CoffeeCornerWithCode = a.Assets.GetSprite("scene/coffeeCornerWithCode");
-        backHotspot = new MouseHotspot(660, 890, 550, 190, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "WaitingRoom/Main";
-        });
-        getCupHotspot = new MouseHotspot(960, 580, 180, 190, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotEmptyCup")) {
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("emptyCup"));
-                Background = CoffeeCornerWithoutCup;
-                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
-                main.Background = main.WaitingRoomWithoutCup;
-                getCupHotspot.SetEnabled(false);
-            }
-        });
-        coffeeMachineHotspot = new MouseHotspot(625, 280, 335, 500, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if(a.InventoryScene.PlayerInventory.SelectedItem != -1
-                    && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Water Cup")
-            ) {
-                a.InventoryScene.PlayerInventory.SelectedItem = -1;
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("waterCup"));
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("emptyCup"));
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", true);
-            }
-            else if(a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasWater") &&
-                    !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")) {
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasCoffee", true);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
-                Background = CoffeeCornerWithCoffee;
-                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
-                main.Background = main.WaitingRoomWithCoffee;
-            }
-            else if(a.InventoryScene.PlayerInventory.SelectedItem != -1
-                    && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup")
-                    && a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")
-            ) {
-                a.InventoryScene.PlayerInventory.SelectedItem = -1;
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("emptyCup"));
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("coffeeCup"));
-                Background = CoffeeCornerWithCode;
-                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
-                main.Background = main.WaitingRoomWithCode;
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/GotCoffee", true);
-                coffeeMachineHotspot.SetEnabled(false);
-            } else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
-                new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
-            } else {
-                new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
-            }
-        });
+        getCupHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(960, 580, 1140, 580, 960, 770))
+                .AddCollisionTriangle(new Utils.Triangle(1140, 580, 960, 770, 1140, 770))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotEmptyCup")) {
+                        a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("emptyCup"));
+                        Background = CoffeeCornerWithoutCup;
+                        var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                        main.Background = main.WaitingRoomWithoutCup;
+                        getCupHotspot.SetEnabled(false);
+                    }
+                });
+        coffeeMachineHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(625, 280, 960, 280, 625, 780))
+                .AddCollisionTriangle(new Utils.Triangle(960, 280, 625, 780, 960, 780))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    if(a.InventoryScene.PlayerInventory.SelectedItem != -1
+                            && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Water Cup")
+                    ) {
+                        a.InventoryScene.PlayerInventory.SelectedItem = -1;
+                        a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("waterCup"));
+                        a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("emptyCup"));
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", true);
+                    }
+                    else if(a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasWater") &&
+                            !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")) {
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasCoffee", true);
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
+                        Background = CoffeeCornerWithCoffee;
+                        var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                        main.Background = main.WaitingRoomWithCoffee;
+                    }
+                    else if(a.InventoryScene.PlayerInventory.SelectedItem != -1
+                            && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup")
+                            && a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")
+                    ) {
+                        a.InventoryScene.PlayerInventory.SelectedItem = -1;
+                        a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("emptyCup"));
+                        a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("coffeeCup"));
+                        Background = CoffeeCornerWithCode;
+                        var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                        main.Background = main.WaitingRoomWithCode;
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/GotCoffee", true);
+                        coffeeMachineHotspot.SetEnabled(false);
+                    } else if(a.InventoryScene.PlayerInventory.SelectedItem != -1) {
+                        new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
+                    } else {
+                        new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
+                    }
+                });
+        backHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080))
+                .AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "WaitingRoom/Main";
+                });
     }
 
     @Override

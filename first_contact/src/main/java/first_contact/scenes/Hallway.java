@@ -5,6 +5,7 @@ import first_contact.Entry;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.misc.Messages;
+import first_contact.misc.Utils;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
@@ -19,6 +20,7 @@ public class Hallway extends Scene{
     private __animation[] hallwayAnimation;
     private float currentTimer = 0f;
     private int animationIndex = -1;
+
     private MouseHotspot bedroomDoorHotspot;
     private MouseHotspot waitingRoomDoorHotspot;
 
@@ -31,14 +33,20 @@ public class Hallway extends Scene{
                 new __animation(4f, HallwayLitUp), new __animation(0.1f, HallwayNotLitUp),
                 new __animation(0.4f, HallwayLitUp), new __animation(0.2f, HallwayNotLitUp)};
         Background = HallwayLitUp;
-        bedroomDoorHotspot = new MouseHotspot(192,338,214,516, ()-> {
-            Scene.HotspotClickedThisFrame = true;
-            new FloatingText(Messages.GetRandom(Messages.WrongRoom), 1.5f);
-        });
-        waitingRoomDoorHotspot = new MouseHotspot(1522, 346, 214, 516, ()-> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "WaitingRoom/Main";
-        });
+        bedroomDoorHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(200, 968, 200, 343, 404, 851))
+                .AddCollisionTriangle(new Utils.Triangle(200, 343, 404, 851, 405, 398))
+                .AddAction(()-> {
+                    Scene.HotspotClickedThisFrame = true;
+                    new FloatingText(Messages.GetRandom(Messages.WrongRoom), 1.5f);
+                });
+        waitingRoomDoorHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(1529, 858, 1529, 392, 1736, 975))
+                .AddCollisionTriangle(new Utils.Triangle(1529, 392, 1738, 975, 1736, 338))
+                .AddAction(()-> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "WaitingRoom/Main";
+                });
     }
 
     @Override

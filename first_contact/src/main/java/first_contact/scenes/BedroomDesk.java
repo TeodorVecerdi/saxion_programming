@@ -4,6 +4,7 @@ import first_contact.Entry;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.misc.Messages;
+import first_contact.misc.Utils;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PConstants;
@@ -29,37 +30,48 @@ public class BedroomDesk extends Scene {
         BedroomDesk = a.Assets.GetSprite("scene/bedroomDesk");
         Background = BedroomDesk;
 
-        clockDecreaseHotspot = new MouseHotspot(1411, 484, 51, 36, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            clockTime -= 5;
-            clockTime = Math.floorMod(clockTime, 1440);
-        });
-        clockIncreaseHotspot = new MouseHotspot(1475, 484, 51, 36, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            clockTime += 5;
-            clockTime = Math.floorMod(clockTime, 1440);
-        });
-        backHotspot = new MouseHotspot(0, 941, 1920, 139, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/Main";
-        });
-
-        drawerHotspot = new MouseHotspot(977, 743, 707, 198, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("lockpick")) {
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DrawerUnlocked", true);
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("lockpick"));
-            } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DrawerUnlocked") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("bedroomKey"));
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotKey", true);
-            } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
-                new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
-            } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1) {
-                new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
-            } else {
-                new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
-            }
-        });
+        clockDecreaseHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(1411, 484, 1462, 484, 1411, 520))
+                .AddCollisionTriangle(new Utils.Triangle(1462, 484, 1411, 520, 1462, 520))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    clockTime -= 5;
+                    clockTime = Math.floorMod(clockTime, 1440);
+                });
+        clockIncreaseHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(1475, 484, 1526, 484, 1475, 520))
+                .AddCollisionTriangle(new Utils.Triangle(1526, 484, 1475, 520, 1526, 520))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    clockTime += 5;
+                    clockTime = Math.floorMod(clockTime, 1440);
+                });
+        drawerHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(977, 743, 1684, 743, 977, 941))
+                .AddCollisionTriangle(new Utils.Triangle(1684, 743, 977, 941, 1684, 941))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("lockpick")) {
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DrawerUnlocked", true);
+                        a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("lockpick"));
+                    } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DrawerUnlocked") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
+                        a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("bedroomKey"));
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotKey", true);
+                    } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
+                        new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
+                    } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1) {
+                        new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
+                    } else {
+                        new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
+                    }
+                });
+        backHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080))
+                .AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "Bedroom/Main";
+                });
     }
 
     @Override

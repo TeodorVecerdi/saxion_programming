@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class Input {
     public static int MouseX;
     public static int MouseY;
-    public static PVector MousePosition = new PVector(0, 0);
+    public static Utils.Point2f MousePosition = Utils.Point2f.From(0, 0);
 
     private static HashMap<Integer, Boolean> _keys = new HashMap<>();
     private static HashMap<Integer, Boolean> _keysCheck = new HashMap<>();
@@ -95,9 +95,5 @@ public class Input {
 
     public static boolean IsMouseInside(int x, int y, int w, int h) {
         return MouseX >= x && MouseX <= x+w && MouseY >= y && MouseY <= y+h;
-    }
-
-    public static boolean IsMouseInside(MouseHotspot hotspot) {
-        return IsMouseInside(hotspot.x, hotspot.y, hotspot.w, hotspot.h);
     }
 }

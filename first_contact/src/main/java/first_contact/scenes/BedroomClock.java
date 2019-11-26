@@ -1,10 +1,7 @@
 package first_contact.scenes;
 
 import first_contact.Entry;
-import first_contact.misc.Constants;
-import first_contact.misc.FloatingText;
-import first_contact.misc.Input;
-import first_contact.misc.Messages;
+import first_contact.misc.*;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PConstants;
@@ -27,21 +24,26 @@ public class BedroomClock extends Scene {
 
         BedroomClock = a.Assets.GetSprite("scene/bedroomClock");
         Background = BedroomClock;
-
-        clockHotspot = new MouseHotspot(810, 390, 300, 300, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleFeedback") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleDone")) {
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/ClockPuzzleDone", true);
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
-            } else {
-                clockTime += 5;
-                clockTime = Math.floorMod(clockTime, 1440);
-            }
-        });
-        backHotspot = new MouseHotspot(0, 941, 1920, 139, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/Main";
-        });
+        clockHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(810, 390, 1110, 390, 810, 690))
+                .AddCollisionTriangle(new Utils.Triangle(1110, 390, 810, 690, 1110, 690))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleFeedback") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleDone")) {
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/ClockPuzzleDone", true);
+                        a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
+                    } else {
+                        clockTime += 5;
+                        clockTime = Math.floorMod(clockTime, 1440);
+                    }
+                });
+        backHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080))
+                .AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "Bedroom/Main";
+                });
     }
 
     @Override

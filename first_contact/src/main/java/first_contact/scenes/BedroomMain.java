@@ -4,6 +4,7 @@ import first_contact.Entry;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.misc.Messages;
+import first_contact.misc.Utils;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
@@ -29,32 +30,44 @@ public class BedroomMain extends Scene {
         BedroomOpenDoor = a.Assets.GetSprite("scene/bedroomOpenDoor");
         Background = BedroomMain;
 
-        deskHotspot = new MouseHotspot(189, 555, 416, 282, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/Desk";
-        });
-        clockHotspot = new MouseHotspot(1467, 245, 109, 198, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/Clock";
-        });
-        bedControllerHotspot = new MouseHotspot(1547, 669, 373, 286, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/BedController";
-        });
-        doorHotspot = new MouseHotspot(605, 300, 234, 444, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            if(a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DoorOpen")) {
-                a.ActiveScene = "Hallway/Main";
-            } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("bedroomKey")) {
-                Background = BedroomOpenDoor;
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DoorOpen", true);
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("bedroomKey"));
-            } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1) {
-                new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
-            } else {
-                new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
-            }
-        });
+        deskHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(189, 555, 605, 555, 189, 837))
+                .AddCollisionTriangle(new Utils.Triangle(605, 555, 189, 837, 605, 837))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "Bedroom/Desk";
+                });
+        clockHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(1467, 245, 1576, 245, 1467, 443))
+                .AddCollisionTriangle(new Utils.Triangle(1576, 245, 1467, 443, 1576, 443))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "Bedroom/Clock";
+                });
+        bedControllerHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(1547, 669, 1920, 669, 1547, 955))
+                .AddCollisionTriangle(new Utils.Triangle(1920, 669, 1547, 955, 1920, 955))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "Bedroom/BedController";
+                });
+        doorHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(605, 300, 839, 300, 605, 744))
+                .AddCollisionTriangle(new Utils.Triangle(839, 300, 605, 744, 839, 744))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    if(a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DoorOpen")) {
+                        a.ActiveScene = "Hallway/Main";
+                    } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("bedroomKey")) {
+                        Background = BedroomOpenDoor;
+                        a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DoorOpen", true);
+                        a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("bedroomKey"));
+                    } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1) {
+                        new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
+                    } else {
+                        new FloatingText(Messages.GetRandom(Messages.NoItem), 1.5f);
+                    }
+                });
     }
 
     @Override

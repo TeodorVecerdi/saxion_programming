@@ -49,7 +49,7 @@ public class Entry extends PApplet {
         Assets = new Assets();
         Items = new Items();
         //        @formatter:off
-        ActiveScene = "Bedroom/Main";
+        ActiveScene = "Hallway/Main";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),
@@ -134,7 +134,8 @@ public class Entry extends PApplet {
         super.mouseMoved(event);
         Input.MouseX = event.getX();
         Input.MouseY = event.getY();
-        Input.MousePosition.set(Input.MouseX, Input.MouseY);
+        Input.MousePosition.x = Input.MouseX;
+        Input.MousePosition.y = Input.MouseY;
     }
 
     //</editor-fold>

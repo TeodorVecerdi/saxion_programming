@@ -2,48 +2,49 @@ package first_contact.objects;
 
 import first_contact.Entry;
 import first_contact.misc.Input;
+import first_contact.misc.Utils;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MouseHotspot extends GameObject {
     public static Boolean ShowMouseHotspots = false;
-    public int x;
-    public int y;
-    public int w;
-    public int h;
-    public Runnable Action;
     public boolean Enabled;
+    public List<Runnable> Actions;
+    public List<Utils.Triangle> CollisionMesh;
 
     public MouseHotspot () {
-        this(0, 0, 0, 0, () -> {
-            System.out.println("Hotspot clicked");
-        });
-    }
-
-    public MouseHotspot (int x, int y, int w, int h) {
-        this(x, y, w, h, () -> {
-            System.out.println("Hotspot clicked");
-        });
-    }
-
-    public MouseHotspot (int x, int y, int w, int h, Runnable action) {
         super();
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
-        Action = action;
+        this.CollisionMesh = new ArrayList<>();
+        this.Actions = new ArrayList<>();
         Enabled = true;
+    }
+
+    public MouseHotspot AddAction (Runnable action) {
+        Actions.add(action);
+        return this;
+    }
+
+    public MouseHotspot AddCollisionTriangle (Utils.Triangle triangle) {
+        CollisionMesh.add(triangle);
+        return this;
     }
 
     @Override
     public void update (float deltaTime) {
-        if (Enabled && Input.GetButtonDown(KeyEvent.VK_LEFT) && IsMouseInside()) Action.run();
+        if (Enabled && Input.GetButtonDown(KeyEvent.VK_LEFT) && IsMouseInside()) Actions.forEach(Runnable::run);
     }
 
     public boolean IsMouseInside () {
-        return Input.MouseX >= x && Input.MouseX <= x + w && Input.MouseY >= y && Input.MouseY <= y + h;
+        boolean collides = CollisionMesh.stream().anyMatch(triangle -> Utils.PointInTriangle(Input.MousePosition, triangle));
+        return collides;
     }
+
+    /*public boolean IsMouseInside () {
+        return Input.MouseX >= x && Input.MouseX <= x + w && Input.MouseY >= y && Input.MouseY <= y + h;
+    }*/
 
     @Override
     public void render () {
@@ -51,13 +52,15 @@ public class MouseHotspot extends GameObject {
         var a = Entry.Instance;
         a.pushMatrix();
         a.fill(0xaa00ff00);
-        a.noStroke();
-        a.rect(x, y, w, h);
+        a.stroke(0x00);
+//        a.noStroke();
+        CollisionMesh.forEach(t ->  {
+            a.triangle(t.v1.x, t.v1.y, t.v2.x, t.v2.y, t.v3.x, t.v3.y);
+        });
         a.popMatrix();
     }
 
     public void SetEnabled (boolean enabled) {
         Enabled = enabled;
     }
-
 }

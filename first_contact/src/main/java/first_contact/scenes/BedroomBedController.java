@@ -4,6 +4,7 @@ import first_contact.Entry;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.misc.Messages;
+import first_contact.misc.Utils;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
@@ -30,34 +31,55 @@ public class BedroomBedController extends Scene {
         BedroomBedController = a.Assets.GetSprite("scene/bedroomBedController");
         BedroomBedControllerBedLifted = a.Assets.GetSprite("scene/bedroomBedControllerBedLifted");
         Background = BedroomBedController;
-        B1PHotspot = new MouseHotspot(785, 315, 80, 48, () -> {
+        B1PHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(785, 315, 865, 315, 785, 363))
+                .AddCollisionTriangle(new Utils.Triangle(865, 315, 785, 363, 865, 363))
+                .AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             b1 = 1;
         });
-        B1MHotspot = new MouseHotspot(787, 408, 78, 48, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            b1 = -1;
-        });
-        B2PHotspot = new MouseHotspot(960, 315, 80, 48, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            b2 = 1;
-        });
-        B2MHotspot = new MouseHotspot(961, 408, 78, 48, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            b2 = -1;
-        });
-        B3PHotspot = new MouseHotspot(1128, 315, 80, 48, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            b3 = 1;
-        });
-        B3MHotspot = new MouseHotspot(1127, 408, 78, 48, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            b3 = -1;
-        });
-        backHotspot = new MouseHotspot(0, 941, 1920, 139, () -> {
-            Scene.HotspotClickedThisFrame = true;
-            a.ActiveScene = "Bedroom/Main";
-        });
+        B1MHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(787, 408, 865, 408, 787, 456))
+                .AddCollisionTriangle(new Utils.Triangle(865, 408, 787, 456, 865, 456))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    b1 = -1;
+                });
+        B2PHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(960, 315, 1040, 315, 960, 363))
+                .AddCollisionTriangle(new Utils.Triangle(1040, 315, 960, 363, 1040, 363))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    b2 = 1;
+                });
+        B2MHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(961, 408, 1039, 408, 961, 456))
+                .AddCollisionTriangle(new Utils.Triangle(1039, 408, 961, 456, 1039, 456))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    b2 = -1;
+                });
+        B3PHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(1128, 315, 1208, 315, 1128, 363))
+                .AddCollisionTriangle(new Utils.Triangle(1208, 315, 1128, 363, 1208, 363))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    b3 = 1;
+                });
+        B3MHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(1127, 408, 1205, 408, 1127, 456))
+                .AddCollisionTriangle(new Utils.Triangle(1205, 408, 1127, 456, 1205, 456))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    b3 = -1;
+                });
+        backHotspot = new MouseHotspot()
+                .AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080))
+                .AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080))
+                .AddAction(() -> {
+                    Scene.HotspotClickedThisFrame = true;
+                    a.ActiveScene = "Bedroom/Main";
+                });
     }
 
     @Override
