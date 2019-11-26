@@ -49,7 +49,7 @@ public class BedroomDesk extends Scene {
             if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("lockpick")) {
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DrawerUnlocked", true);
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("lockpick"));
-            } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DrawerUnlocked")) {
+            } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DrawerUnlocked") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("bedroomKey"));
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/GotKey", true);
             } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/GotKey")) {

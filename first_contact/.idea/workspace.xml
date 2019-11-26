@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
-      <change afterPath="$PROJECT_DIR$/data/sounds.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/sounds/audacity_projects/tv-static.aup" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/sounds/audacity_projects/xylophone.aup" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/sounds/tvStatic.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/sounds/xylophone.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/processing-sound/javamp3-1.0.4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/javamp3/javamp3-1.0.4.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/processing-sound/jsyn-20171016.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/jsyn/jsyn-20171016.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sounds/audacity_projects/tv-static.aup" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/audacity_projects/tv-static.aup" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/first_contact_old/MainAppTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +165,8 @@
       <workItem from="1574430750844" duration="7890000" />
       <workItem from="1574524377186" duration="7550000" />
       <workItem from="1574684990072" duration="9477000" />
-      <workItem from="1574699006453" duration="8659000" />
+      <workItem from="1574699006453" duration="8953000" />
+      <workItem from="1574771357719" duration="1037000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>

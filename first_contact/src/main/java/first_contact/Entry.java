@@ -38,23 +38,18 @@ public class Entry extends PApplet {
     public void settings () {
         Instance = this;
         size(Constants.WIDTH, Constants.HEIGHT);
-        fullScreen(2);
+        fullScreen();
     }
 
     public void setup () {
         frameRate(1000);
-        var s1 = new SoundFile(this, "sounds/xylophone_scale/xylo1.mp3");
-        var s2 = new SoundFile(this, "sounds/xylophone_scale/xylo2.mp3");
-        var s3 = new SoundFile(this, "sounds/xylophone_scale/xylo3.mp3");
-        var s4 = new SoundFile(this, "sounds/xylophone_scale/xylo4.mp3");
-        var s5 = new SoundFile(this, "sounds/xylophone_scale/xylo5.mp3");
         InventoryScene = new InventoryScene();
         FloatingTexts = new HashMap<>();
         SecureRandom = new SecureRandom();
         Assets = new Assets();
         Items = new Items();
         //        @formatter:off
-        ActiveScene = "WaitingRoom/Main";
+        ActiveScene = "Bedroom/Main";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),
