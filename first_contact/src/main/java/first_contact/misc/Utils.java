@@ -17,8 +17,8 @@ public class Utils {
         return PointInTriangle(p, t.v1, t.v2, t.v3);
     }
 
-    public static Triangle[] Square2Tri(float x, float y, float w, float h) {
-        return new Triangle[]{new Triangle(x, y, x+w, y, x, y+h), new Triangle(x+w, y, x, y+h, x+w, y+h)};
+    public static Triangle[] Square2Tri (float x, float y, float w, float h) {
+        return new Triangle[] {new Triangle(x, y, x + w, y, x, y + h), new Triangle(x + w, y, x, y + h, x + w, y + h)};
     }
 
     public static class Point2f {
@@ -29,17 +29,21 @@ public class Utils {
             this.x = x;
             this.y = y;
         }
+
         public Point2f (Point2f p) {
             this.x = p.x;
             this.y = p.y;
         }
+
         public static Point2f From (float x, float y) {
             return new Point2f(x, y);
         }
+
         public void Set (float x, float y) {
             this.x = x;
             this.y = y;
         }
+
         public Point2f Copy () {
             return new Point2f(this);
         }

@@ -20,11 +20,11 @@ public class Transform {
         Size = new PVector(width, height);
     }
 
-    public void Move(PVector delta) {
+    public void Move (PVector delta) {
         Move(delta.x, delta.y);
     }
 
-    public void Move(float dx, float dy) {
+    public void Move (float dx, float dy) {
         Position.add(dx, dy);
     }
 }

@@ -1,10 +1,7 @@
 package first_contact.scenes;
 
 import first_contact.Entry;
-import first_contact.misc.FloatingText;
-import first_contact.misc.Input;
-import first_contact.misc.Messages;
-import first_contact.misc.Utils;
+import first_contact.misc.*;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import processing.core.PImage;
@@ -158,9 +155,12 @@ public class WaitingRoomMain extends Scene {
         xylo4Hotspot.render();
         xylo5Hotspot.render();
         //UI
-        a.fill(0, 0, 255);
-        a.textSize(35);
-        a.text(String.format("%s (%s)", Name, SceneName), 20, 30);
+        if (Constants.SHOW_DEBUG) {
+            a.fill(0, 0, 255);
+            a.textSize(35);
+            a.text(String.format("%s (%s)", Name, SceneName), 20, 30);
+        }
+
         a.popMatrix();
     }
 

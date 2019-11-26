@@ -7,13 +7,13 @@ public class Item {
     public String ItemID;
     public String ItemName;
 
-    public Item(String itemID, String itemName) {
+    public Item (String itemID, String itemName) {
         ItemID = itemID;
         ItemName = itemName;
     }
 
-    public PImage ItemSprite() {
-        return Entry.Instance.Assets.GetSprite("items/"+ItemID);
+    public PImage ItemSprite () {
+        return Entry.Instance.Assets.GetSprite("items/" + ItemID);
     }
 }
 

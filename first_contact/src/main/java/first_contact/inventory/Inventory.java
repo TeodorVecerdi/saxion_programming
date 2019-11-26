@@ -1,7 +1,5 @@
 package first_contact.inventory;
 
-import first_contact.Entry;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -32,7 +30,8 @@ public class Inventory {
     public void AddItem (Item item) {
         Items.add(item);
     }
-    public void RemoveItem(Item item) {
+
+    public void RemoveItem (Item item) {
         Items.remove(item);
     }
 }

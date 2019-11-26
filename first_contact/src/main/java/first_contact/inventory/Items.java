@@ -18,8 +18,8 @@ public class Items {
         }
     }
 
-    public Item GetItem(String id) {
-        if(!Items.containsKey(id)) System.err.println(String.format("Item '%s' not found.", id));
+    public Item GetItem (String id) {
+        if (!Items.containsKey(id)) System.err.println(String.format("Item '%s' not found.", id));
         return Items.getOrDefault(id, Items.get("errorItem"));
     }
 }

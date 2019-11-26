@@ -7,7 +7,6 @@ import first_contact.misc.Utils;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MouseHotspot extends GameObject {
     public static Boolean ShowMouseHotspots = false;
@@ -53,8 +52,8 @@ public class MouseHotspot extends GameObject {
         a.pushMatrix();
         a.fill(0xaa00ff00);
         a.stroke(0x00);
-//        a.noStroke();
-        CollisionMesh.forEach(t ->  {
+        //        a.noStroke();
+        CollisionMesh.forEach(t -> {
             a.triangle(t.v1.x, t.v1.y, t.v2.x, t.v2.y, t.v3.x, t.v3.y);
         });
         a.popMatrix();

@@ -6,14 +6,12 @@ import first_contact.misc.Assets;
 import first_contact.misc.Constants;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
-import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
 import first_contact.scenes.*;
 import processing.core.PApplet;
-import processing.core.PConstants;
 import processing.event.MouseEvent;
-import processing.sound.SoundFile;
 
+import java.awt.event.KeyEvent;
 import java.security.SecureRandom;
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -71,9 +69,11 @@ public class Entry extends PApplet {
         FloatingTexts.entrySet().removeIf(uuidFloatingTextEntry -> uuidFloatingTextEntry.getValue().done);
         FloatingTexts.forEach(((uuid, floatingText) -> floatingText.update(deltaTime)));
 
-        // TODO: IS DEBUG, REMOVE
-        if (Input.GetKeyDown(java.awt.event.KeyEvent.VK_SPACE)) {
-            MouseHotspot.ShowMouseHotspots = !MouseHotspot.ShowMouseHotspots;
+        if (Input.GetKeyDown(KeyEvent.VK_SPACE)) {
+            Constants.SHOW_DEBUG = !Constants.SHOW_DEBUG;
+        }
+        if (Input.GetKeyDown(KeyEvent.VK_Z)) {
+            Constants.SHOW_HOTSPOTS = !Constants.SHOW_HOTSPOTS;
         }
     }
 
@@ -83,11 +83,13 @@ public class Entry extends PApplet {
         InventoryScene.render();
         FloatingTexts.forEach(((uuid, floatingText) -> floatingText.render()));
 
-        fill(0, 255, 0);
-        textSize(20);
-        text(String.format("FPS %.4f\ndT  %.6f", frameRate, deltaTime), Constants.WIDTH - 200, 20);
-        fill(0);
-        text(String.format("%s", Input.MousePosition), Constants.WIDTH - 250, 90);
+        if (Constants.SHOW_DEBUG) {
+            fill(0, 255, 0);
+            textSize(20);
+            text(String.format("FPS %.4f\ndT  %.6f", frameRate, deltaTime), Constants.WIDTH - 200, 20);
+            fill(0);
+            text(String.format("%s", Input.MousePosition), Constants.WIDTH - 250, 90);
+        }
     }
 
     public void draw () {

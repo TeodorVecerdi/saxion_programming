@@ -19,7 +19,8 @@ public abstract class GameObject implements Loopable {
         Name = String.format("%s-%s", getClass().getSimpleName(), hashCode());
     }
 
-    @Override public String toString () {
+    @Override
+    public String toString () {
         return Name;
     }
 }

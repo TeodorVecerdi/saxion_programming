@@ -19,7 +19,7 @@ public class InventoryScene extends Scene {
         inventorySlotHotspots = new ArrayList<>();
         for (int i = 0; i < numSlotsStart; i++) {
             final int slot = i;
-            var tri = Utils.Square2Tri(i*150 + i*10 + 10, 10, 150, 150);
+            var tri = Utils.Square2Tri(i * 150 + i * 10 + 10, 10, 150, 150);
             inventorySlotHotspots.add(new MouseHotspot().AddCollisionTriangle(tri[0]).AddCollisionTriangle(tri[1]).AddAction(() -> {
                 Scene.HotspotClickedThisFrame = true;
                 TrySelectSlot(slot);
@@ -36,7 +36,7 @@ public class InventoryScene extends Scene {
         if (numSlots > inventorySlotHotspots.size()) {
             for (int i = inventorySlotHotspots.size(); i < numSlots; i++) {
                 final int slot = i;
-                var tri = Utils.Square2Tri(i*150 + i*10 + 10, 10, 150, 150);
+                var tri = Utils.Square2Tri(i * 150 + i * 10 + 10, 10, 150, 150);
                 inventorySlotHotspots.add(new MouseHotspot().AddCollisionTriangle(tri[0]).AddCollisionTriangle(tri[1]).AddAction(() -> {
                     Scene.HotspotClickedThisFrame = true;
                     TrySelectSlot(slot);

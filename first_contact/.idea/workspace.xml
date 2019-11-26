@@ -4,10 +4,20 @@
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/FloatingText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/FloatingText.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Loopable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Loopable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Transform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomBedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomBedController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomClock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomDesk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomDesk.java" afterDir="false" />
@@ -177,7 +187,8 @@
       <workItem from="1574524377186" duration="7550000" />
       <workItem from="1574684990072" duration="9477000" />
       <workItem from="1574699006453" duration="8953000" />
-      <workItem from="1574771357719" duration="8775000" />
+      <workItem from="1574771357719" duration="8889000" />
+      <workItem from="1574791115203" duration="1225000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>
