@@ -65,10 +65,6 @@ public class BedroomMain extends Scene {
 
         var bedroomDeskScene = ((BedroomDesk) a.Scenes.get("Bedroom/Desk"));
         var bedroomClockScene = ((BedroomClock) a.Scenes.get("Bedroom/Clock"));
-        if (bedroomDeskScene.clockTime == correctTime && bedroomClockScene.clockTime == correctTime && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleDone")) {
-            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
-            a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/ClockPuzzleDone", true);
-        }
         if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {
             if (!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);

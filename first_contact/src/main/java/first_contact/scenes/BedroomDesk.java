@@ -70,9 +70,11 @@ public class BedroomDesk extends Scene {
         backHotspot.update(deltaTime);
 
         var bedroomClockScene = ((BedroomClock) a.Scenes.get("Bedroom/Clock"));
-        if (clockTime == correctTime && bedroomClockScene.clockTime == correctTime && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleDone")) {
-            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
-            a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/ClockPuzzleDone", true);
+        if (clockTime == correctTime && bedroomClockScene.clockTime == correctTime && !a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleFeedback")) {
+//            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
+            System.out.println("TODO: Add sound feedback for finishing the clock puzzle");
+            a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/ClockPuzzleFeedback", true);
+            new FloatingText("I heard something fall from the wall clock.\nMaybe I should check it out", 3f);
         }
 
         if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {

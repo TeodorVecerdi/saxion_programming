@@ -53,6 +53,7 @@ public class BedroomClock extends Scene {
             //            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("lockpick"));
             System.out.println("TODO: Add sound feedback for finishing the clock puzzle");
             a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/ClockPuzzleFeedback", true);
+            new FloatingText("The hands of the clock fell.\nThese might be useful later. I should pick them up", 3f);
         }
 
         if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {
@@ -69,16 +70,17 @@ public class BedroomClock extends Scene {
 
         a.image(Background, 0, 0);
 
-        int m = clockTime % 60;
-        int h = (clockTime - m) / 60;
-        a.fill(0, 255, 0);
-        a.textAlign(PConstants.CENTER, PConstants.CENTER);
-        a.textSize(32);
-        a.text("TEMPORARY RENDER.\nWILL RENDER WITH CLOCK HANDS LATER", Globals.WIDTH / 2, Globals.HEIGHT / 2 - 100);
-        a.textSize(128);
-        a.text(String.format("%02d:%02d", h, m), Globals.WIDTH / 2, Globals.HEIGHT / 2);
-        a.textAlign(PConstants.LEFT, PConstants.BASELINE);
-
+        if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/ClockPuzzleFeedback")) {
+            int m = clockTime % 60;
+            int h = (clockTime - m) / 60;
+            a.fill(0, 255, 0);
+            a.textAlign(PConstants.CENTER, PConstants.CENTER);
+            a.textSize(32);
+            a.text("TEMPORARY RENDER.\nWILL RENDER WITH CLOCK HANDS LATER", Globals.WIDTH / 2, Globals.HEIGHT / 2 - 100);
+            a.textSize(128);
+            a.text(String.format("%02d:%02d", h, m), Globals.WIDTH / 2, Globals.HEIGHT / 2);
+            a.textAlign(PConstants.LEFT, PConstants.BASELINE);
+        }
         clockHotspot.render();
         backHotspot.render();
         //UI

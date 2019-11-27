@@ -5,7 +5,7 @@
 // We need more interaction
 // Bedroom drawer says you need an item even after finishing the puzzle. Should say 'Messages.NoHotspot' / Disable hotspot
 /// Explicitly say noStroke in inventory render. (And other places where you don't need a stroke so other render methods don't fuck you up) (fixed only in inventory scene)
-++ Add Doctor's Office room
+// Add Doctor's Office room
 ++ Add final art for bedroom
 ++ Add final art for waiting room
 
@@ -15,8 +15,8 @@ Bedroom Level
 ++ Add final art
 
 Doctor's Office
-++ Implement basic level scenes
-++ Implement basic puzzle
+// Implement basic level scenes
+// Implement basic puzzle
 ++ Finish puzzle
 ++ Add final art
 
@@ -24,6 +24,9 @@ Waiting Room
 ++ Add coffee machine reworked puzzle / redo room
 ++ Add xylophone puzzle / redo room
 ++ Add final art
+
+Hallway
+++ Add puzzle / item pickup
 
 General
 ++ Fade between rooms

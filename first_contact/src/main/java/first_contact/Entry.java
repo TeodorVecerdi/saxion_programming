@@ -47,7 +47,7 @@ public class Entry extends PApplet {
         Assets = new Assets();
         Items = new Items();
         //        @formatter:off
-        ActiveScene = "DoctorOffice/ComputerOverlay";
+        ActiveScene = "Bedroom/Main";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),
