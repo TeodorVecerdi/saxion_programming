@@ -6,7 +6,11 @@
 
     <groupId>saxion_programming</groupId>
     <artifactId>first_contact</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../first_contact_meshtool</module>
+    </modules>
 
     <name>first_contact_old</name>
     <!-- FIXME change it to the project's website -->

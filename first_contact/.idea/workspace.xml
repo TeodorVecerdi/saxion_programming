@@ -2,36 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
+      <change afterPath="$PROJECT_DIR$/../first_contact_meshtool/data/working.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first_contact_meshtool/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first_contact_meshtool/src/main/java/Entry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first_contact_meshtool/src/main/java/Input.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first_contact_meshtool/src/main/java/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/InventoryScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/FloatingText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/FloatingText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Loopable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Loopable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Transform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/misc/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/misc/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/MouseHotspot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/objects/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomBedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomBedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomClock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomDesk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomDesk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Hallway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Hallway.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="autoscrollToSource" value="true" />
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
   <component name="ExportToHTMLSettings">
     <option name="printScope" value="4" />
@@ -70,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/processing-sound/processing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../first_contact_meshtool/data" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -80,28 +69,29 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\processing-sound" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\sounds" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Bedroom" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Hallway" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="first_contact.misc" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\processing-sound\processing\sound" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\javamp3" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\jsyn" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Items" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="first_contact.misc" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact_meshtool\data" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact_meshtool\src\main\java" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\processing-sound" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\sounds" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Bedroom" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -116,7 +106,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Entry">
+  <component name="RunManager" selected="Application.Entry MeshTool">
+    <configuration name="Entry MeshTool" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Entry" />
+      <module name="first_contact_meshtool" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../first_contact_meshtool" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Entry" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="first_contact.Entry" />
       <module name="first_contact" />
@@ -156,8 +154,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Entry MeshTool" />
+      <item itemvalue="Application.MainApp" />
+      <item itemvalue="Application.SimplexNoiseTest" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Entry MeshTool" />
         <item itemvalue="Application.Entry" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.SimplexNoiseTest" />
@@ -189,6 +193,7 @@
       <workItem from="1574699006453" duration="8953000" />
       <workItem from="1574771357719" duration="8889000" />
       <workItem from="1574791115203" duration="1225000" />
+      <workItem from="1574855617875" duration="7286000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>
