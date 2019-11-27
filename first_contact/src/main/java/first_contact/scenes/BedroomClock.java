@@ -74,15 +74,15 @@ public class BedroomClock extends Scene {
         a.fill(0, 255, 0);
         a.textAlign(PConstants.CENTER, PConstants.CENTER);
         a.textSize(32);
-        a.text("TEMPORARY RENDER.\nWILL RENDER WITH CLOCK HANDS LATER", Constants.WIDTH / 2, Constants.HEIGHT / 2 - 100);
+        a.text("TEMPORARY RENDER.\nWILL RENDER WITH CLOCK HANDS LATER", Globals.WIDTH / 2, Globals.HEIGHT / 2 - 100);
         a.textSize(128);
-        a.text(String.format("%02d:%02d", h, m), Constants.WIDTH / 2, Constants.HEIGHT / 2);
+        a.text(String.format("%02d:%02d", h, m), Globals.WIDTH / 2, Globals.HEIGHT / 2);
         a.textAlign(PConstants.LEFT, PConstants.BASELINE);
 
         clockHotspot.render();
         backHotspot.render();
         //UI
-        if (Constants.SHOW_DEBUG) {
+        if (Globals.SHOW_DEBUG) {
             a.fill(0, 0, 255);
             a.textSize(35);
             a.text(String.format("%s (%s)", Name, SceneName), 20, 30);

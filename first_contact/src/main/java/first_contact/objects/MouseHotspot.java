@@ -1,6 +1,7 @@
 package first_contact.objects;
 
 import first_contact.Entry;
+import first_contact.misc.Globals;
 import first_contact.misc.Input;
 import first_contact.misc.Utils;
 
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MouseHotspot extends GameObject {
-    public static Boolean ShowMouseHotspots = false;
     public boolean Enabled;
     public List<Runnable> Actions;
     public List<Utils.Triangle> CollisionMesh;
@@ -47,7 +47,7 @@ public class MouseHotspot extends GameObject {
 
     @Override
     public void render () {
-        if (!ShowMouseHotspots || !Enabled) return;
+        if (!Globals.SHOW_HOTSPOTS || !Globals.SHOW_DEBUG || !Enabled) return;
         var a = Entry.Instance;
         a.pushMatrix();
         a.fill(0xaa00ff00);

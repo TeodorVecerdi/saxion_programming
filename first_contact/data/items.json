@@ -27,6 +27,10 @@
     {
       "id": "bedroomKey",
       "name": "Bedroom Key"
+    },
+    {
+      "id": "officeDrawerKey",
+      "name": "Drawer Key"
     }
   ]
 }

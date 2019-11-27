@@ -2,6 +2,7 @@ package first_contact.misc;
 
 import first_contact.Entry;
 import first_contact.objects.GameObject;
+import processing.core.PConstants;
 
 import java.util.UUID;
 
@@ -53,11 +54,13 @@ public class FloatingText extends GameObject {
         a.translate(-x, -y);
 
         a.fill(0xaa, opacity);
+        a.textAlign(PConstants.CENTER);
         a.textSize(24);
         a.text(text, x + 1, y);
-        a.fill(0x44, opacity);
+        a.fill(0x22, opacity);
         a.textSize(24);
         a.text(text, x, y + 1);
+        a.textAlign(PConstants.LEFT);
         a.popMatrix();
     }
 }

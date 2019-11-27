@@ -3,7 +3,7 @@ package first_contact;
 import first_contact.inventory.InventoryScene;
 import first_contact.inventory.Items;
 import first_contact.misc.Assets;
-import first_contact.misc.Constants;
+import first_contact.misc.Globals;
 import first_contact.misc.FloatingText;
 import first_contact.misc.Input;
 import first_contact.objects.Scene;
@@ -35,8 +35,8 @@ public class Entry extends PApplet {
 
     public void settings () {
         Instance = this;
-        size(Constants.WIDTH, Constants.HEIGHT);
-        fullScreen();
+        size(Globals.WIDTH, Globals.HEIGHT);
+        fullScreen(2);
     }
 
     public void setup () {
@@ -47,7 +47,7 @@ public class Entry extends PApplet {
         Assets = new Assets();
         Items = new Items();
         //        @formatter:off
-        ActiveScene = "Hallway/Main";
+        ActiveScene = "DoctorOffice/ComputerOverlay";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),
@@ -56,7 +56,11 @@ public class Entry extends PApplet {
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/Desk", new BedroomDesk()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/Clock", new BedroomClock()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/BedController", new BedroomBedController()),
-                new AbstractMap.SimpleEntry<String, Scene>("Hallway/Main", new Hallway())
+                new AbstractMap.SimpleEntry<String, Scene>("Hallway/Main", new Hallway()),
+                new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/Main", new DoctorOfficeMain()),
+                new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/DrawerOverlay", new DoctorOfficeDrawerOverlay()),
+                new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/PasswordNoteOverlay", new DoctorOfficePasswordNoteOverlay()),
+                new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/ComputerOverlay", new DoctorOfficeComputerOverlay())
         );
 
         //@formatter:on
@@ -70,10 +74,10 @@ public class Entry extends PApplet {
         FloatingTexts.forEach(((uuid, floatingText) -> floatingText.update(deltaTime)));
 
         if (Input.GetKeyDown(KeyEvent.VK_SPACE)) {
-            Constants.SHOW_DEBUG = !Constants.SHOW_DEBUG;
+            Globals.SHOW_DEBUG = !Globals.SHOW_DEBUG;
         }
         if (Input.GetKeyDown(KeyEvent.VK_Z)) {
-            Constants.SHOW_HOTSPOTS = !Constants.SHOW_HOTSPOTS;
+            Globals.SHOW_HOTSPOTS = !Globals.SHOW_HOTSPOTS;
         }
     }
 
@@ -83,12 +87,12 @@ public class Entry extends PApplet {
         InventoryScene.render();
         FloatingTexts.forEach(((uuid, floatingText) -> floatingText.render()));
 
-        if (Constants.SHOW_DEBUG) {
+        if (Globals.SHOW_DEBUG) {
             fill(0, 255, 0);
             textSize(20);
-            text(String.format("FPS %.4f\ndT  %.6f", frameRate, deltaTime), Constants.WIDTH - 200, 20);
+            text(String.format("FPS %.4f\ndT  %.6f", frameRate, deltaTime), Globals.WIDTH - 200, 20);
             fill(0);
-            text(String.format("%s", Input.MousePosition), Constants.WIDTH - 250, 90);
+            text(String.format("%s", Input.MousePosition), Globals.WIDTH - 250, 90);
         }
     }
 
@@ -134,6 +138,15 @@ public class Entry extends PApplet {
     @Override
     public void mouseMoved (MouseEvent event) {
         super.mouseMoved(event);
+        Input.MouseX = event.getX();
+        Input.MouseY = event.getY();
+        Input.MousePosition.x = Input.MouseX;
+        Input.MousePosition.y = Input.MouseY;
+    }
+
+    @Override
+    public void mouseDragged (MouseEvent event) {
+        super.mouseDragged(event);
         Input.MouseX = event.getX();
         Input.MouseY = event.getY();
         Input.MousePosition.x = Input.MouseX;

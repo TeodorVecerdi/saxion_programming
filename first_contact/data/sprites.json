@@ -22,6 +22,9 @@
     },{
       "id": "items/bedroomKey",
       "sprite": "items/bedroomKey.png"
+    },{
+      "id": "items/officeDrawerKey",
+      "sprite": "items/bedroomKey.png"
     }
   ],
   "sceneSprites": [
@@ -31,6 +34,9 @@
     },{
       "id": "scene/hallwayNotLitUp",
       "sprite": "Hallway/hallwayNotLitUp.png"
+    },{
+      "id": "scene/hallway",
+      "sprite": "Hallway/hallway.png"
     },{
       "id": "scene/hallwayLitUp",
       "sprite": "Hallway/hallwayLitUp.png"
@@ -85,6 +91,21 @@
     }, {
       "id": "scene/bedroomClock",
       "sprite": "Bedroom/bedroomClock.png"
+    }, {
+      "id": "scene/office",
+      "sprite": "DoctorOffice/office.png"
+    }, {
+      "id": "scene/officeSkullOpen",
+      "sprite": "DoctorOffice/officeSkullOpen.png"
+    }, {
+      "id": "scene/officeDrawerOpenOverlay",
+      "sprite": "DoctorOffice/officeDrawerOpenOverlay.png"
+    }, {
+      "id": "scene/officePasswordNoteOverlay",
+      "sprite": "DoctorOffice/officePasswordNoteOverlay.png"
+    }, {
+      "id": "scene/officeComputerOverlay",
+      "sprite": "DoctorOffice/officeComputerOverlay.png"
     }
   ]
 }

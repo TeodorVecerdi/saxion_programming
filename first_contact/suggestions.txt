@@ -24,3 +24,6 @@ Waiting Room
 ++ Add coffee machine reworked puzzle / redo room
 ++ Add xylophone puzzle / redo room
 ++ Add final art
+
+General
+++ Fade between rooms

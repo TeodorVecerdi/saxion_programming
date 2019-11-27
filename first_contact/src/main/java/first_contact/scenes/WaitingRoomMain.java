@@ -155,7 +155,7 @@ public class WaitingRoomMain extends Scene {
         xylo4Hotspot.render();
         xylo5Hotspot.render();
         //UI
-        if (Constants.SHOW_DEBUG) {
+        if (Globals.SHOW_DEBUG) {
             a.fill(0, 0, 255);
             a.textSize(35);
             a.text(String.format("%s (%s)", Name, SceneName), 20, 30);

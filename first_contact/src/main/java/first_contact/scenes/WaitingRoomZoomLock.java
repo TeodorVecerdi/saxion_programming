@@ -106,7 +106,7 @@ public class WaitingRoomZoomLock extends Scene {
         a.text(lockNumbers[1] + "", 1065, 470 + 35 + 71);
         a.text(lockNumbers[2] + "", 1065, 470 + 35 + 71 + 74);
         //UI
-        if (Constants.SHOW_DEBUG) {
+        if (Globals.SHOW_DEBUG) {
             a.fill(0, 0, 255);
             a.textSize(35);
             a.text(String.format("%s (%s)", Name, SceneName), 20, 30);

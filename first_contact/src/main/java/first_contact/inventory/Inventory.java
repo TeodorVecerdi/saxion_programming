@@ -25,6 +25,9 @@ public class Inventory {
         InventoryChecks.put("Bedroom/DoorOpen", false);
         InventoryChecks.put("Bedroom/GotLockpick", false);
         InventoryChecks.put("Bedroom/GotKey", false);
+        InventoryChecks.put("DoctorOffice/OpenedSkull", false);
+        InventoryChecks.put("DoctorOffice/DrawerUnlocked", false);
+
     }
 
     public void AddItem (Item item) {
