@@ -11,21 +11,27 @@ import java.awt.event.KeyEvent;
 public class DoctorOfficeMain extends Scene {
 
     public PImage Background;
-    public PImage DoctorOffice, DoctorOfficeSkullOpen;
+    public PImage DoctorOfficeHeadClosed, DoctorOfficeHeadOpenKey, DoctorOfficeHeadOpenNoKey;
 
     public MouseHotspot ComputerHotspot;
     public MouseHotspot PasswordNoteHotspot;
     public MouseHotspot TopDrawerHotspot;
     public MouseHotspot MiddleDrawerHotspot;
     public MouseHotspot BottomDrawerHotspot;
-    public MouseHotspot SkullHotspot;
+    public MouseHotspot HeadHotspot;
 
     public DoctorOfficeMain () {
         super();
         var a = Entry.Instance;
-        DoctorOffice = a.Assets.GetSprite("scene/office");
-        DoctorOfficeSkullOpen = a.Assets.GetSprite("scene/officeSkullOpen");
-        Background = DoctorOffice;
+        DoctorOfficeHeadClosed = a.Assets.GetSprite("scene/officeHeadClosed");
+        DoctorOfficeHeadOpenKey = a.Assets.GetSprite("scene/officeHeadOpenKey");
+        DoctorOfficeHeadOpenNoKey = a.Assets.GetSprite("scene/officeHeadOpenNoKey");
+        Background = DoctorOfficeHeadClosed;
+
+        HeadHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1324, 411, 1290, 459, 1315, 540)).AddCollisionTriangle(new Utils.Triangle(1324, 411, 1391, 430, 1385, 509)).AddCollisionTriangle(new Utils.Triangle(1385, 509, 1324, 411, 1315, 543)).AddCollisionTriangle(new Utils.Triangle(1315, 542, 1365, 550, 1384, 535)).AddCollisionTriangle(new Utils.Triangle(1384, 536, 1385, 509, 1315, 543)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            a.ActiveScene = "DoctorOffice/HeadOverlay";
+        });
 
         ComputerHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(546, 394, 521, 564, 726, 557)).AddCollisionTriangle(new Utils.Triangle(727, 559, 723, 399, 546, 394)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
@@ -58,7 +64,7 @@ public class DoctorOfficeMain extends Scene {
             Scene.HotspotClickedThisFrame = true;
             new FloatingText("There is nothing in this drawer", 1.5f);
         });
-        SkullHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1330, 406, 1280, 444, 1307, 550)).AddCollisionTriangle(new Utils.Triangle(1391, 407, 1329, 407, 1307, 548)).AddCollisionTriangle(new Utils.Triangle(1307, 548, 1376, 554, 1391, 408)).AddAction(() -> {
+        /*SkullHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1330, 406, 1280, 444, 1307, 550)).AddCollisionTriangle(new Utils.Triangle(1391, 407, 1329, 407, 1307, 548)).AddCollisionTriangle(new Utils.Triangle(1307, 548, 1376, 554, 1391, 408)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("DoctorOffice/OpenedSkull")) {
                 Background = DoctorOfficeSkullOpen;
@@ -67,7 +73,7 @@ public class DoctorOfficeMain extends Scene {
                 new FloatingText("I found a key. I wonder what it unlocks", 2.5f);
                 SkullHotspot.SetEnabled(false);
             }
-        });
+        });*/
     }
 
     @Override
@@ -79,7 +85,7 @@ public class DoctorOfficeMain extends Scene {
         TopDrawerHotspot.update(deltaTime);
         MiddleDrawerHotspot.update(deltaTime);
         BottomDrawerHotspot.update(deltaTime);
-        SkullHotspot.update(deltaTime);
+        HeadHotspot.update(deltaTime);
 
         if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {
             if (!Scene.HotspotClickedThisFrame) {
@@ -99,7 +105,7 @@ public class DoctorOfficeMain extends Scene {
         TopDrawerHotspot.render();
         MiddleDrawerHotspot.render();
         BottomDrawerHotspot.render();
-        SkullHotspot.render();
+        HeadHotspot.render();
         //UI
         if (Globals.SHOW_DEBUG) {
             a.fill(0, 0, 255);

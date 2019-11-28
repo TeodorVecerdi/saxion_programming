@@ -8,9 +8,10 @@ import processing.core.PImage;
 
 import java.awt.event.KeyEvent;
 
-public class WaitingRoomZoomLock extends Scene {
+public class WaitingRoomLockOverlay extends Scene {
 
-    public MouseHotspot backHotspot;
+    public PImage Background;
+    public MouseHotspot BackHotspot;
     public MouseHotspot ld1dHotspot;
     public MouseHotspot ld1iHotspot;
     public MouseHotspot ld2dHotspot;
@@ -21,48 +22,45 @@ public class WaitingRoomZoomLock extends Scene {
     private int[] lockNumbers = {0, 0, 0};
     private int[] correctCode = {2, 4, 8};
 
-
-    private PImage Background;
-
-    public WaitingRoomZoomLock () {
+    public WaitingRoomLockOverlay() {
         super();
         var a = Entry.Instance;
-
-        Background = a.Assets.GetSprite("scene/lockZoom");
-        ld1dHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1008, 471, 1034, 471, 1008, 511)).AddCollisionTriangle(new Utils.Triangle(1034, 471, 1008, 511, 1034, 511)).AddAction(() -> {
-            Scene.HotspotClickedThisFrame = true;
-            lockNumbers[0] = Math.floorMod(lockNumbers[0] - 1, 10);
-        });
-        ld1iHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1121, 471, 1147, 471, 1121, 511)).AddCollisionTriangle(new Utils.Triangle(1147, 471, 1121, 511, 1147, 511)).AddAction(() -> {
-            Scene.HotspotClickedThisFrame = true;
-            lockNumbers[0] = Math.floorMod(lockNumbers[0] + 1, 10);
-        });
-        ld2dHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1008, 542, 1034, 542, 1008, 582)).AddCollisionTriangle(new Utils.Triangle(1034, 542, 1008, 582, 1034, 582)).AddAction(() -> {
-            Scene.HotspotClickedThisFrame = true;
-            lockNumbers[1] = Math.floorMod(lockNumbers[1] - 1, 10);
-        });
-        ld2iHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1121, 542, 1147, 542, 1121, 582)).AddCollisionTriangle(new Utils.Triangle(1147, 542, 1121, 582, 1147, 582)).AddAction(() -> {
-            Scene.HotspotClickedThisFrame = true;
-            lockNumbers[1] = Math.floorMod(lockNumbers[1] + 1, 10);
-        });
-        ld3dHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1008, 616, 1034, 616, 1008, 656)).AddCollisionTriangle(new Utils.Triangle(1034, 616, 1008, 656, 1034, 656)).AddAction(() -> {
-            Scene.HotspotClickedThisFrame = true;
-            lockNumbers[2] = Math.floorMod(lockNumbers[2] - 1, 10);
-        });
-        ld3iHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1121, 616, 1147, 616, 1121, 656)).AddCollisionTriangle(new Utils.Triangle(1147, 616, 1121, 656, 1147, 656)).AddAction(() -> {
-            Scene.HotspotClickedThisFrame = true;
-            lockNumbers[2] = Math.floorMod(lockNumbers[2] + 1, 10);
-        });
-        backHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080)).AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080)).AddAction(() -> {
+        Background = a.Assets.GetSprite("scene/wrLockOverlay");
+        BackHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080)).AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "WaitingRoom/Main";
         });
+        ld1dHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1038, 493, 997, 518, 1038, 541)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            lockNumbers[0] = Math.floorMod(lockNumbers[0] - 1, 10);
+        });
+        ld1iHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1139, 493, 1180, 520, 1139, 543)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            lockNumbers[0] = Math.floorMod(lockNumbers[0] + 1, 10);
+        });
+        ld2dHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(996, 602, 1038, 578, 1040, 626)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            lockNumbers[1] = Math.floorMod(lockNumbers[1] - 1, 10);
+        });
+        ld2iHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1139, 578, 1180, 602, 1139, 626)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            lockNumbers[1] = Math.floorMod(lockNumbers[1] + 1, 10);
+        });
+        ld3dHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(998, 688, 1038, 666, 1039, 714)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            lockNumbers[2] = Math.floorMod(lockNumbers[2] - 1, 10);
+        });
+        ld3iHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1139, 664, 1181, 691, 1138, 714)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            lockNumbers[2] = Math.floorMod(lockNumbers[2] + 1, 10);
+        });
     }
+
 
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
-        backHotspot.update(deltaTime);
+        BackHotspot.update(deltaTime);
         ld1dHotspot.update(deltaTime);
         ld2dHotspot.update(deltaTime);
         ld3dHotspot.update(deltaTime);
@@ -72,12 +70,12 @@ public class WaitingRoomZoomLock extends Scene {
 
         if (a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotCoffee") && lockNumbers[0] == correctCode[0] && lockNumbers[1] == correctCode[1] && lockNumbers[2] == correctCode[2]) {
             System.out.println("YES YOU WON BYE");
-            var main = ((WaitingRoomMain_OLD) a.Scenes.get("WaitingRoom/Main"));
-            main.lockHotspot.SetEnabled(false);
-            main.coffeeHotspot.SetEnabled(false);
-            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("crowbar"));
+            var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+            main.LockHotspot.SetEnabled(false);
+            main.CoffeeMachineHotspot.SetEnabled(false);
+            main.Cabinet = main.CabinetUnlocked;
+//            a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("crowbar"));
             a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/Unlocked", true);
-            main.Background = main.WaitingRoomUnlocked;
             a.ActiveScene = "WaitingRoom/Main";
         }
 
@@ -93,19 +91,20 @@ public class WaitingRoomZoomLock extends Scene {
         var a = Entry.Instance;
         a.pushMatrix();
         a.image(Background, 0, 0);
-        backHotspot.render();
+        a.fill(0xffffffff);
+        a.textSize(34);
+        a.text(lockNumbers[0] + "", 1080, 533);
+        a.text(lockNumbers[1] + "", 1080, 616);
+        a.text(lockNumbers[2] + "", 1080, 701);
+        //UI
+
+        BackHotspot.render();
         ld1dHotspot.render();
         ld2dHotspot.render();
         ld3dHotspot.render();
         ld1iHotspot.render();
         ld2iHotspot.render();
         ld3iHotspot.render();
-        a.fill(0xff333333);
-        a.textSize(34);
-        a.text(lockNumbers[0] + "", 1065, 470 + 35);
-        a.text(lockNumbers[1] + "", 1065, 470 + 35 + 71);
-        a.text(lockNumbers[2] + "", 1065, 470 + 35 + 71 + 74);
-        //UI
         if (Globals.SHOW_DEBUG) {
             a.fill(0, 0, 255);
             a.textSize(35);
@@ -114,5 +113,4 @@ public class WaitingRoomZoomLock extends Scene {
 
         a.popMatrix();
     }
-
 }

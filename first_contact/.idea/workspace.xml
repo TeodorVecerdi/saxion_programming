@@ -2,17 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3919b099-5937-40b2-9109-16a5498d8e4e" name="Default Changelist" comment="Fix Input OnButtonDown and OnKeyDown implementations">
+      <change afterPath="$PROJECT_DIR$/data/DoctorOffice/officeHeadClosed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/DoctorOffice/officeHeadClosedOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/DoctorOffice/officeHeadOpenKey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/DoctorOffice/officeHeadOpenKeyOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/DoctorOffice/officeHeadOpenNoKey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/DoctorOffice/officeHeadOpenNoKeyOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Hallway/hallwayCodeLockedOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Hallway/hallwayCodeUnlockedOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cabinetCrowbarTaken.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cabinetLocked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cabinetUnlocked.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cmCode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cmCoffee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cmEmptyNoPower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cmEmptyPower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/cmWater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/tableClosed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/tableEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/tableOpen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/wrBgCableBroken.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/wrBgCableFixed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/wrChairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/wrCup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/wrHorse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/wrLockOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/WaitingRoom/wrSignOverlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/items/tape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/DoctorOfficeHeadOverlay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/HallwayCodeOverlay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomLockOverlay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain_OLD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomSignOverlay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../first_contact_meshtool/data/working9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomBedController.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bedroom/bedroomBedController.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomBedControllerBedLifted.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bedroom/bedroomBedControllerBedLifted.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomBedLifted.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bedroom/bedroomBedLifted.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomMain.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bedroom/bedroomMain.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Bedroom/bedroomOpenDoor.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Bedroom/bedroomOpenDoor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/DoctorOffice/office.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/DoctorOffice/officeDrawerOpenOverlay.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/DoctorOffice/officeDrawerOpenOverlay.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/DoctorOffice/officeSkullOpen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hallway/hallway.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/Hallway/hallway.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hallway/hallwayLitUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Hallway/hallwayNotLitUp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/coffeeCornerWithCode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/coffeeCornerWithCoffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/coffeeCornerWithCup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/coffeeCornerWithoutCup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/lockZoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/waitingRoomUnlocked.png" beforeDir="false" afterPath="$PROJECT_DIR$/../first_contact_meshtool/data/working3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/waitingRoomWithCode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/waitingRoomWithCoffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/waitingRoomWithCup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/WaitingRoom/waitingRoomWithoutCup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/items.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sprites.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/sprites.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomClock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomClock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomDesk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomDesk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/BedroomMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/inventory/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/DoctorOfficeMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/DoctorOfficeMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/Hallway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/HallwayMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomCoffee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/first_contact/scenes/WaitingRoomZoomLock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/suggestions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/suggestions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../first_contact_meshtool/data/working.png" beforeDir="false" afterPath="$PROJECT_DIR$/../first_contact_meshtool/data/working.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../first_contact_meshtool/exports/14259/exp-14259.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../first_contact_meshtool/exports/7466/exp-7466.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../first_contact_meshtool/src/main/java/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/../first_contact_meshtool/src/main/java/Entry.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +114,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/Bedroom" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data/items" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,11 +142,11 @@
       <recent name="first_contact.misc" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Bedroom" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\DoctorOffice" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\items" />
       <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact_meshtool\data" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact_meshtool\src\main\java" />
-      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\lib\processing-sound" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\WaitingRoom" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\Hallway" />
+      <recent name="C:\Users\TeodorVecerdi\Desktop\Development\Java\saxion_programming\first_contact\data\DoctorOffice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -196,6 +249,8 @@
       <workItem from="1574771357719" duration="8889000" />
       <workItem from="1574791115203" duration="1225000" />
       <workItem from="1574855617875" duration="17327000" />
+      <workItem from="1574890844383" duration="484000" />
+      <workItem from="1574944145102" duration="14663000" />
     </task>
     <task id="LOCAL-00001" summary="Fix Input OnButtonDown and OnKeyDown implementations">
       <created>1574175679444</created>

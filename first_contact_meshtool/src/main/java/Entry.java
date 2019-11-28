@@ -29,7 +29,7 @@ public class Entry extends PApplet {
 
     public void setup () {
         frameRate(1000);
-        image = loadImage("working2.png");
+        image = loadImage("working9.png");
         SecureRandom = new SecureRandom();
     }
 
@@ -94,9 +94,9 @@ public class Entry extends PApplet {
             for (int i = 0; i < triangles.size(); i++) {
                 var t = triangles.get(i);
                 sb.append(String.format("%d:\n", i));
-                sb.append(t).append("\n");
-                sb.append(String.format("%.0f, %.0f, %.0f, %.0f, %.0f, %.0f\n", t.v1.x, t.v1.y, t.v2.x, t.v2.y, t.v3.x, t.v3.y));
-                sb.append(String.format("new Utils.Triangle(%.0f, %.0f, %.0f, %.0f, %.0f, %.0f)\n", t.v1.x, t.v1.y, t.v2.x, t.v2.y, t.v3.x, t.v3.y));
+//                sb.append(t).append("\n");
+//                sb.append(String.format("%.0f, %.0f, %.0f, %.0f, %.0f, %.0f\n", t.v1.x, t.v1.y, t.v2.x, t.v2.y, t.v3.x, t.v3.y));
+//                sb.append(String.format("new Utils.Triangle(%.0f, %.0f, %.0f, %.0f, %.0f, %.0f)\n", t.v1.x, t.v1.y, t.v2.x, t.v2.y, t.v3.x, t.v3.y));
                 sb.append(String.format(".AddCollisionTriangle(new Utils.Triangle(%.0f, %.0f, %.0f, %.0f, %.0f, %.0f))\n", t.v1.x, t.v1.y, t.v2.x, t.v2.y, t.v3.x, t.v3.y));
                 sb.append("\n");
             }

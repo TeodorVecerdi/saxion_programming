@@ -30,7 +30,7 @@ public class WaitingRoomZoomCoffee extends Scene {
             if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotEmptyCup")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("emptyCup"));
                 Background = CoffeeCornerWithoutCup;
-                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                var main = ((WaitingRoomMain_OLD) a.Scenes.get("WaitingRoom/Main"));
                 main.Background = main.WaitingRoomWithoutCup;
                 getCupHotspot.SetEnabled(false);
             }
@@ -46,14 +46,14 @@ public class WaitingRoomZoomCoffee extends Scene {
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasCoffee", true);
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
                 Background = CoffeeCornerWithCoffee;
-                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                var main = ((WaitingRoomMain_OLD) a.Scenes.get("WaitingRoom/Main"));
                 main.Background = main.WaitingRoomWithCoffee;
             } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup") && a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")) {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("emptyCup"));
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("coffeeCup"));
                 Background = CoffeeCornerWithCode;
-                var main = ((WaitingRoomMain) a.Scenes.get("WaitingRoom/Main"));
+                var main = ((WaitingRoomMain_OLD) a.Scenes.get("WaitingRoom/Main"));
                 main.Background = main.WaitingRoomWithCode;
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/GotCoffee", true);

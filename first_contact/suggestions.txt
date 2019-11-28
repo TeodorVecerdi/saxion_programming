@@ -17,7 +17,7 @@ Bedroom Level
 Doctor's Office
 // Implement basic level scenes
 // Implement basic puzzle
-++ Finish puzzle
+// Finish puzzle
 ++ Add final art
 
 Waiting Room

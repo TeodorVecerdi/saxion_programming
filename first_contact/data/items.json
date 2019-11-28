@@ -31,6 +31,10 @@
     {
       "id": "officeDrawerKey",
       "name": "Drawer Key"
+    },
+    {
+      "id": "tape",
+      "name": "Tape"
     }
   ]
 }

@@ -1,0 +1,64 @@
+0:
+.AddCollisionTriangle(new Utils.Triangle(1108, 489, 1108, 543, 1240, 544))
+
+1:
+.AddCollisionTriangle(new Utils.Triangle(1108, 489, 1240, 545, 1241, 487))
+
+2:
+.AddCollisionTriangle(new Utils.Triangle(1130, 567, 1130, 601, 1161, 602))
+
+3:
+.AddCollisionTriangle(new Utils.Triangle(1130, 566, 1164, 568, 1159, 604))
+
+4:
+.AddCollisionTriangle(new Utils.Triangle(1101, 644, 1044, 645, 1047, 715))
+
+5:
+.AddCollisionTriangle(new Utils.Triangle(1048, 713, 1100, 644, 1101, 712))
+
+6:
+.AddCollisionTriangle(new Utils.Triangle(756, 664, 716, 658, 710, 711))
+
+7:
+.AddCollisionTriangle(new Utils.Triangle(709, 711, 756, 704, 753, 667))
+
+8:
+.AddCollisionTriangle(new Utils.Triangle(842, 606, 720, 739, 844, 765))
+
+9:
+.AddCollisionTriangle(new Utils.Triangle(775, 796, 761, 833, 839, 841))
+
+10:
+.AddCollisionTriangle(new Utils.Triangle(837, 842, 773, 797, 839, 806))
+
+11:
+.AddCollisionTriangle(new Utils.Triangle(1029, 453, 992, 480, 993, 612))
+
+12:
+.AddCollisionTriangle(new Utils.Triangle(993, 610, 1098, 608, 1030, 452))
+
+13:
+.AddCollisionTriangle(new Utils.Triangle(1030, 452, 1100, 460, 1098, 610))
+
+14:
+.AddCollisionTriangle(new Utils.Triangle(748, 392, 675, 391, 675, 425))
+
+15:
+.AddCollisionTriangle(new Utils.Triangle(675, 425, 747, 393, 748, 426))
+
+16:
+.AddCollisionTriangle(new Utils.Triangle(753, 394, 788, 395, 788, 420))
+
+17:
+.AddCollisionTriangle(new Utils.Triangle(754, 394, 753, 419, 788, 420))
+
+18:
+.AddCollisionTriangle(new Utils.Triangle(1496, 528, 1344, 583, 1357, 660))
+
+19:
+.AddCollisionTriangle(new Utils.Triangle(1496, 527, 1670, 564, 1664, 675))
+
+20:
+.AddCollisionTriangle(new Utils.Triangle(1355, 660, 1667, 676, 1497, 523))
+
+

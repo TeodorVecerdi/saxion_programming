@@ -27,7 +27,10 @@ public class Inventory {
         InventoryChecks.put("Bedroom/GotKey", false);
         InventoryChecks.put("DoctorOffice/OpenedSkull", false);
         InventoryChecks.put("DoctorOffice/DrawerUnlocked", false);
-
+        InventoryChecks.put("DoctorOffice/HeadOpened", false);
+        InventoryChecks.put("DoctorOffice/GotHeadKey", false);
+        InventoryChecks.put("WaitingRoom/CableFixed", false);
+        InventoryChecks.put("WaitingRoom/BoxOpen", false);
     }
 
     public void AddItem (Item item) {

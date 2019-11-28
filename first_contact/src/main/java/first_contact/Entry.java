@@ -47,20 +47,22 @@ public class Entry extends PApplet {
         Assets = new Assets();
         Items = new Items();
         //        @formatter:off
-        ActiveScene = "Bedroom/Main";
+        ActiveScene = "WaitingRoom/LockOverlay";
         Scenes = Map.ofEntries(
                 new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/Main", new WaitingRoomMain()),
-                new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomCoffee", new WaitingRoomZoomCoffee()),
-                new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/ZoomLock", new WaitingRoomZoomLock()),
+                new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/SignOverlay", new WaitingRoomSignOverlay()),
+                new AbstractMap.SimpleEntry<String, Scene>("WaitingRoom/LockOverlay", new WaitingRoomLockOverlay()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/Main", new BedroomMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/Desk", new BedroomDesk()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/Clock", new BedroomClock()),
                 new AbstractMap.SimpleEntry<String, Scene>("Bedroom/BedController", new BedroomBedController()),
-                new AbstractMap.SimpleEntry<String, Scene>("Hallway/Main", new Hallway()),
+                new AbstractMap.SimpleEntry<String, Scene>("Hallway/Main", new HallwayMain()),
+                new AbstractMap.SimpleEntry<String, Scene>("Hallway/CodeOverlay", new HallwayCodeOverlay()),
                 new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/Main", new DoctorOfficeMain()),
                 new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/DrawerOverlay", new DoctorOfficeDrawerOverlay()),
                 new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/PasswordNoteOverlay", new DoctorOfficePasswordNoteOverlay()),
-                new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/ComputerOverlay", new DoctorOfficeComputerOverlay())
+                new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/ComputerOverlay", new DoctorOfficeComputerOverlay()),
+                new AbstractMap.SimpleEntry<String, Scene>("DoctorOffice/HeadOverlay", new DoctorOfficeHeadOverlay())
         );
 
         //@formatter:on
