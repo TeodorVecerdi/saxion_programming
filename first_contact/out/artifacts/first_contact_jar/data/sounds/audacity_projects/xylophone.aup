@@ -1,0 +1,109 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="xylophone_data" version="1.3.0" audacityversion="2.3.3" sel0="3.1677341292" sel1="3.1677341292" vpos="0" h="0.0000000000" zoom="61.5581965042" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Xylophone royalty free sound fx. Audio of tonal scale - 89167655 - Mozilla Firefox 2019-11-25 17-55-04" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="1" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="20464">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808827.au" len="20464" min="-0.242264" max="0.229624" rms="0.044013"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="0.59293485" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19982">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808012.au" len="19982" min="-0.436895" max="0.373373" rms="0.078682"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.25258710" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19449">
+				<waveblock start="0">
+					<simpleblockfile filename="e080880d.au" len="19449" min="-0.524896" max="0.510509" rms="0.08059"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.81301641" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="20270">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808601.au" len="20270" min="-0.81246" max="0.791363" rms="0.07971"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="2.39781775" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="23969">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808590.au" len="23969" min="-0.674274" max="0.607846" rms="0.069878"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Xylophone royalty free sound fx. Audio of tonal scale - 89167655 - Mozilla Firefox 2019-11-25 17-55-04" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="1" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="20464">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808fd7.au" len="20464" min="-0.399838" max="0.311845" rms="0.048659"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="0.59293485" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19982">
+				<waveblock start="0">
+					<simpleblockfile filename="e080812e.au" len="19982" min="-0.505235" max="0.535445" rms="0.072817"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.25258710" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19449">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808cf8.au" len="19449" min="-0.606566" max="0.56332" rms="0.08485"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.81301641" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="20270">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808fac.au" len="20270" min="-0.867678" max="0.738242" rms="0.080574"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="2.39781775" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="23969">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808d8f.au" len="23969" min="-0.595317" max="0.577447" rms="0.070956"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="1" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="231574">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808555.au" len="231574" min="-0.816412" max="0.773395" rms="0.05752"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="1" rate="48000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="231574">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808912.au" len="231574" min="-0.862074" max="0.746795" rms="0.058445"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
