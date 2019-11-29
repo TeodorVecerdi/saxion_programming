@@ -19,10 +19,6 @@ public class DoctorOfficeHeadOverlay extends Scene {
     public DoctorOfficeHeadOverlay () {
         super();
         var a = Entry.Instance;
-        OfficeHeadClosed = a.Assets.GetSprite("scene/officeHeadClosedOverlay");
-        OfficeHeadOpenKey = a.Assets.GetSprite("scene/officeHeadOpenKeyOverlay");
-        OfficeHeadOpenNoKey = a.Assets.GetSprite("scene/officeHeadOpenNoKeyOverlay");
-        Background = OfficeHeadClosed;
         BackHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080)).AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "DoctorOffice/Main";
@@ -46,6 +42,7 @@ public class DoctorOfficeHeadOverlay extends Scene {
                     Scene.HotspotClickedThisFrame = true;
                     if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("DoctorOffice/GotHeadKey") && a.InventoryScene.PlayerInventory.InventoryChecks.get("DoctorOffice/HeadOpened")) {
                         a.InventoryScene.PlayerInventory.InventoryChecks.put("DoctorOffice/GotHeadKey", true);
+                        a.Assets.GetSound("pickup_keys").play();
                         a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("officeDrawerKey"));
                         new FloatingText("I found a key. I wonder what it unlocks", 2.5f);
                         var main = (DoctorOfficeMain) (a.Scenes.get("DoctorOffice/Main"));
@@ -57,9 +54,27 @@ public class DoctorOfficeHeadOverlay extends Scene {
         KeyHotspot.SetEnabled(false);
     }
 
+    @Override public void Load() {
+        var a = Entry.Instance;
+        OfficeHeadClosed = a.Assets.GetSprite("scene/officeHeadClosedOverlay");
+        OfficeHeadOpenKey = a.Assets.GetSprite("scene/officeHeadOpenKeyOverlay");
+        OfficeHeadOpenNoKey = a.Assets.GetSprite("scene/officeHeadOpenNoKeyOverlay");
+        Background = OfficeHeadClosed;
+    }
+
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
+        if(FirstLoad) {
+            Load();
+            FirstLoad = false;
+        }
+        if(ShouldFade && FadeInTimeLeft >= 0) {
+            FadeInTimeLeft -= deltaTime;
+        }
+        if(ShouldFade && FadeInTimeLeft <= 0) {
+            ShouldFade = false;
+        }
         BackHotspot.update(deltaTime);
         HeadHotspot.update(deltaTime);
         KeyHotspot.update(deltaTime);
@@ -75,6 +90,13 @@ public class DoctorOfficeHeadOverlay extends Scene {
         var a = Entry.Instance;
         a.pushMatrix();
         a.image(Background, 0, 0);
+
+        if (ShouldFade) {
+            var fadeAmt = Utils.Map(FadeInTimeLeft, 0f, FadeInTime, 0f, 1f) * 0xff;
+            a.fill(0x0, fadeAmt);
+            a.rect(0, 0, Globals.WIDTH, Globals.HEIGHT);
+        }
+
         BackHotspot.render();
         HeadHotspot.render();
         KeyHotspot.render();

@@ -4,9 +4,11 @@ import first_contact.Entry;
 import first_contact.misc.*;
 import first_contact.objects.MouseHotspot;
 import first_contact.objects.Scene;
+import processing.core.PConstants;
 import processing.core.PImage;
 
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 public class WaitingRoomMain extends Scene {
 
@@ -22,6 +24,7 @@ public class WaitingRoomMain extends Scene {
     public MouseHotspot xylo3Hotspot;
     public MouseHotspot xylo4Hotspot;
     public MouseHotspot xylo5Hotspot;
+    public MouseHotspot BackHotspot;
 
     private int channel = 0;
     private int xylophoneChannel = 5;
@@ -30,34 +33,12 @@ public class WaitingRoomMain extends Scene {
     private boolean shouldPlayRadio = false;
     private String activeSound = "tvStatic";
 
+    private String CorrectXylophone = "1244351";
+    private String CurrentXylophone = "";
+
     public WaitingRoomMain () {
         super();
         var a = Entry.Instance;
-        BackgroundCableBroken = a.Assets.GetSprite("scene/wrBgCableBroken");
-        BackgroundCableFixed = a.Assets.GetSprite("scene/wrBgCableFixed");
-        Background = BackgroundCableBroken;
-
-        CMEmptyPower = a.Assets.GetSprite("scene/cmEmptyPower");
-        CMEmptyNoPower = a.Assets.GetSprite("scene/cmEmptyNoPower");
-        CMWater = a.Assets.GetSprite("scene/cmWater");
-        CMCoffee = a.Assets.GetSprite("scene/cmCoffee");
-        CMCode = a.Assets.GetSprite("scene/cmCode");
-        CoffeeMachine = CMEmptyNoPower;
-
-        CabinetLocked = a.Assets.GetSprite("scene/cabinetLocked");
-        CabinetUnlocked = a.Assets.GetSprite("scene/cabinetUnlocked");
-        CabinetCrowbarTaken = a.Assets.GetSprite("scene/cabinetCrowbarTaken");
-        Cabinet = CabinetLocked;
-
-        TableClosed = a.Assets.GetSprite("scene/tableClosed");
-        TableOpen = a.Assets.GetSprite("scene/tableOpen");
-        TableEmpty = a.Assets.GetSprite("scene/tableEmpty");
-        Table = TableClosed;
-
-        Chairs = a.Assets.GetSprite("scene/wrChairs");
-        Cup = a.Assets.GetSprite("scene/wrCup");
-        Horse = a.Assets.GetSprite("scene/wrHorse");
-
         SinkHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1496, 528, 1344, 583, 1357, 660)).AddCollisionTriangle(new Utils.Triangle(1496, 527, 1670, 564, 1664, 675)).AddCollisionTriangle(new Utils.Triangle(1355, 660, 1667, 676, 1497, 523)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("emptyCup") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotWaterCup")) {
@@ -90,6 +71,7 @@ public class WaitingRoomMain extends Scene {
         CrowbarHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(842, 606, 720, 739, 844, 765)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("crowbar"));
+            a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/GotCrowbar", true);
             Cabinet = CabinetCrowbarTaken;
             new FloatingText("I can finally open the door to the doctor office\nand get out of here!", 4f);
             CrowbarHotspot.SetEnabled(false);
@@ -103,15 +85,20 @@ public class WaitingRoomMain extends Scene {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("emptyCup"));
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", true);
                 CoffeeMachine = CMWater;
-                if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CableFixed"))
+                if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CableFixed"))
                     new FloatingText("Now I just need to fix the power cable", 4f);
-                else
-                    new FloatingText("Now I can finally make coffee", 4f);
-            } else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CableFixed") && a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasWater") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")) {
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasCoffee", true);
-                a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
-                new FloatingText("I feel sleepy. I could drink the coffee", 4f);
-                CoffeeMachine = CMCoffee;
+                else new FloatingText("Now I can finally make coffee", 4f);
+            } else if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CableFixed")) {
+                new FloatingText("The coffee machine has no power.", 4f);
+            }else if (a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CableFixed") && a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasWater") && !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")) {
+                a.Assets.GetSound("coffee_machine").play(1, 0, 3f);
+                a.Scheduler.schedule(() -> {
+                    a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasCoffee", true);
+                    a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CoffeeMachineHasWater", false);
+                    new FloatingText("I feel sleepy. I could drink the coffee", 4f);
+                    CoffeeMachine = CMCoffee;
+                }, 6, TimeUnit.SECONDS);
+
             } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemName.equals("Empty Cup") && a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasCoffee")) {
                 a.InventoryScene.PlayerInventory.SelectedItem = -1;
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("emptyCup"));
@@ -143,7 +130,7 @@ public class WaitingRoomMain extends Scene {
             if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("tape")) {
                 a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("tape"));
                 Background = BackgroundCableFixed;
-                if(!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasWater")) {
+                if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/CoffeeMachineHasWater")) {
                     CoffeeMachine = CMEmptyPower;
                 }
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/CableFixed", true);
@@ -157,15 +144,23 @@ public class WaitingRoomMain extends Scene {
         });
         BoxHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(775, 796, 761, 833, 839, 841)).AddCollisionTriangle(new Utils.Triangle(837, 842, 773, 797, 839, 806)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
-            if(a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/BoxOpen")) {
+            if (a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/BoxOpen")) {
                 a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("tape"));
                 Table = TableEmpty;
                 new FloatingText("I can finally fix the coffee machine power cable", 4f);
                 BoxHotspot.SetEnabled(false);
             } else {
-                a.InventoryScene.PlayerInventory.AddItem(a.Items.GetItem("tape"));
                 new FloatingText("I might need to do something to open this box", 4f);
             }
+        });
+        BackHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(686, 1023, 686, 1079, 1233, 1079)).AddCollisionTriangle(new Utils.Triangle(687, 1023, 1234, 1079, 1234, 1024)).AddAction(() -> {
+            Scene.HotspotClickedThisFrame = true;
+            if(a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotCrowbar")) {
+                var hallway = ((HallwayMain)a.Scenes.get("Hallway/Main"));
+                hallway.Background = hallway.HallwayMed;
+                hallway.waitingRoomDoorHotspot.SetEnabled(false);
+            }
+            a.ActiveScene = "Hallway/Main";
         });
 
         xylo1Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(673, 923, 717, 870, 700, 928)).AddCollisionTriangle(new Utils.Triangle(717, 870, 700, 928, 740, 871)).AddAction(() -> {
@@ -173,37 +168,80 @@ public class WaitingRoomMain extends Scene {
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone1").play();
+            AddAndTrim("1");
         });
         xylo2Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(708, 923, 744, 870, 740, 923)).AddCollisionTriangle(new Utils.Triangle(744, 870, 740, 923, 770, 870)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone2").play();
+            AddAndTrim("2");
         });
         xylo3Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(749, 919, 778, 867, 778, 921)).AddCollisionTriangle(new Utils.Triangle(778, 867, 778, 921, 805, 867)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone3").play();
+            AddAndTrim("3");
         });
         xylo4Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(790, 918, 812, 869, 819, 921)).AddCollisionTriangle(new Utils.Triangle(812, 869, 819, 921, 839, 871)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone4").play();
+            AddAndTrim("4");
         });
         xylo5Hotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(830, 921, 843, 874, 857, 922)).AddCollisionTriangle(new Utils.Triangle(843, 874, 857, 922, 871, 879)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (xylophoneHotspotClickedThisFrame) return;
             xylophoneHotspotClickedThisFrame = true;
             a.Assets.GetSound("xylophone5").play();
+            AddAndTrim("5");
         });
+    }
+
+    @Override
+    public void Load () {
+        var a = Entry.Instance;
+        BackgroundCableBroken = a.Assets.GetSprite("scene/wrBgCableBroken");
+        BackgroundCableFixed = a.Assets.GetSprite("scene/wrBgCableFixed");
+        Background = BackgroundCableBroken;
+
+        CMEmptyPower = a.Assets.GetSprite("scene/cmEmptyPower");
+        CMEmptyNoPower = a.Assets.GetSprite("scene/cmEmptyNoPower");
+        CMWater = a.Assets.GetSprite("scene/cmWater");
+        CMCoffee = a.Assets.GetSprite("scene/cmCoffee");
+        CMCode = a.Assets.GetSprite("scene/cmCode");
+        CoffeeMachine = CMEmptyNoPower;
+
+        CabinetLocked = a.Assets.GetSprite("scene/cabinetLocked");
+        CabinetUnlocked = a.Assets.GetSprite("scene/cabinetUnlocked");
+        CabinetCrowbarTaken = a.Assets.GetSprite("scene/cabinetCrowbarTaken");
+        Cabinet = CabinetLocked;
+
+        TableClosed = a.Assets.GetSprite("scene/tableClosed");
+        TableOpen = a.Assets.GetSprite("scene/tableOpen");
+        TableEmpty = a.Assets.GetSprite("scene/tableEmpty");
+        Table = TableClosed;
+
+        Chairs = a.Assets.GetSprite("scene/wrChairs");
+        Cup = a.Assets.GetSprite("scene/wrCup");
+        Horse = a.Assets.GetSprite("scene/wrHorse");
     }
 
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
-
+        if (FirstLoad) {
+            Load();
+            FirstLoad = false;
+        }
+        if(ShouldFade && FadeInTimeLeft >= 0) {
+            FadeInTimeLeft -= deltaTime;
+        }
+        if(ShouldFade && FadeInTimeLeft <= 0) {
+            ShouldFade = false;
+        }
         SinkHotspot.update(deltaTime);
         RadioPowerToggleHotspot.update(deltaTime);
         RadioChannelToggleHotspot.update(deltaTime);
@@ -214,12 +252,22 @@ public class WaitingRoomMain extends Scene {
         CoffeeCupHotspot.update(deltaTime);
         PowerCableHotspot.update(deltaTime);
         BoxHotspot.update(deltaTime);
+        BackHotspot.update(deltaTime);
 
         xylo1Hotspot.update(deltaTime);
         xylo2Hotspot.update(deltaTime);
         xylo3Hotspot.update(deltaTime);
         xylo4Hotspot.update(deltaTime);
         xylo5Hotspot.update(deltaTime);
+
+        if (CurrentXylophone.equals(CorrectXylophone) && !a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/BoxOpen")) {
+            a.InventoryScene.PlayerInventory.InventoryChecks.put("WaitingRoom/BoxOpen", true);
+            a.Scheduler.schedule(() -> {
+                a.Assets.GetSound("open_chest").play();
+                Table = TableOpen;
+            }, 1, TimeUnit.SECONDS);
+
+        }
 
         if (resetPlay) {
             a.Assets.GetSound(activeSound).stop();
@@ -256,7 +304,17 @@ public class WaitingRoomMain extends Scene {
         a.image(Chairs, -1, 0);
         a.image(Table, 591, 683);
         if (!a.InventoryScene.PlayerInventory.InventoryChecks.get("WaitingRoom/GotEmptyCup")) a.image(Cup, 1129, 568);
+        a.fill(0xffcb3322);
+        a.textSize(65);
+        a.textAlign(PConstants.CENTER, PConstants.BOTTOM);
+        a.text("BACK TO HALLWAY", Globals.WIDTH/2, Globals.HEIGHT);
+        a.textAlign(PConstants.LEFT, PConstants.BASELINE);
 
+        if (ShouldFade) {
+            var fadeAmt = Utils.Map(FadeInTimeLeft, 0f, FadeInTime, 0f, 1f) * 0xff;
+            a.fill(0x0, fadeAmt);
+            a.rect(0, 0, Globals.WIDTH, Globals.HEIGHT);
+        }
         //UI
         SinkHotspot.render();
         RadioPowerToggleHotspot.render();
@@ -273,6 +331,7 @@ public class WaitingRoomMain extends Scene {
         xylo3Hotspot.render();
         xylo4Hotspot.render();
         xylo5Hotspot.render();
+        BackHotspot.render();
 
         if (Globals.SHOW_DEBUG) {
             a.fill(0, 0, 255);
@@ -281,5 +340,12 @@ public class WaitingRoomMain extends Scene {
         }
 
         a.popMatrix();
+    }
+
+    private void AddAndTrim (String s) {
+        CurrentXylophone += s;
+        if (CurrentXylophone.length() > CorrectXylophone.length()) {
+            CurrentXylophone = CurrentXylophone.substring(CurrentXylophone.length() - CorrectXylophone.length());
+        }
     }
 }

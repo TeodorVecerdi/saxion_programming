@@ -27,6 +27,54 @@
     {
       "id": "xylophone5",
       "path": "sounds/xylophone_scale/xylo5.mp3"
+    },
+    {
+      "id": "ambient_min",
+      "path": "sounds/ambient_min.mp3"
+    },
+    {
+      "id": "ambient_med",
+      "path": "sounds/ambient_med.mp3"
+    },
+    {
+      "id": "ambient_max",
+      "path": "sounds/ambient_max.mp3"
+    },
+    {
+      "id": "bed_rise",
+      "path": "sounds/bed_rise.mp3"
+    },
+    {
+      "id": "button_beep",
+      "path": "sounds/button_beep.mp3"
+    },
+    {
+      "id": "coffee_machine",
+      "path": "sounds/coffee_machine.mp3"
+    },
+    {
+      "id": "pickup_keys",
+      "path": "sounds/pickup_keys.mp3"
+    },
+    {
+      "id": "unlock_fail",
+      "path": "sounds/unlock_fail.mp3"
+    },
+    {
+      "id": "unlock_key",
+      "path": "sounds/unlock_key.mp3"
+    },
+    {
+      "id": "unlock_main_door",
+      "path": "sounds/unlock_main_door.mp3"
+    },
+    {
+      "id": "open_chest",
+      "path": "sounds/open_chest.mp3"
+    },
+    {
+      "id": "open_drawer",
+      "path": "sounds/open_drawer.mp3"
     }
   ]
 }

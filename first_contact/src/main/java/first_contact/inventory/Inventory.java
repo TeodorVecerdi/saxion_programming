@@ -18,6 +18,9 @@ public class Inventory {
         InventoryChecks.put("WaitingRoom/CoffeeMachineHasCoffee", false);
         InventoryChecks.put("WaitingRoom/GotCoffee", false);
         InventoryChecks.put("WaitingRoom/Unlocked", false);
+        InventoryChecks.put("WaitingRoom/CableFixed", false);
+        InventoryChecks.put("WaitingRoom/BoxOpen", false);
+        InventoryChecks.put("WaitingRoom/GotCrowbar", false);
         InventoryChecks.put("Bedroom/DrawerUnlocked", false);
         InventoryChecks.put("Bedroom/PuzzleDone", false);
         InventoryChecks.put("Bedroom/ClockPuzzleDone", false);
@@ -29,8 +32,8 @@ public class Inventory {
         InventoryChecks.put("DoctorOffice/DrawerUnlocked", false);
         InventoryChecks.put("DoctorOffice/HeadOpened", false);
         InventoryChecks.put("DoctorOffice/GotHeadKey", false);
-        InventoryChecks.put("WaitingRoom/CableFixed", false);
-        InventoryChecks.put("WaitingRoom/BoxOpen", false);
+        InventoryChecks.put("DoctorOffice/Finished", false);
+        InventoryChecks.put("Hallway/UnlockedDoctorOffice", false);
     }
 
     public void AddItem (Item item) {
@@ -39,6 +42,7 @@ public class Inventory {
 
     public void RemoveItem (Item item) {
         Items.remove(item);
+        SelectedItem = -1;
     }
 }
 

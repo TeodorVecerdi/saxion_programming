@@ -7,6 +7,7 @@ import first_contact.objects.Scene;
 import processing.core.PImage;
 
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 public class BedroomMain extends Scene {
 
@@ -22,11 +23,6 @@ public class BedroomMain extends Scene {
     public BedroomMain () {
         super();
         var a = Entry.Instance;
-        BedroomMain = a.Assets.GetSprite("scene/bedroomMain");
-        BedroomBedLifted = a.Assets.GetSprite("scene/bedroomBedLifted");
-        BedroomOpenDoor = a.Assets.GetSprite("scene/bedroomOpenDoor");
-        Background = BedroomMain;
-
         deskHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(189, 555, 605, 555, 189, 837)).AddCollisionTriangle(new Utils.Triangle(605, 555, 189, 837, 605, 837)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             a.ActiveScene = "Bedroom/Desk";
@@ -44,9 +40,12 @@ public class BedroomMain extends Scene {
             if (a.InventoryScene.PlayerInventory.InventoryChecks.get("Bedroom/DoorOpen")) {
                 a.ActiveScene = "Hallway/Main";
             } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1 && a.InventoryScene.PlayerInventory.Items.get(a.InventoryScene.PlayerInventory.SelectedItem).ItemID.equals("bedroomKey")) {
-                Background = BedroomOpenDoor;
+                a.Assets.GetSound("unlock_key").play();
                 a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/DoorOpen", true);
-                a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("bedroomKey"));
+                a.Scheduler.schedule(() -> {
+                    a.InventoryScene.PlayerInventory.RemoveItem(a.Items.GetItem("bedroomKey"));
+                    Background = BedroomOpenDoor;
+                }, 2, TimeUnit.SECONDS);
             } else if (a.InventoryScene.PlayerInventory.SelectedItem != -1) {
                 new FloatingText(Messages.GetRandom(Messages.WrongItem), 1.5f);
             } else {
@@ -55,16 +54,32 @@ public class BedroomMain extends Scene {
         });
     }
 
+    @Override public void Load() {
+        var a = Entry.Instance;
+        BedroomMain = a.Assets.GetSprite("scene/bedroomMain");
+        BedroomBedLifted = a.Assets.GetSprite("scene/bedroomBedLifted");
+        BedroomOpenDoor = a.Assets.GetSprite("scene/bedroomOpenDoor");
+        Background = BedroomMain;
+    }
+
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
+        if(FirstLoad) {
+            Load();
+            FirstLoad = false;
+        }
+        if(ShouldFade && FadeInTimeLeft >= 0) {
+            FadeInTimeLeft -= deltaTime;
+        }
+        if(ShouldFade && FadeInTimeLeft <= 0) {
+            ShouldFade = false;
+        }
         deskHotspot.update(deltaTime);
         clockHotspot.update(deltaTime);
         bedControllerHotspot.update(deltaTime);
         doorHotspot.update(deltaTime);
 
-        var bedroomDeskScene = ((BedroomDesk) a.Scenes.get("Bedroom/Desk"));
-        var bedroomClockScene = ((BedroomClock) a.Scenes.get("Bedroom/Clock"));
         if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {
             if (!Scene.HotspotClickedThisFrame) {
                 new FloatingText(Messages.GetRandom(Messages.NoHotspot), 1.5f);
@@ -78,6 +93,12 @@ public class BedroomMain extends Scene {
         a.pushMatrix();
 
         a.image(Background, 0, 0);
+
+        if (ShouldFade) {
+            var fadeAmt = Utils.Map(FadeInTimeLeft, 0f, FadeInTime, 0f, 1f) * 0xff;
+            a.fill(0x0, fadeAmt);
+            a.rect(0, 0, Globals.WIDTH, Globals.HEIGHT);
+        }
 
         deskHotspot.render();
         clockHotspot.render();

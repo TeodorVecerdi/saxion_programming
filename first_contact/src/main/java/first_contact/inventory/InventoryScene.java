@@ -28,6 +28,9 @@ public class InventoryScene extends Scene {
     }
 
     @Override
+    public void Load () {}
+
+    @Override
     public void update (float deltaTime) {
 
         //increase/decrease inventory

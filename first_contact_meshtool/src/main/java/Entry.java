@@ -29,7 +29,7 @@ public class Entry extends PApplet {
 
     public void setup () {
         frameRate(1000);
-        image = loadImage("working9.png");
+        image = loadImage("working14.png");
         SecureRandom = new SecureRandom();
     }
 

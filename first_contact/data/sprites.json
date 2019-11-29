@@ -39,8 +39,14 @@
   ],
   "sceneSprites": [
     {
-      "id": "scene/hallway",
-      "sprite": "Hallway/hallway.png"
+      "id": "scene/hallwayMin",
+      "sprite": "Hallway/hallwayMin.png"
+    },{
+      "id": "scene/hallwayMed",
+      "sprite": "Hallway/hallwayMed.png"
+    },{
+      "id": "scene/hallwayMax",
+      "sprite": "Hallway/hallwayMax.png"
     },
     {
       "id": "scene/hallwayCodeLockedOverlay",
@@ -52,7 +58,7 @@
     },
     {
       "id": "scene/bedroomMain",
-      "sprite": "Bedroom/bedroomMain.png"
+      "sprite": "Bedroom/bedroomBedDown.png"
     },
     {
       "id": "scene/bedroomBedController",
@@ -64,19 +70,35 @@
     },
     {
       "id": "scene/bedroomBedLifted",
-      "sprite": "Bedroom/bedroomBedLifted.png"
+      "sprite": "Bedroom/bedroomBedUp.png"
     },
     {
       "id": "scene/bedroomDesk",
-      "sprite": "Bedroom/bedroomDesk.png"
+      "sprite": "Bedroom/bedroomDeskDrawerClosed.png"
+    },
+    {
+      "id": "scene/bedroomDeskDrawerOpen",
+      "sprite": "Bedroom/bedroomDeskDrawerOpen.png"
+    },
+    {
+      "id": "scene/bedroomDeskDrawerEmpty",
+      "sprite": "Bedroom/bedroomDeskDrawerEmpty.png"
     },
     {
       "id": "scene/bedroomOpenDoor",
-      "sprite": "Bedroom/bedroomOpenDoor.png"
+      "sprite": "Bedroom/bedroomDoorOpen.png"
     },
     {
       "id": "scene/bedroomClock",
-      "sprite": "Bedroom/bedroomClock.png"
+      "sprite": "Bedroom/bedroomClockActive.png"
+    },
+    {
+      "id": "scene/bedroomClockFallen",
+      "sprite": "Bedroom/bedroomClockFallen.png"
+    },
+    {
+      "id": "scene/bedroomClockEmpty",
+      "sprite": "Bedroom/bedroomClockEmpty.png"
     },
     {
       "id": "scene/officeHeadClosed",
@@ -185,6 +207,26 @@
     {
       "id": "scene/wrSignOverlay",
       "sprite": "WaitingRoom/wrSignOverlay.png"
+    },
+    {
+      "id": "scene/startScreen",
+      "sprite": "startScreen.png"
+    },
+    {
+      "id": "scene/loadingScreen",
+      "sprite": "loadingScreen.png"
+    },
+    {
+      "id": "scene/prologuePills",
+      "sprite": "prologuePills.png"
+    },
+    {
+      "id": "scene/prologueMonologue",
+      "sprite": "prologueMonologue.png"
+    },
+    {
+      "id": "scene/ending",
+      "sprite": "ending.png"
     }
   ]
 }

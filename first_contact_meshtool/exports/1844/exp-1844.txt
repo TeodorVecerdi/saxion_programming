@@ -1,0 +1,7 @@
+0:
+.AddCollisionTriangle(new Utils.Triangle(686, 1023, 686, 1079, 1233, 1079))
+
+1:
+.AddCollisionTriangle(new Utils.Triangle(687, 1023, 1234, 1079, 1234, 1024))
+
+

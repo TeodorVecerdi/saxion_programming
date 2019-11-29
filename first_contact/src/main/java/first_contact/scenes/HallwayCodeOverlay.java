@@ -7,6 +7,7 @@ import first_contact.objects.Scene;
 import processing.core.PImage;
 
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 public class HallwayCodeOverlay extends Scene {
 
@@ -17,15 +18,13 @@ public class HallwayCodeOverlay extends Scene {
     public MouseHotspot EnterHotspot;
     public MouseHotspot BackHotspot;
 
-    public String CorrectCode = "1234";
+    public String CorrectCode = "9271";
     public String CurrentCode = "";
 
     public HallwayCodeOverlay () {
         super();
         var a = Entry.Instance;
-        HallwayCodeLocked = a.Assets.GetSprite("scene/hallwayCodeLockedOverlay");
-        HallwayCodeUnlocked = a.Assets.GetSprite("scene/hallwayCodeUnlockedOverlay");
-        Background = HallwayCodeLocked;
+
 
         BackHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080)).AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
@@ -74,23 +73,41 @@ public class HallwayCodeOverlay extends Scene {
         EnterHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1039, 585, 1043, 643, 1122, 642)).AddCollisionTriangle(new Utils.Triangle(1040, 585, 1120, 642, 1119, 582)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
             if (CurrentCode.equals(CorrectCode)) {
-                Background = HallwayCodeUnlocked;
-                //TODO PLAY SOUND
-                System.out.println("TODO PLAY SOUND {HallwayCodeOverlay::EnterHotspot::Action}");
-                new FloatingText("Finally! I can escape now!", 4f);
-                ((HallwayMain)a.Scenes.get("Hallway/Main")).EscapeHotspot.SetEnabled(true);
-                DisableButtons();
+                a.Assets.GetSound("unlock_main_door").play(1, 0, 0.3f);
+                a.Scheduler.schedule(() -> {
+                    Background = HallwayCodeUnlocked;
+                    new FloatingText("Finally! I can escape now!", 4f);
+                    ((HallwayMain)a.Scenes.get("Hallway/Main")).EscapeHotspot.SetEnabled(true);
+                    DisableButtons();
+                }, 1, TimeUnit.SECONDS);
+
             } else {
                 CurrentCode = "";
-                //TODO PLAY SOUND
-                System.out.println("TODO PLAY SOUND {HallwayCodeOverlay::EnterHotspot::Action}");
+                a.Assets.GetSound("unlock_fail").play();
             }
         });
+    }
+
+    @Override public void Load() {
+        var a = Entry.Instance;
+        HallwayCodeLocked = a.Assets.GetSprite("scene/hallwayCodeLockedOverlay");
+        HallwayCodeUnlocked = a.Assets.GetSprite("scene/hallwayCodeUnlockedOverlay");
+        Background = HallwayCodeLocked;
     }
 
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
+        if(FirstLoad) {
+            Load();
+            FirstLoad = false;
+        }
+        if(ShouldFade && FadeInTimeLeft >= 0) {
+            FadeInTimeLeft -= deltaTime;
+        }
+        if(ShouldFade && FadeInTimeLeft <= 0) {
+            ShouldFade = false;
+        }
         BackHotspot.update(deltaTime);
         B0.update(deltaTime);
         B1.update(deltaTime);
@@ -115,6 +132,12 @@ public class HallwayCodeOverlay extends Scene {
         var a = Entry.Instance;
         a.pushMatrix();
         a.image(Background, 0, 0);
+
+        if (ShouldFade) {
+            var fadeAmt = Utils.Map(FadeInTimeLeft, 0f, FadeInTime, 0f, 1f) * 0xff;
+            a.fill(0x0, fadeAmt);
+            a.rect(0, 0, Globals.WIDTH, Globals.HEIGHT);
+        }
         BackHotspot.render();
         B0.render();
         B1.render();
@@ -138,8 +161,7 @@ public class HallwayCodeOverlay extends Scene {
     }
 
     private void AddAndShortenCode(String s) {
-        System.out.println("TODO PLAY SOUND {HallwayCodeOverlay::AddAndShortenCode}");
-        //TODO PLAY SOUND
+        Entry.Instance.Assets.GetSound("button_beep").play();
         CurrentCode += s;
         if(CurrentCode.length() > 4)
             CurrentCode = CurrentCode.substring(CurrentCode.length()-4);

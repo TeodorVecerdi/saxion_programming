@@ -7,6 +7,7 @@ import first_contact.objects.Scene;
 import processing.core.PImage;
 
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 public class BedroomBedController extends Scene {
     public MouseHotspot B1PHotspot;
@@ -26,31 +27,34 @@ public class BedroomBedController extends Scene {
     public BedroomBedController () {
         super();
         var a = Entry.Instance;
-        BedroomBedController = a.Assets.GetSprite("scene/bedroomBedController");
-        BedroomBedControllerBedLifted = a.Assets.GetSprite("scene/bedroomBedControllerBedLifted");
-        Background = BedroomBedController;
         B1PHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(785, 315, 865, 315, 785, 363)).AddCollisionTriangle(new Utils.Triangle(865, 315, 785, 363, 865, 363)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
+            a.Assets.GetSound("button_beep").play();
             b1 = 1;
         });
         B1MHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(787, 408, 865, 408, 787, 456)).AddCollisionTriangle(new Utils.Triangle(865, 408, 787, 456, 865, 456)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
+            a.Assets.GetSound("button_beep").play();
             b1 = -1;
         });
         B2PHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(960, 315, 1040, 315, 960, 363)).AddCollisionTriangle(new Utils.Triangle(1040, 315, 960, 363, 1040, 363)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
+            a.Assets.GetSound("button_beep").play();
             b2 = 1;
         });
         B2MHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(961, 408, 1039, 408, 961, 456)).AddCollisionTriangle(new Utils.Triangle(1039, 408, 961, 456, 1039, 456)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
+            a.Assets.GetSound("button_beep").play();
             b2 = -1;
         });
         B3PHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1128, 315, 1208, 315, 1128, 363)).AddCollisionTriangle(new Utils.Triangle(1208, 315, 1128, 363, 1208, 363)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
+            a.Assets.GetSound("button_beep").play();
             b3 = 1;
         });
         B3MHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(1127, 408, 1205, 408, 1127, 456)).AddCollisionTriangle(new Utils.Triangle(1205, 408, 1127, 456, 1205, 456)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
+            a.Assets.GetSound("button_beep").play();
             b3 = -1;
         });
         backHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080)).AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080)).AddAction(() -> {
@@ -59,9 +63,26 @@ public class BedroomBedController extends Scene {
         });
     }
 
+    @Override public void Load() {
+        var a = Entry.Instance;
+        BedroomBedController = a.Assets.GetSprite("scene/bedroomBedController");
+        BedroomBedControllerBedLifted = a.Assets.GetSprite("scene/bedroomBedControllerBedLifted");
+        Background = BedroomBedController;
+    }
+
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
+        if(FirstLoad) {
+            Load();
+            FirstLoad = false;
+        }
+        if(ShouldFade && FadeInTimeLeft >= 0) {
+            FadeInTimeLeft -= deltaTime;
+        }
+        if(ShouldFade && FadeInTimeLeft <= 0) {
+            ShouldFade = false;
+        }
         B1PHotspot.update(deltaTime);
         B1MHotspot.update(deltaTime);
         B2PHotspot.update(deltaTime);
@@ -76,9 +97,12 @@ public class BedroomBedController extends Scene {
             B2MHotspot.SetEnabled(false);
             B3PHotspot.SetEnabled(false);
             B3MHotspot.SetEnabled(false);
-            Background = BedroomBedControllerBedLifted;
-            ((BedroomMain) a.Scenes.get("Bedroom/Main")).Background = ((BedroomMain) a.Scenes.get("Bedroom/Main")).BedroomBedLifted;
+            a.Assets.GetSound("bed_rise").play();
             a.InventoryScene.PlayerInventory.InventoryChecks.put("Bedroom/PuzzleDone", true);
+            a.Scheduler.schedule(() -> {
+                Background = BedroomBedControllerBedLifted;
+                ((BedroomMain) a.Scenes.get("Bedroom/Main")).Background = ((BedroomMain) a.Scenes.get("Bedroom/Main")).BedroomBedLifted;
+            }, 3, TimeUnit.SECONDS);
         }
         if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {
             if (!Scene.HotspotClickedThisFrame) {
@@ -103,6 +127,11 @@ public class BedroomBedController extends Scene {
         if (b2 == -1) a.rect(961, 408, 78, 48);
         if (b3 == -1) a.rect(1127, 408, 78, 48);
 
+        if (ShouldFade) {
+            var fadeAmt = Utils.Map(FadeInTimeLeft, 0f, FadeInTime, 0f, 1f) * 0xff;
+            a.fill(0x0, fadeAmt);
+            a.rect(0, 0, Globals.WIDTH, Globals.HEIGHT);
+        }
 
         B1PHotspot.render();
         B1MHotspot.render();

@@ -18,8 +18,6 @@ public class DoctorOfficeDrawerOverlay extends Scene {
         super();
         var a = Entry.Instance;
 
-        DrawerOverlay = a.Assets.GetSprite("scene/officeDrawerOpenOverlay");
-        Background = DrawerOverlay;
 
         BackHotspot = new MouseHotspot().AddCollisionTriangle(new Utils.Triangle(0, 941, 1920, 941, 0, 1080)).AddCollisionTriangle(new Utils.Triangle(1920, 941, 0, 1080, 1920, 1080)).AddAction(() -> {
             Scene.HotspotClickedThisFrame = true;
@@ -27,9 +25,26 @@ public class DoctorOfficeDrawerOverlay extends Scene {
         });
     }
 
+    @Override public void Load() {
+        var a = Entry.Instance;
+
+        DrawerOverlay = a.Assets.GetSprite("scene/officeDrawerOpenOverlay");
+        Background = DrawerOverlay;
+    }
+
     @Override
     public void update (float deltaTime) {
         var a = Entry.Instance;
+        if(FirstLoad) {
+            Load();
+            FirstLoad = false;
+        }
+        if(ShouldFade && FadeInTimeLeft >= 0) {
+            FadeInTimeLeft -= deltaTime;
+        }
+        if(ShouldFade && FadeInTimeLeft <= 0) {
+            ShouldFade = false;
+        }
         BackHotspot.update(deltaTime);
         if (Input.GetButtonDown(KeyEvent.VK_LEFT)) {
             if (!Scene.HotspotClickedThisFrame) {
@@ -43,6 +58,13 @@ public class DoctorOfficeDrawerOverlay extends Scene {
         var a = Entry.Instance;
         a.pushMatrix();
         a.image(Background, 0, 0);
+
+        if (ShouldFade) {
+            var fadeAmt = Utils.Map(FadeInTimeLeft, 0f, FadeInTime, 0f, 1f) * 0xff;
+            a.fill(0x0, fadeAmt);
+            a.rect(0, 0, Globals.WIDTH, Globals.HEIGHT);
+        }
+
         BackHotspot.render();
         //UI
         if (Globals.SHOW_DEBUG) {
