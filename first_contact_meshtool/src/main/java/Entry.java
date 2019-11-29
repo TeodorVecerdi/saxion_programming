@@ -14,7 +14,6 @@ public class Entry extends PApplet {
     private ArrayList<Utils.Point2f> currentWorkingTriangle = new ArrayList<>();
     private int numVertex = 0;
     private ArrayList<Utils.Triangle> triangles = new ArrayList<>();
-
     private int activeDragIndex = -1;
 
     public static void main (String[] args) {
@@ -29,7 +28,7 @@ public class Entry extends PApplet {
 
     public void setup () {
         frameRate(1000);
-        image = loadImage("working14.png");
+        image = loadImage("working3.png");
         SecureRandom = new SecureRandom();
     }
 
